@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/images/logo/onemeta-icon.svg" alt="OneMeta" height="60" />
+![OneMeta - Custom Meta Fields](assets/images/OneMeta - Custom Meta Fields.webp)
 
 # OneMeta — Custom Meta Fields Made Simple
 
