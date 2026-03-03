@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/images/logo/onemeta-logo-dark.svg" alt="OneMeta" height="60" />
+<img src="assets/images/logo/onemeta-logo.svg" alt="OneMeta" height="60" />
 
 # OneMeta — Custom Meta Fields Made Simple
 

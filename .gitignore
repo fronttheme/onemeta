@@ -15,6 +15,9 @@ dist/
 # Author Kit
 README/
 
+# WordPress.org
+screenshots/
+
 # =============================================================================
 # Compiled assets — KEEP assets/ in Git
 # Only ignore Vite's temporary style-only JS chunks
