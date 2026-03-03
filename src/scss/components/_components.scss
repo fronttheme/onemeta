@@ -1,0 +1,504 @@
+/**
+ * OneMeta UI Components
+ * Styles for Modal, Toast, Tooltip, and Confirm
+ *
+ * @package OneMeta
+ */
+
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "sass:color";
+
+// ============================================
+// MODAL COMPONENT
+// ============================================
+
+.onemeta-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba($color-gray-500, 0.5);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &--active {
+    opacity: 1;
+  }
+}
+
+.onemeta-modal {
+  background: #fff;
+  border-radius: $border-radius-xl;
+  box-shadow: 0 20px 60px rgba($color-gray-500, 0.3);
+  width: 90%;
+  max-height: 90vh;
+  overflow: hidden;
+  transform: scale(0.9);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  &--active {
+    transform: scale(1);
+  }
+
+  // Header
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid $color-gray-200;
+    background: $color-gray-100;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: $color-text;
+  }
+
+  &__close {
+    background: rgba($color-primary, 0.5);
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      color: $color-danger;
+      background: rgba($color-danger, 0.15);
+    }
+
+    i {
+      font-size: 14px;
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  // Body
+  &__body {
+    padding: 24px;
+    max-height: calc(80vh - 160px);
+    overflow-y: auto;
+    color: $color-text;
+    line-height: 1.6;
+
+    p {
+      margin: 0 0 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // Footer
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 16px 24px;
+    border-top: 1px solid $color-gray-200;
+    background: $color-gray-100;
+  }
+
+  // Modal types (colored header)
+  &--success &__header {
+    background: #e7f7ed;
+    border-color: #00a32a;
+  }
+
+  &--warning &__header {
+    background: #fcf3e3;
+    border-color: #dba617;
+  }
+
+  &--danger &__header {
+    background: #f9e3e4;
+    border-color: #d63638;
+  }
+}
+
+// ============================================
+// CONFIRM COMPONENT
+// ============================================
+
+.onemeta-confirm {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+
+  &__icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+
+    &--warning {
+      background: #fcf3e3;
+      color: #dba617;
+    }
+
+    &--danger,
+    &--trash {
+      background: #f9e3e4;
+      color: #d63638;
+    }
+
+    &--info,
+    &--question {
+      background: #e5f5fa;
+      color: #2271b1;
+    }
+
+    &--success {
+      background: #e7f7ed;
+      color: #00a32a;
+    }
+
+    i {
+      width: 20px;
+      height: 20px;
+      font-size: 20px;
+    }
+  }
+
+  &__message {
+    flex: 1;
+    font-size: 15px;
+    line-height: 1.6;
+    color: $color-text;
+  }
+}
+
+// ============================================
+// TOAST COMPONENT
+// ============================================
+
+.onemeta-toast-container {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  z-index: 999998;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.onemeta-toast {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #fff;
+  border-radius: $border-radius-md;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  min-width: 300px;
+  max-width: 450px;
+  pointer-events: all;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  &--show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &--hide {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+
+    i {
+      width: 18px;
+      height: 18px;
+      font-size: 18px;
+    }
+  }
+
+  &__message {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.5;
+    color: $color-text;
+  }
+
+  &__close {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    padding: 2px;
+    cursor: pointer;
+    color: $color-text-muted;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      color: $color-danger;
+    }
+
+    i {
+      width: 16px;
+      height: 16px;
+      font-size: 16px;
+    }
+  }
+
+  // Toast types
+  &--success {
+    border-left: 4px solid #00a32a;
+
+    .onemeta-toast__icon {
+      background: #e7f7ed;
+      color: #00a32a;
+    }
+  }
+
+  &--error {
+    border-left: 4px solid #d63638;
+
+    .onemeta-toast__icon {
+      background: #f9e3e4;
+      color: #d63638;
+    }
+  }
+
+  &--warning {
+    border-left: 4px solid #dba617;
+
+    .onemeta-toast__icon {
+      background: #fcf3e3;
+      color: #dba617;
+    }
+  }
+
+  &--info {
+    border-left: 4px solid #2271b1;
+
+    .onemeta-toast__icon {
+      background: #e5f5fa;
+      color: #2271b1;
+    }
+  }
+}
+
+// ============================================
+// TOOLTIP COMPONENT
+// ============================================
+
+.onemeta-tooltip {
+  position: absolute;
+  background: $color-gray-600;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: $border-radius-base;
+  font-size: 12px;
+  line-height: 1.4;
+  max-width: 250px;
+  z-index: 999997;
+  pointer-events: none;
+  opacity: 0;
+  word-wrap: break-word;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2),
+  0 0 0 1px rgba(0, 0, 0, 0.1);
+
+  // Base transform for smooth scaling
+  transform: scale(0.85);
+
+  // Smooth cubic-bezier transition
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+  transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &--show {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  // Arrow
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  // Top placement (arrow on bottom)
+  &--top {
+    transform-origin: bottom center;
+
+    &::after {
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 5px 5px 0 5px;
+      border-color: $color-gray-600 transparent transparent transparent;
+    }
+
+    &.onemeta-tooltip--show {
+      transform: scale(1) translateY(-4px);
+    }
+
+    &:not(.onemeta-tooltip--show) {
+      transform: scale(0.85) translateY(-2px);
+    }
+  }
+
+  // Bottom placement (arrow on top)
+  &--bottom {
+    transform-origin: top center;
+
+    &::after {
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 0 5px 5px 5px;
+      border-color: transparent transparent $color-gray-600 transparent;
+    }
+
+    &.onemeta-tooltip--show {
+      transform: scale(1) translateY(4px);
+    }
+
+    &:not(.onemeta-tooltip--show) {
+      transform: scale(0.85) translateY(2px);
+    }
+  }
+
+  // Left placement (arrow on right)
+  &--left {
+    transform-origin: right center;
+
+    &::after {
+      right: -5px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 5px 0 5px 5px;
+      border-color: transparent transparent transparent $color-gray-600;
+    }
+
+    &.onemeta-tooltip--show {
+      transform: scale(1) translateX(-4px);
+    }
+
+    &:not(.onemeta-tooltip--show) {
+      transform: scale(0.85) translateX(-2px);
+    }
+  }
+
+  // Right placement (arrow on left)
+  &--right {
+    transform-origin: left center;
+
+    &::after {
+      left: -5px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 5px 5px 5px 0;
+      border-color: transparent $color-gray-600 transparent transparent;
+    }
+
+    &.onemeta-tooltip--show {
+      transform: scale(1) translateX(4px);
+    }
+
+    &:not(.onemeta-tooltip--show) {
+      transform: scale(0.85) translateX(2px);
+    }
+  }
+}
+
+// ============================================
+// REDUCED MOTION ACCESSIBILITY
+// ============================================
+
+@media (prefers-reduced-motion: reduce) {
+  .onemeta-tooltip {
+    transition: opacity 0.15s ease !important;
+
+    &--show {
+      transform: scale(1) translate(0, 0) !important;
+    }
+
+    &:not(.onemeta-tooltip--show) {
+      transform: scale(1) translate(0, 0) !important;
+    }
+  }
+}
+
+// ============================================
+// RESPONSIVE
+// ============================================
+
+@media (max-width: 768px) {
+  .onemeta-modal {
+    width: 95%;
+    max-height: 95vh;
+
+    &__body {
+      max-height: calc(85vh - 160px);
+    }
+  }
+
+  .onemeta-toast-container {
+    top: 16px;
+    right: 16px;
+    left: 16px;
+  }
+
+  .onemeta-toast {
+    min-width: auto;
+    max-width: 100%;
+  }
+}
+
+// ============================================
+// ACCESSIBILITY
+// ============================================
+
+// Focus styles
+.onemeta-modal__btn:focus,
+.onemeta-modal__close:focus,
+.onemeta-toast__close:focus {
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .onemeta-modal,
+  .onemeta-modal-overlay,
+  .onemeta-toast,
+  .onemeta-tooltip {
+    transition: none !important;
+    animation: none !important;
+  }
+}

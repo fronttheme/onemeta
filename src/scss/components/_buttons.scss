@@ -1,0 +1,193 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "sass:color";
+
+// =============================================================================
+// BUTTONS
+// =============================================================================
+
+.onemeta-button {
+  @include button-base;
+
+  // Sizes
+  &--small {
+    height: $button-height-sm;
+    padding: 6px 12px;
+    font-size: $font-size-sm;
+    border-radius: $border-radius-base;
+  }
+
+  &--large {
+    height: $button-height-lg;
+    padding: 12px 24px;
+    font-size: $font-size-lg;
+    border-radius: $border-radius-md;
+  }
+
+  // Variants
+  &--primary {
+    @include button-variant($color-primary, $color-white);
+
+    &:hover {
+      background: $gradient-radio;
+    }
+  }
+
+  // Variants
+  &--secondary {
+    @include button-variant($color-gray-600, $color-white);
+  }
+
+  &--success {
+    @include button-variant($color-success, $color-white);
+  }
+
+  &--info {
+    @include button-variant($color-info, $color-white);
+  }
+
+  &--gradient {
+    background: rgb(255 83 210);
+    background: linear-gradient(120deg, rgb(102 39 225) 0%, rgb(255 83 210) 50%, rgb(255 172 172) 100%);
+    color: #fff;
+    border: 0 !important;
+    transition: all 0.5s ease;
+
+    &:hover {
+      background: $gradient-primary;
+    }
+  }
+
+  &--danger {
+    @include button-variant($color-danger, $color-white);
+  }
+
+  &--warning {
+    @include button-variant($color-warning, $color-white);
+  }
+
+  &--outline {
+    @include button-outline($color-primary);
+  }
+
+  &--outline-secondary {
+    @include button-outline($color-gray-600);
+  }
+
+  // Ghost button (text only)
+  &--ghost {
+    background-color: transparent;
+    border-color: transparent;
+    color: $color-primary;
+
+    &:hover:not(:disabled) {
+      background-color: rgba($color-primary, 0.1);
+      color: $color-primary;
+    }
+  }
+
+  // Icon buttons
+  &--icon {
+    font-size: $font-size-xl;
+    width: $button-height-base;
+    padding: 0 !important;
+    aspect-ratio: 1 / 1;
+
+    &.onemeta-button--small {
+      width: $button-height-sm;
+    }
+
+    &.onemeta-button--large {
+      width: $button-height-lg;
+    }
+  }
+
+  // Loading state
+  &--loading {
+    position: relative;
+    color: transparent;
+    pointer-events: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 16px;
+      height: 16px;
+      margin: -8px 0 0 -8px;
+      border: 2px solid currentColor;
+      border-right-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+  }
+
+  // Full width
+  &--block {
+    width: 100%;
+    display: flex;
+  }
+
+  // Icon inside button
+  &__icon {
+    width: 16px;
+    height: 16px;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+    }
+  }
+
+  // Text inside button
+  &__text {
+    line-height: 1;
+  }
+
+  &--liquid {
+    background: rgba($color-gray-500, 0.1);
+    color: $color-primary;
+
+    &:hover {
+      color: $color-primary;
+      background: rgba($color-primary, 0.15);
+      border-color: rgba($color-primary, 0.25);
+      box-shadow: 0 10px 15px -3px rgba($color-primary, 0.1), 0 4px 6px -2px rgba($color-primary, 0.05);
+    }
+  }
+
+  &--liquid.onemeta-button--danger {
+    background: rgba($color-danger, 0.1);
+    border-color: rgba($color-danger, 0.15);
+    color: $color-danger;
+
+    &:hover {
+      color: $color-danger;
+      background: rgba($color-danger, 0.15);
+      border-color: rgba($color-danger, 0.25);
+      box-shadow: 0 10px 15px -3px rgba($color-danger, 0.1), 0 4px 6px -2px rgba($color-danger, 0.05);
+    }
+
+    &:active,
+    &:focus {
+      color: $color-danger;
+    }
+
+  }
+
+}
+
+// Spinner animation
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// WordPress button overrides
+.button,
+.button-primary,
+.button-secondary {
+}

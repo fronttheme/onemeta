@@ -1,0 +1,33 @@
+{
+  "name": "onemeta",
+  "version": "1.0.0",
+  "description": "Build powerful custom fields with a visual builder. Export as PHP code or use directly in WordPress.",
+  "author": "Faruk Ahmed",
+  "license": "GPL-2.0-or-later",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "watch": "vite build --watch",
+    "pot": "wp i18n make-pot . languages/onemeta.pot --domain=onemeta",
+    "package": "npm run build && npm run pot && rm -rf ../onemeta-packaged && rm -f ../onemeta.zip && rsync -av --exclude-from='.distignore' . ../onemeta-packaged && cd .. && zip -r onemeta.zip onemeta-packaged && echo '✅ onemeta.zip ready for release!'"
+  },
+  "keywords": [
+    "wordpress",
+    "custom-fields",
+    "meta-fields",
+    "acf-alternative",
+    "php",
+    "wordpress-plugin",
+    "repeater",
+    "conditional-logic",
+    "vite",
+    "field-builder"
+  ],
+  "devDependencies": {
+    "sass": "^1.94.2",
+    "terser": "^5.44.1",
+    "vite": "^5.0.0"
+  }
+}

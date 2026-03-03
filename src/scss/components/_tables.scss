@@ -1,0 +1,447 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "sass:color";
+
+// =============================================================================
+// TABLES (Override WordPress tables)
+// =============================================================================
+
+.onemeta-wrapper {
+  // Export table (docs page)
+  .onemeta-export-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: $color-white;
+    border: 1px solid rgba($color-primary, 0.2);
+    border-radius: $border-radius-md;
+    overflow: hidden;
+    box-shadow: $shadow-sm;
+
+    // Remove WordPress default styling
+    &.wp-list-table {
+      thead {
+        background: linear-gradient(180deg, $color-primary 0%, color.adjust($color-primary, $lightness: -2%) 100%);
+        border-bottom: 2px solid rgba($color-primary, 0.2);
+
+        tr {
+          th {
+            padding: $spacing-lg $spacing-xl;
+            font-size: $font-size-sm;
+            font-weight: $font-weight-semibold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #fff;
+            border: none;
+            border-bottom: 2px solid rgba($color-primary, 0.2);
+            background: transparent;
+
+            &:first-child {
+              border-top-left-radius: $border-radius-md;
+            }
+
+            &:last-child {
+              border-top-right-radius: $border-radius-md;
+            }
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          background: $color-white;
+          transition: $transition-all;
+          border-bottom: 1px solid color.adjust($color-border, $lightness: 3%);
+
+          &:hover {
+            background: rgba($color-primary, 0.05);
+
+            strong {
+              color: $color-primary;
+            }
+          }
+
+          &:last-child {
+            border-bottom: none;
+
+            td:first-child {
+              border-bottom-left-radius: $border-radius-md;
+            }
+
+            td:last-child {
+              border-bottom-right-radius: $border-radius-md;
+            }
+          }
+
+          // Remove WordPress striped background
+          &.alternate {
+            background: $color-white;
+
+            &:hover {
+              background: $color-bg-hover;
+            }
+          }
+
+          td {
+            padding: $spacing-lg $spacing-xl;
+            border: none;
+            vertical-align: middle;
+
+            strong {
+              font-weight: $font-weight-semibold;
+              color: $color-text;
+              font-size: $font-size-base;
+              transition: $transition-base;
+            }
+
+            // Actions column
+            &:last-child {
+              text-align: right;
+              width: 200px;
+            }
+          }
+        }
+      }
+    }
+
+    // Button styling in table
+    .onemeta-button {
+      white-space: nowrap;
+
+      i {
+        margin-right: $spacing-xs;
+        font-size: 16px;
+        width: 16px;
+        height: 16px;
+        display: inline-flex;
+        align-items: center;
+      }
+    }
+
+    code {
+      border-radius: $border-radius-base;
+      padding: $spacing-sm $spacing-md;
+      font-family: "JetBrains Mono", monospace;
+      color: $color-primary;
+      background: rgba($color-primary, 0.1);
+    }
+  }
+}
+
+// =============================================================================
+// GENERIC ONEMETA TABLE
+// =============================================================================
+
+.onemeta-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+
+  thead {
+    background: linear-gradient(180deg, $color-gray-50 0%, color.adjust($color-gray-50, $lightness: -2%) 100%);
+
+    tr {
+      th {
+        padding: $spacing-lg $spacing-xl;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-semibold;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: $color-text;
+        text-align: left;
+        border-bottom: 2px solid $color-border;
+
+        &:first-child {
+          border-top-left-radius: $border-radius-md;
+        }
+
+        &:last-child {
+          border-top-right-radius: $border-radius-md;
+        }
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      background: $color-white;
+      transition: $transition-all;
+      border-bottom: 1px solid color.adjust($color-border, $lightness: 3%);
+
+      &:hover {
+        background: $color-bg-hover;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      td {
+        padding: $spacing-lg $spacing-xl;
+        border: none;
+        vertical-align: middle;
+        color: $color-text;
+
+        strong {
+          font-weight: $font-weight-semibold;
+          color: $color-text;
+        }
+
+        // Center align specific columns
+        &.center {
+          text-align: center;
+        }
+
+        // Right align specific columns
+        &.right {
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  // Variants
+  &--compact {
+    thead tr th,
+    tbody tr td {
+      padding: $spacing-md $spacing-lg;
+    }
+  }
+
+  &--bordered {
+    tbody tr {
+      border-bottom: 1px solid $color-border;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      td {
+        border-right: 1px solid color.adjust($color-border, $lightness: 5%);
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
+
+  &--striped {
+    tbody tr {
+      &:nth-child(even) {
+        background: $color-gray-50;
+
+        &:hover {
+          background: $color-bg-hover;
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================
+// TABLE RESPONSIVE
+// =============================================================================
+
+.onemeta-table-wrapper {
+  overflow-x: auto;
+  border-radius: $border-radius-md;
+
+  @include scrollbar(8px, $color-gray-100, $color-gray-400);
+}
+
+// =============================================================================
+// TABLE EMPTY STATE
+// =============================================================================
+
+.onemeta-table-empty {
+  padding: $spacing-3xl $spacing-xl;
+  text-align: center;
+
+  &__icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto $spacing-lg;
+    @include flex-center;
+    background: linear-gradient(135deg, rgba($color-primary, 0.1) 0%, rgba($color-primary, 0.05) 100%);
+    border-radius: $border-radius-xl;
+
+    i {
+      font-size: 32px;
+      width: 32px;
+      height: 32px;
+      color: $color-primary;
+    }
+  }
+
+  &__title {
+    @include heading('sm');
+    margin: 0 0 $spacing-sm;
+  }
+
+  &__description {
+    color: $color-text-light;
+    margin: 0 0 $spacing-lg;
+  }
+}
+
+// =============================================================================
+// TABLE PAGINATION (if needed)
+// =============================================================================
+
+.onemeta-table-pagination {
+  @include flex-between;
+  padding: $spacing-lg;
+  background: $color-gray-50;
+  border-top: 1px solid $color-border;
+
+  &__info {
+    color: $color-text-light;
+    font-size: $font-size-sm;
+  }
+
+  &__controls {
+    @include flex-start;
+    gap: $spacing-sm;
+  }
+}
+
+// =============================================================================
+// TABLE ACTIONS ROW (bulk actions, filters)
+// =============================================================================
+
+.onemeta-table-actions {
+  @include flex-between;
+  padding: $spacing-lg;
+  background: $color-gray-50;
+  border-bottom: 1px solid $color-border;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+
+  &__left,
+  &__right {
+    @include flex-start;
+    gap: $spacing-sm;
+  }
+}
+
+// =============================================================================
+// RESPONSIVE ADJUSTMENTS
+// =============================================================================
+
+@media (max-width: $breakpoint-md) {
+  .onemeta-wrapper {
+    .onemeta-export-table {
+      &.wp-list-table {
+        display: block;
+
+        thead {
+          display: none; // Hide headers on mobile
+        }
+
+        tbody {
+          display: block;
+
+          tr {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: $spacing-md;
+            border: 1px solid $color-border;
+            border-radius: $border-radius-md;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            td {
+              display: block;
+              width: 100%;
+              text-align: left !important;
+              border-bottom: 1px solid color.adjust($color-border, $lightness: 5%);
+
+              &:last-child {
+                border-bottom: none;
+                text-align: left !important;
+              }
+
+              // Add label before content on mobile
+              &:first-child::before {
+                content: 'Field Group: ';
+                font-weight: $font-weight-semibold;
+                color: $color-text-muted;
+                display: block;
+                margin-bottom: $spacing-xs;
+                font-size: $font-size-xs;
+                text-transform: uppercase;
+              }
+
+              &:last-child::before {
+                content: 'Actions: ';
+                font-weight: $font-weight-semibold;
+                color: $color-text-muted;
+                display: block;
+                margin-bottom: $spacing-xs;
+                font-size: $font-size-xs;
+                text-transform: uppercase;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .onemeta-table {
+    font-size: $font-size-sm;
+
+    thead tr th,
+    tbody tr td {
+      padding: $spacing-md;
+    }
+  }
+
+  .onemeta-table-actions {
+    flex-direction: column;
+    align-items: stretch;
+
+    &__left,
+    &__right {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
+
+// =============================================================================
+// TABLE LOADING STATE
+// =============================================================================
+
+.onemeta-table-loading {
+  position: relative;
+  min-height: 200px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($color-white, 0.8);
+    @include flex-center;
+    z-index: 10;
+  }
+
+  .onemeta-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+  }
+}

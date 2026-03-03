@@ -1,0 +1,503 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "sass:color";
+
+// =============================================================================
+// DOCS PAGE
+// =============================================================================
+
+.onemeta-docs-page {
+  .onemeta-wrapper {
+    max-width: 1400px;
+  }
+}
+
+// =============================================================================
+// DOCS SECTION
+// =============================================================================
+
+.onemeta-docs-section {
+  margin-bottom: $spacing-4xl;
+
+  &__header {
+    margin-bottom: $spacing-2xl;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    @include heading('lg');
+    @include flex-center;
+    gap: $spacing-md;
+    margin: 0 0 $spacing-md;
+
+    i {
+      color: $color-primary;
+    }
+  }
+
+  &__description {
+    font-size: $font-size-lg;
+    color: $color-text-light;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+// =============================================================================
+// FIELD TYPES GRID
+// =============================================================================
+
+.onemeta-field-types-grid {
+  @include grid-responsive(280px, $spacing-lg);
+}
+
+// Field card styling is already in _cards.scss
+// Just add docs-specific overrides here if needed
+
+.onemeta-field-card {
+  // Animation on load
+  @include fade-in;
+
+  // Stagger animation
+  @for $i from 1 through 14 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.05}s;
+    }
+  }
+}
+
+// =============================================================================
+// EXPORT LIST
+// =============================================================================
+
+.onemeta-export-list {
+  min-height: 100px;
+}
+
+.onemeta-export-table {
+  margin-top: $spacing-lg;
+
+  th {
+    font-weight: $font-weight-semibold;
+    background: $color-gray-50;
+  }
+
+  td {
+    vertical-align: middle;
+    color: $color-text;
+  }
+
+  .onemeta-button {
+    i {
+      margin-right: $spacing-xs;
+    }
+  }
+}
+
+.onemeta-empty-state--small {
+  padding: $spacing-2xl;
+  text-align: center;
+  background: rgba($color-primary, 0.03);
+  border-radius: $border-radius-md;
+
+  p {
+    margin-bottom: $spacing-lg;
+    color: $color-text-light;
+  }
+}
+
+// =============================================================================
+// CODE EXAMPLES
+// =============================================================================
+
+.onemeta-code-example {
+  margin: $spacing-lg 0;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+
+  &__header {
+    @include flex-between;
+    padding: $spacing-md $spacing-lg;
+    background: color.adjust($color-gray-700, $lightness: 3%);
+    border-bottom: 1px solid color.adjust($color-gray-900, $lightness: 10%);
+  }
+
+  &__label {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: $color-text-muted;
+  }
+}
+
+.onemeta-code-example:last-of-type {
+  margin-bottom: 0;
+}
+
+.onemeta-code-block {
+  margin: 0;
+  padding: $spacing-xl;
+  background: $color-gray-800;
+  color: #abb2bf;
+  font-family: $font-family-mono;
+  font-size: 13px;
+  line-height: 1.8;
+  overflow-x: auto;
+
+  @include scrollbar(8px, #1e2227, #4b5563);
+
+  &--light {
+    background: #fff;
+  }
+
+  code {
+    display: block;
+    color: #c1bfff;
+    background: transparent;
+    padding: 0;
+    font-size: 14px;
+    font-family: "JetBrains Mono", monospace;
+
+    // Syntax highlighting (basic)
+    .comment {
+      color: #5c6370;
+      font-style: italic;
+    }
+
+    .keyword {
+      color: #c678dd;
+    }
+
+    .string {
+      color: #98c379;
+    }
+
+    .function {
+      color: #61afef;
+    }
+
+    .variable {
+      color: #e06c75;
+    }
+  }
+
+  &--light {
+    code {
+      color: $color-text;
+    }
+  }
+}
+
+// Copy button in code example
+.onemeta-copy-code {
+  color: $color-text-muted;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+// =============================================================================
+// INFO BOX
+// =============================================================================
+
+.onemeta-info-box {
+  @include flex-column;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  border-radius: $border-radius-md;
+  margin: $spacing-lg 0;
+  border: 1px solid $color-border;
+  border-left: 4px solid;
+
+  &__header {
+    @include flex-start;
+    gap: $spacing-md;
+
+    h4 {
+      margin: 0;
+    }
+
+    .onemeta-info-box__icon {
+      background: rgba($color-primary, 0.1);
+      color: $color-primary;
+      font-size: 16px;
+    }
+  }
+
+  &--info {
+    background: $color-info-light;
+    border-color: $color-info;
+  }
+
+  &--success {
+    background: $color-success-light;
+    border-color: $color-success;
+  }
+
+  &--warning {
+    background: $color-warning-light;
+    border-color: $color-warning;
+  }
+
+  &--danger {
+    background: $color-danger-light;
+    border-color: $color-danger;
+  }
+
+  &__icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    @include flex-center;
+    border-radius: $border-radius-full;
+
+    i {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &--info &__icon {
+    background: rgba($color-info, 0.1);
+    color: $color-info;
+  }
+
+  &--success &__icon {
+    background: rgba($color-success, 0.1);
+    color: $color-success;
+  }
+
+  &--warning &__icon {
+    background: rgba($color-warning, 0.1);
+    color: $color-warning;
+  }
+
+  &--danger &__icon {
+    background: rgba($color-danger, 0.1);
+    color: $color-danger;
+  }
+
+  &__content {
+    flex: 1;
+
+    ul,
+    .onemeta-code-example {
+      margin: 0;
+    }
+
+    .operator-table td {
+      padding: 8px;
+    }
+
+    code {
+      font-family: "JetBrains Mono", monospace;
+      border-radius: 4px;
+    }
+
+    h4 {
+      font-size: $font-size-base;
+      font-weight: $font-weight-semibold;
+      margin: 0 0 $spacing-xs;
+    }
+
+    p {
+      margin: 0;
+      font-size: $font-size-sm;
+      line-height: $line-height-relaxed;
+    }
+  }
+}
+
+.onemeta-info-box:last-of-type {
+  margin-bottom: 0;
+}
+
+// =============================================================================
+// QUICK START / STEPS
+// =============================================================================
+
+.onemeta-steps-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: step;
+}
+
+.onemeta-step {
+  @include flex-start;
+  gap: $spacing-lg;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-md;
+  background: rgba($color-primary, 0.07);
+  border: 2px solid rgba($color-primary, 0.1);
+  border-radius: $border-radius-md;
+  position: relative;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  // Connecting line between steps
+  &:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 31px; // Center of number circle
+    top: 100%;
+    width: 2px;
+    height: $spacing-md;
+    background: $color-border;
+  }
+
+  &__number {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    @include flex-center;
+    background: $gradient-gallery;
+    color: $color-white;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    border-radius: $border-radius-full;
+    box-shadow: $shadow-md;
+  }
+
+  &__content {
+    flex: 1;
+
+    h4 {
+      font-size: $font-size-lg;
+      font-weight: $font-weight-semibold;
+      margin: 0 0 $spacing-xs;
+      color: $color-text;
+    }
+
+    p {
+      margin: 0;
+      color: $color-text-light;
+      line-height: $line-height-relaxed;
+    }
+  }
+}
+
+.onemeta-quick-start-actions {
+  margin-top: $spacing-xl;
+  text-align: center;
+
+  .onemeta-button {
+    i {
+      margin-right: $spacing-sm;
+    }
+  }
+}
+
+// =============================================================================
+// FIELD TYPE BADGES
+// =============================================================================
+
+.onemeta-field-type-badge {
+  font-size: $font-size-xs;
+  padding: 4px 8px;
+
+  &--basic {
+    background: rgba($color-primary, 0.1);
+    color: $color-primary;
+    border: 1px solid rgba($color-primary, 0.2);
+  }
+
+  &--choice {
+    background: rgba($color-info, 0.1);
+    color: $color-info;
+    border: 1px solid rgba($color-info, 0.2);
+  }
+
+  &--multiple {
+    background: rgba($color-success, 0.1);
+    color: $color-success;
+    border: 1px solid rgba($color-success, 0.2);
+  }
+
+  &--media {
+    background: rgba($color-warning, 0.1);
+    color: color.adjust($color-warning, $lightness: -10%);
+    border: 1px solid rgba($color-warning, 0.2);
+  }
+
+  &--advanced {
+    background: rgba($color-danger, 0.1);
+    color: $color-danger;
+    border: 1px solid rgba($color-danger, 0.2);
+  }
+}
+
+// =============================================================================
+// RESPONSIVE ADJUSTMENTS
+// =============================================================================
+
+@media (max-width: $breakpoint-md) {
+  .onemeta-docs-section {
+    &__header {
+      text-align: left;
+    }
+
+    &__title {
+      justify-content: flex-start;
+      font-size: $font-size-2xl;
+    }
+  }
+
+  .onemeta-field-types-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .onemeta-code-example {
+    &__header {
+      flex-direction: column;
+      gap: $spacing-sm;
+      align-items: flex-start;
+    }
+  }
+
+  .onemeta-code-block {
+    font-size: 12px;
+    padding: $spacing-lg;
+  }
+
+  .onemeta-step {
+    &__number {
+      width: 40px;
+      height: 40px;
+      font-size: $font-size-lg;
+    }
+
+    &:not(:last-child)::after {
+      left: 19px; // Adjust for smaller circle
+    }
+  }
+}
+
+// =============================================================================
+// PRINT STYLES (for documentation)
+// =============================================================================
+
+@media print {
+  .onemeta-page-header__actions,
+  .onemeta-export-list,
+  .onemeta-copy-code {
+    display: none;
+  }
+
+  .onemeta-field-card {
+    break-inside: avoid;
+  }
+
+  .onemeta-code-block {
+    background: $color-white;
+    color: $color-black;
+    border: 1px solid $color-border;
+  }
+}

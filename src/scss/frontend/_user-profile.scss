@@ -1,0 +1,32 @@
+@use 'variables' as *;
+
+.onemeta-user-fields-wrapper {
+  background: white;
+  padding: 20px 40px;
+  margin: 20px 0;
+  border-radius: $border-radius-xl;
+  border: 1px solid #ddd;
+
+  .onemeta-field-group__title {
+    color: $color-primary;
+  }
+
+  .onemeta-form-table th p.description {
+    font-weight: normal;
+    font-style: italic;
+  }
+
+  .onemeta-field-wrap:hover {
+    background: transparent;
+  }
+}
+
+p.description.onemeta-field-file-desc {
+  font-style: normal;
+  background: rgba($color-primary, 0.2);
+  color: $color-primary;
+  padding: 6px 12px;
+  border-radius: $border-radius-base;
+  max-width: max-content;
+  margin-top: 15px;
+}

@@ -1,0 +1,184 @@
+// =============================================================================
+// BADGES
+// =============================================================================
+
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+@use "sass:color";
+
+.onemeta-badge {
+  @include badge-base;
+
+  // Default variant
+  @include badge-variant($color-gray-200, $color-gray-700);
+
+  // Status variants
+  &--success {
+    @include badge-variant($color-success-light, color.adjust($color-success, $lightness: -10%));
+  }
+
+  &--warning {
+    @include badge-variant($color-warning-light, color.adjust($color-warning, $lightness: -10%));
+  }
+
+  &--danger {
+    @include badge-variant($color-danger-light, color.adjust($color-danger, $lightness: -10%));
+  }
+
+  &--info {
+    @include badge-variant($color-info-light, color.adjust($color-info, $lightness: -10%));
+  }
+
+  &--primary {
+    @include badge-variant(rgba($color-primary, 0.1), $color-primary);
+  }
+
+  // Size variants
+  &--small {
+    padding: 2px 6px;
+    font-size: 10px;
+  }
+
+  &--large {
+    padding: 6px 12px;
+    font-size: $font-size-sm;
+  }
+
+  // Style variants
+  &--outline {
+    background-color: transparent;
+    border: 1px solid currentColor;
+  }
+
+  &--dot {
+    position: relative;
+    padding-left: 16px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      background-color: currentColor;
+      border-radius: 50%;
+    }
+  }
+
+  // Interactive badge
+  &--interactive {
+    cursor: pointer;
+    transition: $transition-all;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: $shadow-sm;
+    }
+  }
+
+  // Badge with icon
+  &__icon {
+    width: 12px;
+    height: 12px;
+    margin-right: 4px;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+    }
+  }
+}
+
+// =============================================================================
+// STATUS BADGE (WordPress-style)
+// =============================================================================
+
+.onemeta-status-badge {
+  @include badge-base;
+
+  &--active {
+    @include badge-variant($color-success-light, color.adjust($color-success, $lightness: -10%));
+  }
+
+  &--inactive {
+    @include badge-variant($color-gray-200, $color-gray-600);
+  }
+
+  &--draft {
+    @include badge-variant($color-warning-light, color.adjust($color-warning, $lightness: -10%));
+  }
+
+  &--archived {
+    @include badge-variant($color-gray-100, $color-gray-500);
+  }
+}
+
+// =============================================================================
+// COUNT BADGE (Notification style)
+// =============================================================================
+
+.onemeta-count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  font-size: 11px;
+  font-weight: $font-weight-bold;
+  line-height: 1;
+  color: $color-white;
+  background-color: $color-danger;
+  border-radius: $border-radius-full;
+
+  &--primary {
+    background-color: $color-primary;
+  }
+
+  &--success {
+    background-color: $color-success;
+  }
+
+  &--small {
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    font-size: 10px;
+  }
+}
+
+// =============================================================================
+// FIELD TYPE BADGE (For field cards)
+// =============================================================================
+
+.onemeta-field-type-badge {
+  @include badge-base;
+  font-size: 10px;
+  padding: 4px 8px;
+  background-color: rgba($color-primary, 0.1);
+  color: $color-primary;
+  border: 1px solid rgba($color-primary, 0.2);
+
+  // Variants for different field capabilities
+  &--multiple {
+    background-color: rgba($color-info, 0.1);
+    color: $color-info;
+    border-color: rgba($color-info, 0.2);
+  }
+
+  &--media {
+    background-color: rgba($color-warning, 0.1);
+    color: color.adjust($color-warning, $lightness: -10%);
+    border-color: rgba($color-warning, 0.2);
+  }
+
+  &--advanced {
+    background-color: rgba($color-success, 0.1);
+    color: $color-success;
+    border-color: rgba($color-success, 0.2);
+  }
+}

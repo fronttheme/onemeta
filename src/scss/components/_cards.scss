@@ -1,0 +1,285 @@
+// =============================================================================
+// CARDS
+// =============================================================================
+
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.onemeta-card {
+  @include card(
+      $border-radius: $border-radius-lg,
+  );
+
+  // Card header
+  &__header {
+    @include flex-between;
+    margin-bottom: $spacing-lg;
+
+    &--no-border {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  &__title {
+    @include heading('sm');
+    margin: 0;
+
+    i {
+      margin-right: $spacing-xs;
+    }
+  }
+
+  &__subtitle {
+    font-size: $font-size-sm;
+    color: $color-text-light;
+    margin: $spacing-xs 0 0;
+  }
+
+  // Card body
+  &__body {
+    color: $color-text;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Card footer
+  &__footer {
+    @include flex-between;
+    margin-top: $spacing-lg;
+  }
+
+  // Card actions
+  &__actions {
+    display: flex;
+    gap: $spacing-sm;
+    align-items: center;
+  }
+
+  // Card variants
+  &--hover {
+    @include card-hover;
+  }
+
+  &--clickable {
+    @include card-clickable;
+  }
+
+  &--compact {
+    padding: $spacing-lg;
+  }
+
+  &--flat {
+    border: none;
+    box-shadow: none;
+  }
+
+  &--elevated {
+    box-shadow: $shadow-md;
+    border: none;
+  }
+
+  // Status variants
+  &--success {
+    border-left: 4px solid $color-success;
+  }
+
+  &--warning {
+    border-left: 4px solid $color-warning;
+  }
+
+  &--danger {
+    border-left: 4px solid $color-danger;
+  }
+
+  &--info {
+    border-left: 4px solid $color-info;
+  }
+}
+
+// =============================================================================
+// FIELD TYPE CARD (Special card for docs page)
+// =============================================================================
+
+.onemeta-field-card {
+  @include card(
+      $border-radius: $border-radius-2xl
+  );
+  transition: $transition-all;
+  @include card-clickable;
+  @include fade-in;
+
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-xl;
+  text-decoration: none;
+  color: inherit;
+
+  &__icon {
+    width: 64px;
+    height: 64px;
+    font-size: 64px;
+    margin-bottom: $spacing-lg;
+    padding: $spacing-md;
+    background: $gradient-primary;
+    border-radius: $border-radius-lg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: $transition-all;
+
+    i {
+      font-size: 0.5em;
+      color: #fff;
+    }
+
+    img,
+    svg {
+      width: 100%;
+      height: 100%;
+      filter: brightness(0) invert(1); // Make icons white
+    }
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $color-text;
+    margin: 0 0 $spacing-sm;
+    line-height: $line-height-tight;
+  }
+
+  &__description {
+    font-size: $font-size-sm;
+    color: $color-text-light;
+    line-height: $line-height-relaxed;
+    margin: 0 0 $spacing-lg;
+    flex: 1; // Push footer to bottom
+  }
+
+  &__footer {
+    display: flex;
+    gap: $spacing-sm;
+    flex-wrap: wrap;
+  }
+
+  // Hover effect
+  &:hover {
+    .onemeta-field-card__icon {
+      transform: scale(1.05) rotate(5deg);
+    }
+  }
+
+  // Individual field type gradients
+  &[data-type="text"] .onemeta-field-card__icon {
+    background: $gradient-text;
+  }
+
+  &[data-type="textarea"] .onemeta-field-card__icon {
+    background: $gradient-textarea;
+  }
+
+  &[data-type="url"] .onemeta-field-card__icon {
+    background: $gradient-url;
+  }
+
+  &[data-type="email"] .onemeta-field-card__icon {
+    background: $gradient-email;
+  }
+
+  &[data-type="date"] .onemeta-field-card__icon {
+    background: $gradient-date;
+  }
+
+  &[data-type="toggle"] .onemeta-field-card__icon {
+    background: $gradient-toggle;
+  }
+
+  &[data-type="select"] .onemeta-field-card__icon {
+    background: $gradient-select;
+  }
+
+  &[data-type="checkbox"] .onemeta-field-card__icon {
+    background: $gradient-checkbox;
+  }
+
+  &[data-type="radio"] .onemeta-field-card__icon {
+    background: $gradient-radio;
+  }
+
+  &[data-type="button_group"] .onemeta-field-card__icon {
+    background: $gradient-button-group;
+  }
+
+  &[data-type="image"] .onemeta-field-card__icon {
+    background: $gradient-image;
+  }
+
+  &[data-type="file"] .onemeta-field-card__icon {
+    background: $gradient-file;
+  }
+
+  &[data-type="gallery"] .onemeta-field-card__icon {
+    background: $gradient-gallery;
+  }
+
+  &[data-type="repeater"] .onemeta-field-card__icon {
+    background: $gradient-repeater;
+  }
+}
+
+// =============================================================================
+// FIELD GROUP CARD (For dashboard)
+// =============================================================================
+
+.onemeta-field-group-card {
+  @include flex-between;
+  @include slide-up;
+  @include card(
+      $border-radius: $border-radius-lg
+  );
+  transition: $transition-all;
+
+  gap: $spacing-xl;
+
+  @include respond-to('md') {
+    flex-direction: row;
+  }
+
+  @media (max-width: 768px) {
+    // Mobile: stack vertically
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__info {
+    flex: 1;
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $color-text;
+    margin: 0 0 $spacing-sm;
+  }
+
+  &__meta {
+    @include flex-start;
+    gap: $spacing-md;
+    font-size: $font-size-sm;
+    color: $color-text-light;
+    flex-wrap: wrap;
+  }
+
+  &__actions {
+    @include flex-start;
+    gap: $spacing-sm;
+    flex-wrap: wrap;
+
+    @include respond-to('md') {
+      flex-shrink: 0;
+    }
+  }
+}

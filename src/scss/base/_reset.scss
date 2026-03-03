@@ -1,0 +1,26 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+@use "sass:color";
+
+body.toplevel_page_onemeta,
+body.admin_page_onemeta-edit,
+body.onemeta_page_onemeta-new,
+body.onemeta_page_onemeta-about,
+body.onemeta_page_onemeta-docs {
+  background: rgba($color-primary, 0.1);
+}
+
+.onemeta-page-wrapper {
+  max-width: 1400px;
+  padding: $spacing-sm;
+  margin: 20px auto;
+  border-radius: $border-radius-2xl;
+
+}
+
+.onemeta-page-body {
+  @include card(
+      $border-radius: $border-radius-2xl
+  );
+}

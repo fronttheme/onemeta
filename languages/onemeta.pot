@@ -1,0 +1,1362 @@
+# Copyright (C) 2026 Faruk Ahmed
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: OneMeta - Custom Meta Fields Made Simple 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/onemeta\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-03-03T19:07:40+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: onemeta\n"
+
+#. Plugin Name of the plugin
+#: onemeta.php
+msgid "OneMeta - Custom Meta Fields Made Simple"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: onemeta.php
+msgid "https://fronttheme.com/products/onemeta"
+msgstr ""
+
+#. Description of the plugin
+#: onemeta.php
+#: includes/Admin/views/about.php:45
+#: includes/Admin/views/dashboard.php:34
+msgid "Build powerful custom fields with a visual builder. Export as PHP code or use directly in WordPress."
+msgstr ""
+
+#. Author of the plugin
+#: onemeta.php
+msgid "Faruk Ahmed"
+msgstr ""
+
+#. Author URI of the plugin
+#: onemeta.php
+msgid "https://fronttheme.com"
+msgstr ""
+
+#: includes/Admin/AdminAjax.php:58
+msgid "You do not have sufficient permissions."
+msgstr ""
+
+#: includes/Admin/AdminAjax.php:95
+#: includes/Admin/AdminAjax.php:123
+msgid "Insufficient permissions."
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:151
+msgid "Total Groups"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:152
+msgid "Active Groups"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:153
+msgid "Total Fields"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:154
+msgid "Failed to load field groups. Please refresh the page."
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:155
+msgid "Preparing export..."
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:156
+msgid "Export:"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:157
+msgid "Copy this code to your theme's <code style=\"font-family: 'JetBrains Mono', monospace;\">functions.php</code> file:"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:158
+msgid "Copy to Clipboard"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:159
+msgid "Download PHP File"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:160
+msgid "PHP code copied to clipboard!"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:161
+msgid "Failed to copy. Please copy manually."
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:162
+msgid "Export failed:"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:163
+msgid "Unknown error"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:164
+msgid "Export failed. Please try again."
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:165
+msgid "File downloaded successfully!"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:166
+msgid "status updated!"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:167
+msgid "Failed to update status:"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:168
+msgid "Failed to update status. Please try again."
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:169
+msgid "field group"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:170
+msgid "Field group deleted successfully!"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:171
+msgid "Failed to delete:"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:172
+msgid "Failed to delete. Please try again."
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:173
+msgid "Network response was not ok!"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:253
+#: includes/Admin/FieldTypeSchemas.php:320
+#: includes/Admin/views/builder.php:222
+#: includes/Admin/views/builder.php:336
+#: includes/Admin/views/docs.php:17
+msgid "Text"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:259
+#: includes/Admin/FieldTypeSchemas.php:321
+#: includes/Admin/views/builder.php:223
+#: includes/Admin/views/builder.php:337
+#: includes/Admin/views/docs.php:25
+msgid "Textarea"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:265
+#: includes/Admin/FieldTypeSchemas.php:322
+#: includes/Admin/views/builder.php:224
+#: includes/Admin/views/builder.php:338
+#: includes/Admin/views/docs.php:33
+msgid "URL"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:271
+#: includes/Admin/FieldTypeSchemas.php:323
+#: includes/Admin/views/builder.php:225
+#: includes/Admin/views/builder.php:339
+#: includes/Admin/views/docs.php:41
+msgid "Email"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:277
+#: includes/Admin/FieldTypeSchemas.php:324
+#: includes/Admin/views/builder.php:226
+#: includes/Admin/views/builder.php:340
+#: includes/Admin/views/docs.php:49
+msgid "Date"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:283
+#: includes/Admin/FieldTypeSchemas.php:327
+#: includes/Admin/views/builder.php:227
+#: includes/Admin/views/builder.php:341
+#: includes/Admin/views/docs.php:57
+msgid "Toggle"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:289
+#: includes/Admin/FieldTypeSchemas.php:328
+#: includes/Admin/views/builder.php:228
+#: includes/Admin/views/builder.php:342
+#: includes/Admin/views/docs.php:65
+msgid "Select"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:295
+#: includes/Admin/FieldTypeSchemas.php:331
+#: includes/Admin/views/builder.php:229
+#: includes/Admin/views/builder.php:343
+#: includes/Admin/views/docs.php:73
+msgid "Checkbox"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:301
+#: includes/Admin/FieldTypeSchemas.php:329
+#: includes/Admin/views/builder.php:230
+#: includes/Admin/views/builder.php:344
+#: includes/Admin/views/docs.php:81
+msgid "Radio"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:307
+#: includes/Admin/FieldTypeSchemas.php:330
+#: includes/Admin/views/builder.php:231
+#: includes/Admin/views/builder.php:345
+#: includes/Admin/views/docs.php:89
+msgid "Button Group"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:313
+#: includes/Admin/FieldTypeSchemas.php:334
+#: includes/Admin/views/builder.php:232
+#: includes/Admin/views/builder.php:346
+#: includes/Admin/views/docs.php:97
+msgid "Image"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:319
+#: includes/Admin/FieldTypeSchemas.php:335
+#: includes/Admin/views/builder.php:233
+#: includes/Admin/views/builder.php:347
+#: includes/Admin/views/docs.php:105
+msgid "File"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:325
+#: includes/Admin/FieldTypeSchemas.php:336
+#: includes/Admin/views/builder.php:234
+#: includes/Admin/views/builder.php:348
+#: includes/Admin/views/docs.php:113
+msgid "Gallery"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:331
+#: includes/Admin/FieldTypeSchemas.php:339
+#: includes/Admin/views/builder.php:235
+#: includes/Admin/views/builder.php:349
+#: includes/Admin/views/docs.php:121
+msgid "Repeater"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:345
+msgid "Any File"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:346
+msgid "Video"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:347
+msgid "Audio"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:348
+msgid "Document"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:349
+msgid "Archive"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:350
+msgid "Font"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:351
+msgid "Spreadsheet"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:362
+msgid "Are you sure you want to delete this field?"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:363
+msgid "Are you sure you want to delete this field group?"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:364
+msgid "Field group saved successfully!"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:365
+msgid "Error saving field group. Please try again."
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:366
+msgid "PHP code exported to clipboard!"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:367
+msgid "Failed to copy code. Please try again."
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:368
+msgid "Field key must be lowercase with underscores only (a-z, 0-9, _)"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:369
+msgid "Field key already exists. Please use a unique key."
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:370
+msgid "Add Choice"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:371
+msgid "Remove Choice"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:372
+msgid "Value"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:373
+msgid "Label"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:374
+msgid "Add Sub-Field"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:375
+msgid "No sub-fields added yet."
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:376
+msgid "Toggle Sub-Fields"
+msgstr ""
+
+#: includes/Admin/AdminAssets.php:377
+msgid "Saving..."
+msgstr ""
+
+#: includes/Admin/AdminMenu.php:53
+#: includes/Admin/AdminMenu.php:98
+#: includes/Admin/AdminMenu.php:99
+#: includes/Admin/views/builder.php:37
+msgid "Edit Field Group"
+msgstr ""
+
+#: includes/Admin/AdminMenu.php:68
+#: includes/Admin/AdminMenu.php:69
+msgid "OneMeta"
+msgstr ""
+
+#: includes/Admin/AdminMenu.php:79
+#: includes/Admin/AdminMenu.php:80
+#: includes/Admin/views/about.php:224
+#: includes/Admin/views/dashboard.php:44
+msgid "Field Groups"
+msgstr ""
+
+#: includes/Admin/AdminMenu.php:88
+#: includes/Admin/AdminMenu.php:89
+#: includes/Admin/views/about.php:235
+msgid "Add New"
+msgstr ""
+
+#: includes/Admin/AdminMenu.php:107
+#: includes/Admin/AdminMenu.php:108
+msgid "About"
+msgstr ""
+
+#: includes/Admin/AdminMenu.php:116
+#: includes/Admin/AdminMenu.php:117
+#: includes/Admin/views/about.php:246
+#: includes/Admin/views/docs.php:136
+msgid "Documentation"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:41
+#: includes/Admin/FieldTypeSchemas.php:54
+#: includes/Admin/FieldTypeSchemas.php:72
+#: includes/Admin/FieldTypeSchemas.php:80
+#: includes/Admin/FieldTypeSchemas.php:88
+#: includes/Admin/FieldTypeSchemas.php:150
+#: includes/Admin/FieldTypeSchemas.php:167
+#: includes/Admin/FieldTypeSchemas.php:188
+msgid "Default Value"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:42
+msgid "Enter default value"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:46
+#: includes/Admin/FieldTypeSchemas.php:64
+msgid "Max Length"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:59
+msgid "Rows"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:96
+msgid "Default State"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:98
+#: includes/Admin/FieldTypeSchemas.php:111
+msgid "Off"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:99
+#: includes/Admin/FieldTypeSchemas.php:106
+msgid "On"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:105
+msgid "On Text"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:110
+msgid "Off Text"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:118
+#: includes/Admin/FieldTypeSchemas.php:145
+#: includes/Admin/FieldTypeSchemas.php:162
+#: includes/Admin/FieldTypeSchemas.php:183
+msgid "Choices"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:119
+msgid "Enter each choice on a new row (key : Label)"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:123
+msgid "Default Values (Enter comma-separated values (e.g., red, green))"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:124
+msgid "Enter comma-separated values (e.g., red, green)"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:128
+#: includes/Admin/FieldTypeSchemas.php:171
+msgid "Layout"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:130
+#: includes/Admin/FieldTypeSchemas.php:173
+msgid "Vertical"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:131
+#: includes/Admin/FieldTypeSchemas.php:174
+msgid "Horizontal"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:137
+#: includes/Admin/FieldTypeSchemas.php:301
+#: includes/Admin/FieldTypeSchemas.php:366
+#: includes/Admin/views/about.php:83
+#: includes/Admin/views/docs.php:421
+msgid "Conditional Logic"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:138
+#: includes/Admin/FieldTypeSchemas.php:302
+#: includes/Admin/FieldTypeSchemas.php:367
+msgid "Control when this field is visible"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:146
+#: includes/Admin/FieldTypeSchemas.php:163
+#: includes/Admin/FieldTypeSchemas.php:184
+msgid "Enter each choice on a new line. Use format: value : Label"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:154
+msgid "Allow Null"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:196
+#: includes/Admin/FieldTypeSchemas.php:238
+#: includes/Admin/FieldTypeSchemas.php:266
+msgid "Return Format"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:198
+msgid "Image ID"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:199
+msgid "Image URL"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:200
+msgid "Image Array"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:206
+msgid "Preview Size"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:208
+msgid "Thumbnail"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:209
+msgid "Medium"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:210
+msgid "Large"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:219
+#: includes/Admin/FieldTypeSchemas.php:251
+#: includes/Admin/FieldTypeSchemas.php:279
+msgid "Button Text"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:220
+#: includes/Core/Renderer.php:324
+#: includes/Core/Renderer.php:350
+msgid "Select File"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:224
+msgid "File Type"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:226
+msgid "Any"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:227
+msgid "Video (MP4, WEBM, OGV, MOV)"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:228
+msgid "Audio (MP3, WAV, OGG)"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:229
+msgid "Document (PDF, DOC, DOCX, TXT)"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:230
+msgid "Archive (ZIP, RAR, 7Z)"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:231
+msgid "Font (WOFF, WOFF2, TTF, OTF)"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:232
+msgid "Spreadsheet (XLS, XLSX, CSV)"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:240
+msgid "File ID"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:241
+msgid "File URL"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:242
+msgid "File Array"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:252
+#: includes/Core/Renderer.php:430
+msgid "Add Images"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:256
+msgid "Minimum Images"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:261
+msgid "Maximum Images"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:262
+msgid "Unlimited"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:268
+msgid "Image IDs"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:269
+msgid "Image URLs"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:270
+msgid "Image Arrays"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:280
+#: includes/Admin/FieldTypeSchemas.php:281
+msgid "Add Item"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:285
+msgid "Minimum Rows"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:291
+msgid "Maximum Rows"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:292
+msgid "No limit"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:296
+msgid "Sub Fields"
+msgstr ""
+
+#: includes/Admin/FieldTypeSchemas.php:297
+msgid "Add fields that will appear in each row"
+msgstr ""
+
+#: includes/Admin/views/about.php:32
+#: includes/Admin/views/dashboard.php:21
+msgid "OneMeta Logo"
+msgstr ""
+
+#: includes/Admin/views/about.php:42
+#: includes/Admin/views/dashboard.php:31
+msgid "Custom Meta Fields Made Simple"
+msgstr ""
+
+#: includes/Admin/views/about.php:61
+msgid "Features"
+msgstr ""
+
+#: includes/Admin/views/about.php:71
+msgid "14 Field Types"
+msgstr ""
+
+#: includes/Admin/views/about.php:73
+msgid "Text, Textarea, URL, Email, Date, Toggle, Select, Checkbox, Radio, Button Group, Image, File, Gallery, Repeater"
+msgstr ""
+
+#: includes/Admin/views/about.php:85
+msgid "Show/hide fields based on other field values"
+msgstr ""
+
+#: includes/Admin/views/about.php:95
+msgid "Repeater Fields"
+msgstr ""
+
+#: includes/Admin/views/about.php:97
+msgid "Create repeatable field groups with sub-fields"
+msgstr ""
+
+#: includes/Admin/views/about.php:107
+msgid "User Meta Support"
+msgstr ""
+
+#: includes/Admin/views/about.php:109
+msgid "Add custom fields to user profiles"
+msgstr ""
+
+#: includes/Admin/views/about.php:119
+msgid "Export as PHP"
+msgstr ""
+
+#: includes/Admin/views/about.php:121
+msgid "Export field groups as clean PHP config code"
+msgstr ""
+
+#: includes/Admin/views/about.php:131
+msgid "REST API"
+msgstr ""
+
+#: includes/Admin/views/about.php:133
+msgid "Full REST API support for modern integrations"
+msgstr ""
+
+#: includes/Admin/views/about.php:146
+msgid "System Information"
+msgstr ""
+
+#: includes/Admin/views/about.php:152
+msgid "Version"
+msgstr ""
+
+#: includes/Admin/views/about.php:161
+msgid "Author"
+msgstr ""
+
+#: includes/Admin/views/about.php:168
+msgid "Organization"
+msgstr ""
+
+#: includes/Admin/views/about.php:175
+msgid "Plugin Directory"
+msgstr ""
+
+#: includes/Admin/views/about.php:182
+msgid "Database Table"
+msgstr ""
+
+#: includes/Admin/views/about.php:189
+msgid "PHP Version"
+msgstr ""
+
+#: includes/Admin/views/about.php:198
+msgid "WordPress Version"
+msgstr ""
+
+#: includes/Admin/views/about.php:214
+msgid "Quick Links"
+msgstr ""
+
+#: includes/Admin/views/about.php:225
+msgid "Manage your field groups"
+msgstr ""
+
+#: includes/Admin/views/about.php:236
+msgid "Create a new field group"
+msgstr ""
+
+#: includes/Admin/views/about.php:247
+msgid "Learn how to use OneMeta"
+msgstr ""
+
+#: includes/Admin/views/about.php:257
+msgid "GitHub Repository"
+msgstr ""
+
+#: includes/Admin/views/about.php:258
+msgid "View source code"
+msgstr ""
+
+#: includes/Admin/views/about.php:271
+msgid "Need Help?"
+msgstr ""
+
+#: includes/Admin/views/about.php:275
+msgid "Get support, report bugs, or request features:"
+msgstr ""
+
+#: includes/Admin/views/about.php:279
+msgid "GitHub Issues"
+msgstr ""
+
+#: includes/Admin/views/about.php:283
+msgid "Email Support"
+msgstr ""
+
+#. translators: %1$s: heart icon, %2$s: company link
+#: includes/Admin/views/about.php:298
+#, php-format
+msgid "Made with %1$s by %2$s"
+msgstr ""
+
+#: includes/Admin/views/builder.php:37
+#: includes/Admin/views/dashboard.php:54
+msgid "Add New Field Group"
+msgstr ""
+
+#: includes/Admin/views/builder.php:41
+msgid "Modify your field group configuration"
+msgstr ""
+
+#: includes/Admin/views/builder.php:42
+msgid "Create a new custom field group"
+msgstr ""
+
+#: includes/Admin/views/builder.php:49
+msgid "Back to Field Groups"
+msgstr ""
+
+#: includes/Admin/views/builder.php:65
+msgid "Basic Settings"
+msgstr ""
+
+#: includes/Admin/views/builder.php:73
+msgid "Field Group Key"
+msgstr ""
+
+#: includes/Admin/views/builder.php:90
+msgid "Unique identifier (lowercase, underscores only)"
+msgstr ""
+
+#: includes/Admin/views/builder.php:95
+msgid "Field group key cannot be changed after creation"
+msgstr ""
+
+#: includes/Admin/views/builder.php:103
+msgid "Title"
+msgstr ""
+
+#: includes/Admin/views/builder.php:118
+msgid "Display name for this field group"
+msgstr ""
+
+#: includes/Admin/views/builder.php:125
+msgid "Type"
+msgstr ""
+
+#: includes/Admin/views/builder.php:130
+msgid "Post/Page Meta"
+msgstr ""
+
+#: includes/Admin/views/builder.php:133
+msgid "User Meta"
+msgstr ""
+
+#: includes/Admin/views/builder.php:141
+msgid "Post Type"
+msgstr ""
+
+#: includes/Admin/views/builder.php:157
+msgid "Position"
+msgstr ""
+
+#: includes/Admin/views/builder.php:162
+msgid "Normal"
+msgstr ""
+
+#: includes/Admin/views/builder.php:165
+msgid "Side"
+msgstr ""
+
+#: includes/Admin/views/builder.php:179
+msgid "Fields"
+msgstr ""
+
+#: includes/Admin/views/builder.php:186
+#: includes/Admin/views/builder.php:272
+msgid "Add Field"
+msgstr ""
+
+#: includes/Admin/views/builder.php:199
+msgid "No Fields Yet"
+msgstr ""
+
+#: includes/Admin/views/builder.php:202
+msgid "Drag a field type from the sidebar or click \"Add Field\" to create your first custom field"
+msgstr ""
+
+#: includes/Admin/views/builder.php:212
+#: includes/Admin/views/builder.php:326
+msgid "Remove Field"
+msgstr ""
+
+#: includes/Admin/views/builder.php:243
+#: includes/Admin/views/builder.php:357
+msgid "Description"
+msgstr ""
+
+#: includes/Admin/views/builder.php:244
+#: includes/Admin/views/builder.php:358
+msgid "Optional description"
+msgstr ""
+
+#: includes/Admin/views/builder.php:252
+#: includes/Admin/views/builder.php:361
+msgid "Placeholder"
+msgstr ""
+
+#: includes/Admin/views/builder.php:253
+#: includes/Admin/views/builder.php:362
+msgid "Optional placeholder"
+msgstr ""
+
+#: includes/Admin/views/builder.php:283
+msgid "Save Field Group"
+msgstr ""
+
+#: includes/Admin/views/builder.php:287
+msgid "Export PHP"
+msgstr ""
+
+#: includes/Admin/views/builder.php:290
+msgid "Cancel"
+msgstr ""
+
+#: includes/Admin/views/builder.php:306
+msgid "PHP Code Preview"
+msgstr ""
+
+#: includes/Admin/views/builder.php:310
+#: includes/Admin/views/docs.php:230
+#: includes/Admin/views/docs.php:252
+#: includes/Admin/views/docs.php:435
+msgid "Copy"
+msgstr ""
+
+#: includes/Admin/views/builder.php:314
+msgid "Add fields to see generated code..."
+msgstr ""
+
+#: includes/Admin/views/builder.php:334
+msgid "Field Label"
+msgstr ""
+
+#: includes/Admin/views/dashboard.php:47
+msgid "Manage your custom field groups"
+msgstr ""
+
+#: includes/Admin/views/dashboard.php:69
+#: includes/Admin/views/docs.php:202
+msgid "Loading field groups..."
+msgstr ""
+
+#: includes/Admin/views/dashboard.php:80
+msgid "No Field Groups Yet"
+msgstr ""
+
+#: includes/Admin/views/dashboard.php:83
+msgid "Create your first field group to start building custom fields for your content."
+msgstr ""
+
+#: includes/Admin/views/dashboard.php:88
+#: includes/Admin/views/docs.php:146
+msgid "Create Field Group"
+msgstr ""
+
+#: includes/Admin/views/dashboard.php:118
+#: includes/Admin/views/dashboard.php:119
+msgid "Edit"
+msgstr ""
+
+#: includes/Admin/views/dashboard.php:124
+#: includes/Admin/views/dashboard.php:125
+msgid "Export"
+msgstr ""
+
+#: includes/Admin/views/dashboard.php:130
+#: includes/Admin/views/dashboard.php:131
+msgid "Toggle Status"
+msgstr ""
+
+#: includes/Admin/views/dashboard.php:136
+#: includes/Admin/views/dashboard.php:137
+msgid "Delete"
+msgstr ""
+
+#: includes/Admin/views/docs.php:18
+msgid "Single line text input for short text content"
+msgstr ""
+
+#: includes/Admin/views/docs.php:20
+#: includes/Admin/views/docs.php:28
+#: includes/Admin/views/docs.php:36
+#: includes/Admin/views/docs.php:44
+#: includes/Admin/views/docs.php:52
+msgid "Basic"
+msgstr ""
+
+#: includes/Admin/views/docs.php:26
+msgid "Multi-line text input for longer content"
+msgstr ""
+
+#: includes/Admin/views/docs.php:34
+msgid "URL field with validation for web addresses"
+msgstr ""
+
+#: includes/Admin/views/docs.php:42
+msgid "Email field with validation"
+msgstr ""
+
+#: includes/Admin/views/docs.php:50
+msgid "Date picker for selecting dates"
+msgstr ""
+
+#: includes/Admin/views/docs.php:58
+msgid "On/Off switch for boolean values"
+msgstr ""
+
+#: includes/Admin/views/docs.php:60
+#: includes/Admin/views/docs.php:68
+#: includes/Admin/views/docs.php:84
+#: includes/Admin/views/docs.php:92
+msgid "Choice"
+msgstr ""
+
+#: includes/Admin/views/docs.php:66
+msgid "Dropdown select for single choice"
+msgstr ""
+
+#: includes/Admin/views/docs.php:74
+msgid "Multiple selection with checkboxes"
+msgstr ""
+
+#: includes/Admin/views/docs.php:76
+msgid "Multiple"
+msgstr ""
+
+#: includes/Admin/views/docs.php:82
+msgid "Radio buttons for single selection"
+msgstr ""
+
+#: includes/Admin/views/docs.php:90
+msgid "Button group selector for visual choice"
+msgstr ""
+
+#: includes/Admin/views/docs.php:98
+msgid "Image uploader with media library"
+msgstr ""
+
+#: includes/Admin/views/docs.php:100
+#: includes/Admin/views/docs.php:108
+#: includes/Admin/views/docs.php:116
+msgid "Media"
+msgstr ""
+
+#: includes/Admin/views/docs.php:106
+msgid "File uploader with type restrictions"
+msgstr ""
+
+#: includes/Admin/views/docs.php:114
+msgid "Multiple images uploader with ordering"
+msgstr ""
+
+#: includes/Admin/views/docs.php:122
+msgid "Repeatable field group with sub-fields"
+msgstr ""
+
+#: includes/Admin/views/docs.php:124
+msgid "Advanced"
+msgstr ""
+
+#: includes/Admin/views/docs.php:139
+msgid "Learn how to use OneMeta field types, helper functions, and advanced features"
+msgstr ""
+
+#: includes/Admin/views/docs.php:156
+msgid "Available Field Types"
+msgstr ""
+
+#: includes/Admin/views/docs.php:159
+msgid "14 powerful field types to cover all your custom field needs"
+msgstr ""
+
+#: includes/Admin/views/docs.php:193
+msgid "Export Field Groups"
+msgstr ""
+
+#: includes/Admin/views/docs.php:197
+msgid "Export your field groups as PHP code that you can add to your theme or plugin."
+msgstr ""
+
+#: includes/Admin/views/docs.php:215
+msgid "Helper Functions"
+msgstr ""
+
+#: includes/Admin/views/docs.php:219
+msgid "Use these helper functions to easily work with OneMeta fields in your theme or plugin."
+msgstr ""
+
+#: includes/Admin/views/docs.php:271
+msgid "Real-World Usage Examples"
+msgstr ""
+
+#: includes/Admin/views/docs.php:328
+msgid "Important Notes"
+msgstr ""
+
+#: includes/Admin/views/docs.php:333
+msgid "Field Keys:"
+msgstr ""
+
+#: includes/Admin/views/docs.php:333
+msgid "Do not include the \"onemeta_\" prefix - it's added automatically"
+msgstr ""
+
+#: includes/Admin/views/docs.php:336
+msgid "Context Matters:"
+msgstr ""
+
+#: includes/Admin/views/docs.php:336
+msgid "Use onemeta_get_meta() for posts/pages and onemeta_get_user_meta() for users"
+msgstr ""
+
+#: includes/Admin/views/docs.php:339
+msgid "Security:"
+msgstr ""
+
+#: includes/Admin/views/docs.php:339
+msgid "Always sanitize and escape output values (esc_html, esc_url, wp_kses_post)"
+msgstr ""
+
+#: includes/Admin/views/docs.php:342
+msgid "Arrays:"
+msgstr ""
+
+#: includes/Admin/views/docs.php:342
+msgid "Repeater, gallery, and checkbox fields return arrays - use is_array() before looping"
+msgstr ""
+
+#: includes/Admin/views/docs.php:345
+msgid "Toggle Fields:"
+msgstr ""
+
+#: includes/Admin/views/docs.php:345
+msgid "Return string '0' or '1', not boolean - compare with === '1'"
+msgstr ""
+
+#: includes/Admin/views/docs.php:348
+msgid "Image/File Fields:"
+msgstr ""
+
+#: includes/Admin/views/docs.php:348
+msgid "Return attachment ID (integer) - use wp_get_attachment_image() or wp_get_attachment_url()"
+msgstr ""
+
+#: includes/Admin/views/docs.php:360
+msgid "Field Return Types"
+msgstr ""
+
+#: includes/Admin/views/docs.php:366
+msgid "Field Type"
+msgstr ""
+
+#: includes/Admin/views/docs.php:367
+msgid "Return Type"
+msgstr ""
+
+#: includes/Admin/views/docs.php:368
+msgid "Example"
+msgstr ""
+
+#: includes/Admin/views/docs.php:425
+msgid "Show or hide fields based on the value of other fields using conditional logic."
+msgstr ""
+
+#: includes/Admin/views/docs.php:457
+msgid "Conditional Logic Operators"
+msgstr ""
+
+#: includes/Admin/views/docs.php:463
+msgid "Equal to"
+msgstr ""
+
+#: includes/Admin/views/docs.php:467
+msgid "Not equal to"
+msgstr ""
+
+#: includes/Admin/views/docs.php:471
+msgid "Contains text"
+msgstr ""
+
+#: includes/Admin/views/docs.php:475
+msgid "Does not contain text"
+msgstr ""
+
+#: includes/Admin/views/docs.php:478
+msgid "Note: \"contains\" operators are case-insensitive."
+msgstr ""
+
+#: includes/Admin/views/docs.php:491
+msgid "Quick Start Guide"
+msgstr ""
+
+#: includes/Admin/views/docs.php:499
+msgid "Create a Field Group"
+msgstr ""
+
+#: includes/Admin/views/docs.php:500
+msgid "Go to OneMeta → Add New and create your first field group"
+msgstr ""
+
+#: includes/Admin/views/docs.php:506
+msgid "Add Fields"
+msgstr ""
+
+#: includes/Admin/views/docs.php:507
+msgid "Click \"Add Field\" and choose from 14 different field types"
+msgstr ""
+
+#: includes/Admin/views/docs.php:513
+msgid "Configure Settings"
+msgstr ""
+
+#: includes/Admin/views/docs.php:514
+msgid "Set field labels, descriptions, and advanced options"
+msgstr ""
+
+#: includes/Admin/views/docs.php:520
+msgid "Use in Your Theme"
+msgstr ""
+
+#: includes/Admin/views/docs.php:521
+msgid "Access field values using onemeta_get_meta() function"
+msgstr ""
+
+#: includes/Admin/views/docs.php:530
+msgid "Create Your First Field Group"
+msgstr ""
+
+#: includes/API/RestAPI.php:193
+#: includes/API/RestAPI.php:353
+msgid "Field group not found"
+msgstr ""
+
+#: includes/API/RestAPI.php:223
+#: includes/API/RestAPI.php:278
+msgid "Missing required fields"
+msgstr ""
+
+#: includes/API/RestAPI.php:234
+msgid "A field group with this key already exists"
+msgstr ""
+
+#: includes/API/RestAPI.php:252
+msgid "Failed to create field group"
+msgstr ""
+
+#: includes/API/RestAPI.php:258
+msgid "Field group created successfully"
+msgstr ""
+
+#: includes/API/RestAPI.php:296
+msgid "Failed to update field group"
+msgstr ""
+
+#: includes/API/RestAPI.php:302
+msgid "Field group updated successfully"
+msgstr ""
+
+#: includes/API/RestAPI.php:325
+msgid "Failed to delete field group"
+msgstr ""
+
+#: includes/API/RestAPI.php:331
+msgid "Field group deleted successfully"
+msgstr ""
+
+#: includes/API/RestAPI.php:370
+msgid "Failed to toggle field group status"
+msgstr ""
+
+#: includes/API/RestAPI.php:377
+msgid "Field group status updated"
+msgstr ""
+
+#: includes/Core/FieldRenderer.php:160
+#: includes/Core/UserFieldManager.php:231
+msgid "Add Row"
+msgstr ""
+
+#: includes/Core/FieldRenderer.php:182
+#: includes/Core/UserFieldManager.php:254
+msgid "No sub-fields defined for this repeater."
+msgstr ""
+
+#: includes/Core/Renderer.php:212
+msgid "Select Image"
+msgstr ""
+
+#: includes/Core/Renderer.php:213
+#: includes/Core/Renderer.php:351
+msgid "Remove"
+msgstr ""
+
+#: includes/Core/Renderer.php:267
+msgid "Select Video"
+msgstr ""
+
+#: includes/Core/Renderer.php:268
+msgid "Use Video"
+msgstr ""
+
+#: includes/Core/Renderer.php:272
+msgid "Supported formats: MP4, WEBM, OGV, MOV"
+msgstr ""
+
+#: includes/Core/Renderer.php:275
+msgid "Select Audio"
+msgstr ""
+
+#: includes/Core/Renderer.php:276
+msgid "Use Audio"
+msgstr ""
+
+#: includes/Core/Renderer.php:280
+msgid "Supported formats: MP3, WAV, OGG"
+msgstr ""
+
+#: includes/Core/Renderer.php:283
+msgid "Select Document"
+msgstr ""
+
+#: includes/Core/Renderer.php:284
+msgid "Use Document"
+msgstr ""
+
+#: includes/Core/Renderer.php:293
+msgid "Supported formats: PDF, DOC, DOCX, TXT"
+msgstr ""
+
+#: includes/Core/Renderer.php:296
+msgid "Select Archive"
+msgstr ""
+
+#: includes/Core/Renderer.php:297
+msgid "Use Archive"
+msgstr ""
+
+#: includes/Core/Renderer.php:301
+msgid "Supported formats: ZIP, RAR, 7Z"
+msgstr ""
+
+#: includes/Core/Renderer.php:304
+msgid "Select Font"
+msgstr ""
+
+#: includes/Core/Renderer.php:305
+msgid "Use Font"
+msgstr ""
+
+#: includes/Core/Renderer.php:309
+msgid "Supported formats: WOFF, WOFF2, TTF, OTF"
+msgstr ""
+
+#: includes/Core/Renderer.php:312
+msgid "Select Spreadsheet"
+msgstr ""
+
+#: includes/Core/Renderer.php:313
+msgid "Use Spreadsheet"
+msgstr ""
+
+#: includes/Core/Renderer.php:321
+msgid "Supported formats: XLS, XLSX, CSV"
+msgstr ""
+
+#: includes/Core/Renderer.php:325
+msgid "Use File"
+msgstr ""
+
+#: includes/Core/Renderer.php:329
+msgid "All file types supported"
+msgstr ""
+
+#: includes/Core/Renderer.php:507
+msgid "Enable"
+msgstr ""
+
+#: includes/Core/Renderer.php:508
+msgid "Disable"
+msgstr ""
+
+#: includes/Core/Renderer.php:619
+msgid "No choices defined"
+msgstr ""

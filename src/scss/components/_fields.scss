@@ -1,0 +1,591 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "sass:color";
+
+.onemeta-fields-container {
+  display: flex;
+  flex-direction: column;
+
+  // Empty State
+  .onemeta-fields-empty {
+    text-align: center;
+    padding: $spacing-4xl $spacing-xl;
+    color: $color-text-light;
+    background: $color-gray-50;
+    border-radius: $border-radius-lg;
+    border: 2px dashed $color-border;
+
+    i {
+      font-size: 48px;
+      height: 48px;
+      width: 48px;
+      margin-bottom: $spacing-md;
+      color: $color-gray-300;
+    }
+
+    p {
+      margin: $spacing-sm 0 $spacing-lg;
+      font-size: $font-size-md;
+    }
+
+    .onemeta-button--primary {
+      margin-top: $spacing-md;
+    }
+  }
+}
+
+// Individual Field Item
+.onemeta-field {
+  background: $color-white;
+  border: 1px solid $color-border-alt;
+  border-radius: $border-radius-md;
+  margin-bottom: $spacing-base;
+  transition: $transition-all;
+  position: relative;
+
+  &:hover {
+    border-color: $color-primary-light;
+    box-shadow: $shadow-sm;
+  }
+
+  &--dragging {
+    opacity: 0.5;
+    background: $color-bg-hover;
+  }
+
+  &__item {
+    position: relative;
+  }
+}
+
+// Field Header
+.onemeta-field__header {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md $spacing-lg;
+  background: rgba($color-primary, 0.1);
+  border-bottom: 1px solid $color-border-alt;
+  border-radius: $border-radius-md $border-radius-md 0 0;
+
+  .onemeta-field-key-label-type {
+    display: flex;
+    gap: $spacing-md;
+    flex: 1; // Take all remaining space
+    min-width: 0; // Allow shrinking
+
+    .onemeta-field-key-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .onemeta-field-key-wrapper,
+    .onemeta-field-label,
+    .onemeta-field-type {
+      flex: 1; // All 3 items equal width
+      min-width: 0; // Important for text overflow
+    }
+
+    .field-type-visual-display {
+      height: $input-height;
+      padding: $input-padding-y 4px $input-padding-y $input-padding-x;
+      font-family: $font-family-base;
+      font-size: $font-size-base;
+      line-height: $line-height-normal;
+      color: $color-text;
+      border-radius: 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-width: 150px;
+      gap: 8px;
+      background: rgba($color-white, 0.5);
+      border: 2px solid rgba($color-white, 0.5);
+      box-shadow: inset 0 0 2px 4px rgba($color-white, 0.75), /* Inner glow */
+      0 0 0 2px rgba($color-primary, 0.1), /* Outer glow */
+      0 0 0 1px rgba($color-white, 0.1); /* Border-like shadow */
+      transition: $transition-all;
+
+      button.onemeta-button--icon {
+        width: 28px;
+        border-radius: 50%;
+        font-size: 16px;
+      }
+
+      > i {
+        color: $color-primary;
+      }
+    }
+  }
+}
+
+// Field Settings
+.onemeta-field__settings {
+  padding: $spacing-lg;
+  background: $color-white;
+
+  &__row {
+    display: flex;
+    gap: $spacing-lg;
+    margin-bottom: $spacing-md;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+      gap: $spacing-md;
+    }
+  }
+}
+
+// Setting Components
+.onemeta-setting {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  &__label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text;
+    margin-bottom: $spacing-xs;
+  }
+
+  .onemeta-input,
+  .onemeta-select {
+    width: 100%;
+  }
+}
+
+// Advanced Settings
+.onemeta-field-advanced-settings {
+  background: $color-gray-50;
+  border-top: 1px solid $color-border;
+  padding: $spacing-lg;
+  border-radius: 0 0 $border-radius-md $border-radius-md;
+
+  .setting-row {
+    margin-bottom: $spacing-lg;
+
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    > label {
+      display: block;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-medium;
+      color: $color-text;
+      margin-bottom: $spacing-sm;
+    }
+
+    .description {
+      font-size: $font-size-xs;
+      color: $color-text-light;
+      margin-top: $spacing-xs;
+      font-style: italic;
+    }
+  }
+}
+
+// Conditional Logic Builder
+.conditional-logic-builder {
+  .conditional-enable {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-md;
+    font-weight: $font-weight-medium;
+    color: $color-text;
+
+    input[type="checkbox"] {
+      margin: 0;
+    }
+  }
+
+  .conditional-rules {
+    background: $color-white;
+    border: 1px solid $color-border;
+    border-radius: $border-radius-base;
+    padding: $spacing-lg;
+    margin-top: $spacing-md;
+
+    .conditional-label {
+      font-size: $font-size-sm;
+      color: $color-text;
+      margin-top: 0;
+      margin-bottom: $spacing-md;
+      font-weight: $font-weight-medium;
+    }
+
+    .conditional-rule {
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+      flex-wrap: wrap;
+
+      .conditional-field-select {
+        flex: 2;
+        min-width: 200px;
+      }
+
+      .conditional-operator {
+        flex: 1;
+        min-width: 120px;
+      }
+
+      .conditional-value {
+        flex: 2;
+        min-width: 150px;
+      }
+
+      @media (max-width: $breakpoint-sm) {
+        flex-direction: column;
+        align-items: stretch;
+        gap: $spacing-sm;
+      }
+    }
+  }
+}
+
+// Choices Builder
+.choices-builder {
+  .choices-list {
+    margin-bottom: $spacing-md;
+  }
+
+  .choice-row {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-sm;
+
+    .choice-key,
+    .choice-label {
+      flex: 1;
+    }
+
+    .remove-choice {
+      cursor: pointer;
+      padding: 0;
+      border-radius: $border-radius-sm;
+      transition: $transition-fast;
+      background: rgba($color-gray-500, 0.2);
+      color: $color-gray-400;
+      width: 18px;
+      height: 18px;
+      display: grid;
+      place-items: center;
+      font-size: 12px;
+      line-height: 1;
+
+      &:hover {
+        background: $color-danger-light;
+        color: $color-danger;
+      }
+    }
+  }
+
+  .add-choice-btn {
+    margin-top: $spacing-sm;
+  }
+}
+
+// Repeater Sub Fields Builder
+.repeater-sub-fields-builder {
+  @include card(
+      $background: rgba($color-primary, .05),
+      $border-color: rgba($color-primary, 0.1),
+      $box-shadow: inset 0 0 2px 4px rgba($color-primary, .05)
+  );
+
+  .sub-fields-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-md;
+    padding-bottom: $spacing-sm;
+
+    label {
+      text-transform: uppercase;
+    }
+
+    strong {
+      font-size: $font-size-base;
+      color: $color-text;
+    }
+  }
+
+  .sub-fields-list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  .sub-field-row {
+    background: $color-white;
+    border: 2px solid rgba($color-primary, 0.2);
+    border-radius: $border-radius-md;
+    overflow: hidden;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .sub-field-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: $spacing-sm;
+      padding: $spacing-md $spacing-lg;
+      background: rgba($color-primary, .1);
+      cursor: pointer;
+      transition: $transition-fast;
+
+      &:hover {
+        background: rgba($color-primary, .15);
+      }
+
+      .onemeta-sub-field-header {
+        &__text,
+        &__actions {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+      }
+
+      .sub-field-handle {
+        color: $color-gray-400;
+      }
+
+      .sub-field-title {
+        flex: 1;
+        font-weight: $font-weight-medium;
+        color: $color-text;
+      }
+
+      .sub-field-type {
+        font-family: $font-family-mono;
+        display: inline-flex;
+        align-items: center;
+        font-size: $font-size-xs;
+        padding: 4px 8px;
+        font-weight: 600;
+        line-height: 1;
+        text-transform: uppercase;
+        border-radius: 9999px;
+        background: rgba($color-primary, 0.1);
+        color: $color-primary;
+        border: 1px solid rgba($color-primary, 0.2);
+      }
+
+      .sub-field-toggle {
+        background: rgba($color-primary, 0.1);
+      }
+    }
+
+    .sub-field-settings {
+      padding: $spacing-lg;
+      background: $color-white;
+      border-top: 1px solid $color-border-alt;
+
+      .sub-field-setting {
+        margin-bottom: $spacing-base;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        label {
+          display: block;
+          font-size: $font-size-sm;
+          color: $color-text;
+          margin-bottom: $spacing-xs;
+          font-weight: $font-weight-medium;
+        }
+
+        input,
+        select {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// Responsive Adjustments
+@media (max-width: $breakpoint-lg) {
+  .field-header {
+    flex-wrap: wrap;
+    gap: $spacing-md;
+
+    .onemeta-field-key,
+    .onemeta-field-label,
+    .onemeta-field-type {
+      flex: 1 1 calc(50% - #{$spacing-md});
+      min-width: 0;
+      max-width: none;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .onemeta-fields-container {
+    padding: $spacing-lg;
+  }
+
+  .field-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: $spacing-sm;
+
+    .onemeta-field-key,
+    .onemeta-field-label,
+    .onemeta-field-type {
+      flex: 1 1 100%;
+      width: 100%;
+    }
+  }
+
+  .onemeta-field__settings__row {
+    gap: $spacing-md;
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Empty State Animation
+@keyframes pulseEmpty {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.onemeta-fields-empty {
+  animation: pulseEmpty 2s ease-in-out infinite;
+}
+
+// Drag and Drop States
+.onemeta-field__item.drag-over {
+  border: 2px dashed $color-primary;
+  background: color.adjust($color-primary, $alpha: -0.95);
+}
+
+.onemeta-field__item.drag-start {
+  transform: rotate(2deg);
+  box-shadow: $shadow-lg;
+}
+
+// Focus States
+.onemeta-field-key:focus,
+.onemeta-field-label:focus,
+.onemeta-field-type:focus,
+.field-setting-input:focus,
+.conditional-value:focus {
+  border-color: $color-primary;
+  box-shadow: 0 0 0 1px $color-primary;
+  outline: none;
+}
+
+// Validation States
+.onemeta-field--invalid {
+  border-color: $color-danger;
+
+  .field-header {
+    background: color.adjust($color-danger, $alpha: -0.95);
+    border-bottom-color: color.adjust($color-danger, $alpha: -0.8);
+  }
+
+  .onemeta-input:invalid,
+  .onemeta-select:invalid {
+    border-color: $color-danger;
+    background: $color-danger-light;
+  }
+}
+
+.onemeta-field--valid {
+  .field-header {
+    background: color.adjust($color-success, $alpha: -0.95);
+    border-bottom-color: color.adjust($color-success, $alpha: -0.8);
+  }
+}
+
+// Collapsible States
+.onemeta-field--collapsed {
+  .onemeta-field__settings,
+  .onemeta-field-advanced-settings {
+    display: none;
+  }
+
+  .field-header {
+    border-radius: $border-radius-md;
+    border-bottom: none;
+  }
+}
+
+// Required Field Indicator
+.onemeta-field-key:required + .onemeta-field-label:required::after,
+.onemeta-field-type:required::after {
+  content: '*';
+  color: $color-danger;
+  margin-left: 2px;
+}
+
+// Helper Text
+.setting-row .description {
+  line-height: $line-height-normal;
+
+  code {
+    font-family: $font-family-mono;
+    font-size: $font-size-xs;
+    background: $color-gray-100;
+    padding: 1px 4px;
+    border-radius: $border-radius-sm;
+    color: $color-gray-600;
+  }
+}
+
+// Custom Scrollbar for Dropdowns
+.onemeta-select,
+.conditional-field-select {
+  scrollbar-width: thin;
+  scrollbar-color: $color-gray-300 $color-gray-50;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $color-gray-50;
+    border-radius: $border-radius-sm;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $color-gray-300;
+    border-radius: $border-radius-sm;
+
+    &:hover {
+      background: $color-gray-400;
+    }
+  }
+}

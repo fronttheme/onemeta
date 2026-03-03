@@ -1,0 +1,311 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+/* Insertion Zone Base */
+.onemeta-insertion-zone {
+  position: relative;
+  height: 0;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* Show zones when dragging */
+body.onemeta-dragging .onemeta-insertion-zone {
+  opacity: 1;
+  height: 40px;
+  margin: 8px 0;
+}
+
+/* Insertion Line */
+.onemeta-insertion-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: $color-primary-light;
+  transform: translateY(-50%) scaleY(1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
+}
+
+/* Insertion Label */
+.onemeta-insertion-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: white;
+  color: $color-text-light;
+  border: 1px solid $color-border-light;
+  padding: 6px 12px;
+  border-radius: $border-radius-md;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  box-shadow: 0 2px 4px rgba($color-primary, 0.1);
+}
+
+.onemeta-insertion-label i {
+  font-size: 14px;
+  width: 14px;
+  height: 14px;
+}
+
+/* Active State (hovering over zone) */
+.onemeta-insertion-zone.active {
+  height: 48px;
+  margin: 12px 0;
+}
+
+.onemeta-insertion-zone.active .onemeta-insertion-line {
+  height: 3px;
+  background: $color-primary;
+  box-shadow: 0 0 12px rgba($color-primary, 0.4);
+  transform: translateY(-50%) scaleY(2);
+}
+
+.onemeta-insertion-zone.active .onemeta-insertion-label {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  background: $color-primary;
+  border-color: $color-border-light;
+  color: white;
+}
+
+/* Invalid State (not allowed in this context) */
+.onemeta-insertion-zone.invalid .onemeta-insertion-line {
+  background: $color-danger;
+  box-shadow: 0 0 12px rgba($color-danger, 0.4);
+}
+
+.onemeta-insertion-zone.invalid .onemeta-insertion-label {
+  background: $color-danger;
+  border-color: $color-danger;
+  color: white;
+}
+
+.onemeta-insertion-zone.invalid .onemeta-insertion-text::before {
+  content: '✕ Cannot insert here';
+}
+
+.onemeta-insertion-zone.invalid .onemeta-insertion-text {
+  display: none;
+}
+
+/* Pulse animation on hover */
+@keyframes insertion-pulse {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba($color-primary, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba($color-primary, 0.6);
+  }
+}
+
+/* Only pulse when dragging is active */
+body.onemeta-dragging .onemeta-insertion-zone.active .onemeta-insertion-line {
+  animation: insertion-pulse 1.5s ease-in-out infinite;
+}
+
+/* Drag Ghost (cursor follower) */
+.onemeta-drag-ghost {
+  position: fixed;
+  background: white;
+  border: 2px solid $color-primary;
+  border-radius: 6px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-primary;
+  pointer-events: none;
+  z-index: 999999;
+  box-shadow: 0 4px 16px rgba($color-primary, 0.15);
+  opacity: 0.95;
+  transition: all 0.1s ease-out;
+}
+
+.onemeta-drag-ghost i {
+  color: $color-primary;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+
+.onemeta-drag-ghost-label {
+  color: $color-text;
+}
+
+/* Field Inserted Animation */
+@keyframes field-insert {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  50% {
+    transform: translateY(5px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.field-inserted {
+  animation: field-insert 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: $color-bg-card !important;
+}
+
+/* Body class when dragging (shows zones) */
+body.onemeta-dragging {
+  cursor: grabbing !important;
+}
+
+body.onemeta-dragging * {
+  cursor: grabbing !important;
+}
+
+body.onemeta-dragging .sub-fields-list .onemeta-insertion-zone {
+  height: 32px;
+  margin: 6px 0;
+}
+
+.sub-fields-list .onemeta-insertion-zone.active {
+  height: 40px;
+  margin: 10px 0;
+}
+
+/* Smooth transitions for fields when zones appear/disappear */
+.onemeta-field__item,
+.sub-field-row {
+  transition: margin 0.2s ease, transform 0.2s ease;
+}
+
+/* Hover effect on insertion zones */
+.onemeta-insertion-zone:hover {
+  background: rgba(34, 113, 177, 0.03);
+  border-radius: 4px;
+}
+
+/* Visual feedback: slight push when zone activates */
+.onemeta-insertion-zone.active + .onemeta-field__item,
+.onemeta-insertion-zone.active + .sub-field-row {
+  transform: translateY(2px);
+}
+
+body.onemeta-dragging .onemeta-insertion-zone[data-is-last="true"] {
+  margin-bottom: 20px;
+}
+
+/* Pulse effect for last zone */
+.onemeta-insertion-zone[data-is-last="true"].active .onemeta-insertion-label {
+  animation: label-bounce 0.4s ease-out;
+}
+
+@keyframes label-bounce {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+/* Disable pointer events on fields when dragging over zones */
+body.onemeta-dragging .onemeta-field__item,
+body.onemeta-dragging .sub-field-row {
+  pointer-events: none;
+}
+
+body.onemeta-dragging .onemeta-insertion-zone {
+  pointer-events: all;
+}
+
+/* Visual separator lines */
+.onemeta-insertion-zone::before,
+.onemeta-insertion-zone::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 2px;
+  background: $color-bg-card;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.onemeta-insertion-zone::before {
+  top: 50%;
+  transform: translateY(-50%) translateX(-30px);
+}
+
+.onemeta-insertion-zone::after {
+  top: 50%;
+  right: 0;
+  left: auto;
+  transform: translateY(-50%) translateX(30px);
+}
+
+body.onemeta-dragging .onemeta-insertion-zone::before,
+body.onemeta-dragging .onemeta-insertion-zone::after {
+  opacity: 0.5;
+}
+
+.onemeta-insertion-zone.active::before,
+.onemeta-insertion-zone.active::after {
+  background: $color-primary;
+  width: 30px;
+  opacity: 1;
+}
+
+/* Smooth appearance/disappearance */
+.onemeta-insertion-zone {
+  max-height: 0;
+  overflow: hidden;
+}
+
+body.onemeta-dragging .onemeta-insertion-zone {
+  max-height: 60px;
+}
+
+/* Hover/drag states */
+.onemeta-fields-empty-state.drag-over-empty,
+.onemeta-sub-fields-empty-state.drag-over-empty,
+.no-sub-fields.drag-over-empty {
+  background: $color-bg-card !important;
+  border-color: $color-primary !important;
+  border-style: solid !important;
+  transform: scale(1.02);
+  box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+}
+
+.onemeta-sub-fields-empty-state.drag-over-invalid,
+.no-sub-fields.drag-over-invalid {
+  background: rgba($color-danger, 0.1) !important;
+  border-color: $color-danger !important;
+  border-style: solid !important;
+  box-shadow: 0 0 0 3px rgba($color-danger, 0.1);
+}
+
+/* Mobile responsive */
+@media (max-width: 782px) {
+  .onemeta-insertion-label {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+
+  .onemeta-drag-ghost {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}

@@ -1,0 +1,55 @@
+# OneMeta .gitattributes
+
+* text=auto
+
+# PHP
+*.php text eol=lf
+
+# Web files
+*.js text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.html text eol=lf
+*.json text eol=lf
+*.svg text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.pot text eol=lf
+*.po text eol=lf
+*.mo binary
+
+# Config
+.gitignore text eol=lf
+.gitattributes text eol=lf
+.distignore text eol=lf
+
+# Binaries
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.zip binary
+*.gz binary
+
+# Export-ignore (cleans up GitHub's auto-generated source ZIPs)
+.gitignore export-ignore
+.gitattributes export-ignore
+.distignore export-ignore
+.github/ export-ignore
+src/ export-ignore
+node_modules/ export-ignore
+package.json export-ignore
+package-lock.json export-ignore
+vite.config.js export-ignore
+README.md export-ignore
+CHANGELOG.md export-ignore
+CONTRIBUTING.md export-ignore
+SECURITY.md export-ignore
+screenshots/ export-ignore
+onemeta-svn/ export-ignore
+README/ export-ignore

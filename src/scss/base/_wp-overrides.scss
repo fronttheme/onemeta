@@ -1,0 +1,190 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "sass:color";
+
+// =============================================================================
+// WORDPRESS CORE OVERRIDES
+// Higher specificity to override WordPress default styles
+// =============================================================================
+
+// =============================================================================
+// LINKS / ANCHORS
+// =============================================================================
+
+.onemeta-wrapper {
+  a.onemeta-button {
+    // Reset WordPress link styles
+    text-decoration: none !important;
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba($color-primary, 0.3) !important;
+      outline: none !important;
+    }
+
+    &:hover {
+      text-decoration: none !important;
+    }
+  }
+}
+
+// =============================================================================
+// SELECT / DROPDOWN
+// =============================================================================
+
+.wp-core-ui {
+  .onemeta-select,
+  select.onemeta-select {
+    @include input-base;
+
+    // Reset WordPress select styles
+    padding-right: 32px;
+    background-position: right 8px top 50%;
+    background-size: 16px 16px;
+    min-height: $input-height;
+    max-width: none;
+
+    // Custom arrow
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"%3e%3cpath fill="%23646970" d="M4.5 5.5l3.5 3.5 3.5-3.5 1 1-4.5 4.5-4.5-4.5z"/%3e%3c/svg%3e');
+
+    &:focus {
+      border-color: $input-focus-border-color;
+      box-shadow: $input-focus-shadow !important;
+      outline: none !important;
+    }
+  }
+}
+
+// =============================================================================
+// INPUT FIELDS
+// =============================================================================
+
+.wp-core-ui {
+  input.onemeta-input,
+  textarea.onemeta-input {
+    @include input-base;
+
+    &:focus {
+      border-color: $input-focus-border-color !important;
+      box-shadow: $input-focus-shadow !important;
+      outline: none !important;
+    }
+  }
+}
+
+// =============================================================================
+// TABLES
+// =============================================================================
+
+.onemeta-wrapper {
+  table.onemeta-table {
+    // Override WordPress table styles
+    border: 1px solid $color-border;
+    border-collapse: collapse;
+
+    th,
+    td {
+      padding: $spacing-md;
+      border: 1px solid $color-border;
+    }
+
+    th {
+      background: $color-gray-50;
+      font-weight: $font-weight-semibold;
+      text-align: left;
+    }
+
+    // Override WordPress .widefat styles if needed
+    &.widefat {
+      th,
+      td {
+        padding: $spacing-md;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// NOTICES
+// =============================================================================
+
+.onemeta-wrapper {
+  .notice.onemeta-notice {
+    // Override WordPress notice styles
+    margin: $spacing-lg 0;
+    padding: $spacing-lg;
+
+    &.onemeta-notice--error {
+      border-left-color: $color-danger !important;
+      background-color: $color-danger-light !important;
+    }
+
+    &.onemeta-notice--success {
+      border-left-color: $color-success !important;
+      background-color: $color-success-light !important;
+    }
+
+    &.onemeta-notice--info {
+      border-left-color: $color-info !important;
+      background-color: $color-info-light !important;
+    }
+  }
+}
+
+// =============================================================================
+// Font icons (FontAwesome icons)
+// =============================================================================
+
+.onemeta-wrapper {
+  i {
+    // Ensure font icons work properly
+    width: auto;
+    height: auto;
+
+    &-before {
+    }
+  }
+}
+
+// =============================================================================
+// WORDPRESS ADMIN FORM ELEMENTS
+// =============================================================================
+
+.onemeta-wrapper {
+  // Reset WordPress form table styles
+  .form-table {
+    th,
+    td {
+      padding: $spacing-md;
+    }
+  }
+
+  // Regular text input in WordPress forms
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  input[type="number"],
+  textarea {
+    &.onemeta-input {
+      @include input-base;
+    }
+  }
+}
+
+// =============================================================================
+// IMPORTANT OVERRIDES
+// =============================================================================
+
+.onemeta-wrapper {
+  // Prevent WordPress from overriding our transitions
+  * {
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform !important;
+    transition-duration: $transition-base !important;
+    transition-timing-function: ease !important;
+  }
+
+  // But allow our custom transition overrides
+  .onemeta-no-transition,
+  .onemeta-no-transition * {
+    transition: none !important;
+  }
+}

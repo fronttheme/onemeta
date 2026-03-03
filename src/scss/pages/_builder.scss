@@ -1,0 +1,535 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "sass:color";
+
+// =============================================================================
+// BUILDER LAYOUT
+// =============================================================================
+
+.onemeta-builder {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 400px;
+  }
+
+  @include respond-to('xl') {
+    grid-template-columns: 1fr 500px;
+  }
+}
+
+.onemeta-builder__form-column {
+  min-width: 0; // Prevent grid blowout
+}
+
+.onemeta-builder__preview-column {
+  @include respond-to('lg') {
+    position: relative;
+  }
+}
+
+// =============================================================================
+// SETTINGS CARD
+// =============================================================================
+
+.onemeta-settings-card {
+  margin-bottom: $spacing-xl;
+
+  .onemeta-card__title {
+    @include flex-start;
+    gap: $spacing-sm;
+
+    i {
+      color: $color-primary;
+    }
+  }
+}
+
+// =============================================================================
+// FORM TABLE
+// =============================================================================
+
+.onemeta-form-table {
+  width: 100%;
+
+  .onemeta-form-row {
+    th,
+    td {
+      vertical-align: top;
+      margin: 0;
+    }
+  }
+
+  .onemeta-form-label {
+    width: 200px;
+    font-weight: $font-weight-medium;
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: $spacing-xs;
+    }
+  }
+
+  .onemeta-form-field {
+    .onemeta-input,
+    .onemeta-select {
+      max-width: 500px;
+    }
+  }
+}
+
+.onemeta-required {
+  color: $color-danger;
+  font-weight: $font-weight-bold;
+}
+
+.onemeta-field-description {
+  margin-top: $spacing-xs;
+  color: $color-text-light !important;
+  font-size: $font-size-sm;
+}
+
+.onemeta-field-note {
+  margin-top: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  background: $color-info-light;
+  border: 1px solid $color-info;
+  border-left-width: 3px;
+  border-radius: $border-radius-sm;
+  color: color.adjust($color-info, $lightness: -20%);
+  font-size: $font-size-sm;
+  @include flex-start;
+  gap: $spacing-sm;
+
+  i {
+    flex-shrink: 0;
+  }
+}
+
+.onemeta-conditional-row {
+  transition: opacity $transition-base;
+
+  &.hidden {
+    display: none;
+  }
+}
+
+// =============================================================================
+// FIELDS CARD
+// =============================================================================
+
+.onemeta-fields-card {
+  margin-bottom: $spacing-xl;
+
+  .onemeta-card__header {
+    @include flex-between;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+  }
+
+  .onemeta-card__title {
+    @include flex-start;
+    gap: $spacing-sm;
+    flex: 1;
+
+    i {
+      color: $color-primary;
+    }
+  }
+
+  .onemeta-field-count {
+    margin-left: $spacing-sm;
+  }
+
+  .onemeta-card__body--no-padding {
+    padding: 0;
+  }
+}
+
+// =============================================================================
+// FIELDS CONTAINER
+// =============================================================================
+
+.onemeta-fields-container {
+  min-height: 200px;
+}
+
+// =============================================================================
+// FIELDS EMPTY STATE
+// =============================================================================
+
+.onemeta-fields-empty-state {
+  @include flex-column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-5xl $spacing-xl;
+  text-align: center;
+  background: rgba($color-primary, 0.03);
+  border: 2px dashed $color-border;
+  border-radius: $border-radius-md;
+
+  &__icon {
+    width: 64px;
+    height: 64px;
+    @include flex-center;
+    margin-bottom: $spacing-lg;
+    background: linear-gradient(135deg, rgba($color-primary, 1) 0%, rgba($color-primary, 0.05) 100%);
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease; // Keep basic transitions for non-animated properties
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg); // Keep initial rotation
+      width: 80px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 50%;
+      z-index: -1;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 6px rgba($color-primary-dark, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease; // Keep basic transitions
+    }
+
+    &:hover {
+      background: linear-gradient(0deg, rgba($color-primary, 1) 0%, rgba($color-primary, 0.05) 100%);
+      box-shadow: 0 0 0 5px rgba($color-primary, 0.2); // Optional glow on hover
+
+      &::before {
+        box-shadow: 0 4px 15px rgba($color-primary-dark, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(12px); // Optional: increase blur on hover
+      }
+
+      i {
+        color: color.adjust($color-primary, $lightness: 10%);
+      }
+    }
+
+    i {
+      font-size: 32px;
+      width: 32px;
+      height: 32px;
+      color: $color-primary;
+      text-shadow: 0 0 2px #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.3s ease;
+      /* JS will handle transform animation, so no transform here */
+    }
+  }
+
+  &__title {
+    @include heading('sm');
+    margin: 0 0 $spacing-sm;
+    color: $color-text;
+  }
+
+  &__description {
+    font-size: $font-size-sm;
+    color: $color-text-light;
+    margin: 0;
+
+    i {
+      color: rgb(102, 39, 225);
+      background: linear-gradient(120deg, rgb(102, 39, 225) 0%, rgb(255, 83, 210) 50%, rgb(255, 172, 172) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
+
+.onemeta-sub-fields-empty-state {
+  @include flex-column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-5xl $spacing-xl;
+  text-align: center;
+  margin: 0;
+  background: rgba($color-primary, 0.1);
+  border: 2px dashed $color-primary-light;
+  border-radius: $border-radius-md;
+  transition: all 0.2s;
+  min-height: 100px;
+  font-size: 14px;
+}
+
+// =============================================================================
+// FIELD ITEM
+// =============================================================================
+
+.onemeta-field {
+  position: relative;
+  background: $color-white;
+  border-bottom: 1px solid $color-border-alt;
+  transition: $transition-all;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  // Dragging state
+  &.ui-sortable-helper {
+    box-shadow: $shadow-lg;
+    border-radius: $border-radius-md;
+    border: 1px solid $color-border;
+  }
+
+  &.ui-sortable-placeholder {
+    background: rgba($color-primary, 0.05);
+    border: 2px dashed $color-primary;
+    visibility: visible !important;
+  }
+}
+
+// =============================================================================
+// FIELD HEADER
+// =============================================================================
+
+.onemeta-field__header {
+  @include flex-start;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  flex-wrap: wrap;
+}
+
+.onemeta-field__handle {
+  color: $color-text-muted;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: $transition-base;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.onemeta-field-key,
+.onemeta-field-label {
+  flex: 1;
+  min-width: 150px;
+}
+
+.onemeta-input--inline {
+  margin: 0 !important;
+}
+
+.onemeta-field-remove {
+  flex-shrink: 0;
+}
+
+// =============================================================================
+// FIELD SETTINGS
+// =============================================================================
+
+.onemeta-field-settings__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+
+  @include respond-to('md') {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.onemeta-field-setting {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.onemeta-setting__label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text;
+  margin-bottom: $spacing-sm;
+  display: block;
+}
+
+// =============================================================================
+// ADVANCED SETTINGS
+// =============================================================================
+
+.onemeta-field-advanced-settings {
+  padding: $spacing-lg;
+  background: $color-white;
+  border-top: 1px solid $color-border-alt;
+
+  // Will be populated by JavaScript
+  &:empty {
+    display: none;
+  }
+}
+
+// =============================================================================
+// ACTIONS CARD
+// =============================================================================
+
+.onemeta-actions-card {
+  position: sticky;
+  bottom: 0;
+  background: $color-white;
+  border-top: 3px solid $color-primary;
+  box-shadow: $shadow-xl;
+  z-index: 10;
+}
+
+.onemeta-button-group {
+  @include flex-start;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+}
+
+// =============================================================================
+// LIVE PREVIEW
+// =============================================================================
+
+.onemeta-preview-card {
+  &.onemeta-sticky {
+    @include respond-to('lg') {
+      position: sticky;
+      top: 32px; // WordPress admin bar height
+      max-height: calc(100vh - 64px);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .onemeta-card__header {
+    @include flex-between;
+    flex-shrink: 0;
+  }
+
+  .onemeta-card__body--no-padding {
+    padding: 0;
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .onemeta-card__body {
+    padding: $spacing-lg;
+    background: $color-gray-700;
+    border-radius: $border-radius-lg;
+  }
+}
+
+.onemeta-code-preview {
+  flex: 1;
+  margin: 0;
+  color: $color-gray-100;
+  font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow: auto;
+  @include scrollbar(8px, $color-gray-500, $color-gray-400);
+
+  code {
+    display: block;
+    color: inherit;
+    background: transparent;
+    padding: 0;
+    font-size: 14px;
+    font-family: "JetBrains Mono", monospace;
+  }
+}
+
+// =============================================================================
+// INPUT VARIANTS
+// =============================================================================
+
+.onemeta-input,
+.onemeta-select {
+  @include input-base;
+}
+
+// =============================================================================
+// RESPONSIVE ADJUSTMENTS
+// =============================================================================
+
+@media (max-width: $breakpoint-lg) {
+  .onemeta-builder {
+    grid-template-columns: 1fr;
+  }
+
+  .onemeta-builder__preview-column {
+    order: -1; // Move preview to top on mobile
+  }
+
+  .onemeta-preview-card.onemeta-sticky {
+    position: static;
+    max-height: 400px;
+  }
+
+  .onemeta-field__header {
+    flex-direction: column;
+    align-items: stretch;
+
+    .onemeta-field-key,
+    .onemeta-field-label,
+    .onemeta-field-type {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .onemeta-form-table {
+    .onemeta-form-row {
+      th,
+      td {
+        display: block;
+        width: 100%;
+      }
+
+      th {
+        padding-bottom: $spacing-sm;
+      }
+
+      td {
+        padding-top: 0;
+      }
+    }
+  }
+
+  .onemeta-field-settings__row {
+    grid-template-columns: 1fr;
+  }
+}
+
+// =============================================================================
+// ANIMATION FOR NEW FIELDS
+// =============================================================================
+
+@keyframes slideInField {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.onemeta-field__item.newly-added {
+  animation: slideInField 0.3s ease;
+}

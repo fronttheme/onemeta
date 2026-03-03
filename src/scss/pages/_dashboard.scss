@@ -1,0 +1,253 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "sass:color";
+
+// =============================================================================
+// PAGE HEADER
+// =============================================================================
+
+.onemeta-page-header {
+  @include flex-between;
+  gap: $spacing-xl;
+  margin-bottom: $spacing-2xl;
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__title {
+    @include heading('lg');
+    margin: 0 0 $spacing-sm;
+  }
+
+  &__description {
+    font-size: $font-size-base;
+    color: $color-text-light;
+    margin: 0;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $spacing-sm;
+    align-items: center;
+
+    i {
+      margin-right: $spacing-xs;
+    }
+  }
+}
+
+// =============================================================================
+// STATS CARDS
+// =============================================================================
+
+.onemeta-stats {
+  margin-bottom: $spacing-2xl;
+
+  &__grid {
+    @include grid-responsive(250px, $spacing-lg);
+  }
+}
+
+.onemeta-stat-card {
+  @include flex-start;
+  gap: $spacing-lg;
+  padding: $spacing-xl;
+
+  &__icon {
+    width: 56px;
+    height: 56px;
+    @include flex-center;
+    border-radius: $border-radius-lg;
+    flex-shrink: 0;
+
+    i {
+      font-size: 28px;
+      width: 28px;
+      height: 28px;
+      color: $color-white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &--primary {
+      background: $gradient-primary;
+    }
+
+    &--success {
+      background: $gradient-success;
+    }
+
+    &--info {
+      background: $gradient-info;
+    }
+
+    &--warning {
+      background: $gradient-warning;
+    }
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__value {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    color: $color-text;
+    line-height: 1;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__label {
+    font-size: $font-size-sm;
+    color: $color-text-light;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+// =============================================================================
+// FIELD GROUPS LIST
+// =============================================================================
+
+.onemeta-field-groups {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+// Field Group Card is in _cards.scss, add dashboard-specific styles here
+.onemeta-field-group-card {
+  &__stat {
+    @include flex-start;
+    gap: $spacing-xs;
+
+    i {
+      font-size: 16px;
+      width: 16px;
+      height: 16px;
+      color: $color-text-light;
+    }
+
+    &-value,
+    &-label {
+      color: $color-text-light;
+    }
+  }
+}
+
+// =============================================================================
+// EMPTY STATE
+// =============================================================================
+
+.onemeta-empty-state {
+  @include flex-column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-5xl $spacing-xl;
+  text-align: center;
+  background: $color-white;
+  border: 2px dashed $color-border;
+  border-radius: $border-radius-lg;
+  @include fade-in;
+
+  &__icon {
+    width: 80px;
+    height: 80px;
+    @include flex-center;
+    margin-bottom: $spacing-xl;
+    background: $gradient-primary;
+    border-radius: $border-radius-xl;
+
+    i {
+      font-size: 40px;
+      width: 40px;
+      height: 40px;
+      color: $color-white;
+    }
+  }
+
+  &__title {
+    @include heading('lg');
+    margin: 0 0 $spacing-md;
+  }
+
+  &__description {
+    font-size: $font-size-base;
+    color: $color-text-light;
+    max-width: 500px;
+    margin: 0 0 $spacing-xl;
+    line-height: $line-height-relaxed;
+  }
+
+  i {
+    margin-right: $spacing-xs;
+  }
+}
+
+// =============================================================================
+// LOADING STATE
+// =============================================================================
+
+.onemeta-loading {
+  @include flex-column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-5xl $spacing-xl;
+  text-align: center;
+
+  &__spinner {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+    color: $color-primary;
+    animation: spin 1s linear infinite;
+  }
+
+  p {
+    margin-top: $spacing-lg;
+    color: $color-text-light;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// =============================================================================
+// NOTICES
+// =============================================================================
+
+.onemeta-notice {
+  padding: $spacing-lg;
+  border-left: 4px solid;
+  border-radius: $border-radius-base;
+  margin-bottom: $spacing-lg;
+
+  &--error {
+    border-color: $color-danger;
+    background-color: $color-danger-light;
+  }
+
+  &--success {
+    border-color: $color-success;
+    background-color: $color-success-light;
+  }
+
+  &--info {
+    border-color: $color-info;
+    background-color: $color-info-light;
+  }
+
+  p {
+    margin: 0;
+  }
+}

@@ -1,0 +1,139 @@
+/**
+ * OneMeta Meta Fields Variables
+ * Single source of truth for all design tokens
+ *
+ * @package OneMeta
+ */
+
+/* ==================================================
+   COLORS
+   ================================================== */
+$color-primary: #8b5cf6;
+$color-primary-dark: #7c3aed;
+$color-primary-light: #f5f3ff;
+
+$color-accent: #199f9e;
+$color-accent-dark: #0c8584;
+$color-accent-light: #b3eae9;
+
+$color-danger: #ef4444;
+$color-danger-dark: #dc2626;
+$color-danger-darker: #b52727;
+$color-danger-bg: rgba(220, 38, 38, 0.9);
+
+$color-text-primary: #1d2327;
+$color-text-secondary: #374151;
+$color-text-tertiary: #646970;
+$color-text-muted: #6b7280;
+$color-text-light: #9ca3af;
+
+$color-bg-white: #ffffff;
+$color-bg-light: #f6f7f7;
+$color-bg-lighter: #f9fafb;
+$color-bg-muted: #f0f0f1;
+
+$color-border: #dcdcde;
+$color-border-light: #e5e7eb;
+
+$color-wordpress-blue: #2271b1;
+
+/* ==================================================
+   SPACING
+   ================================================== */
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 12px;
+$spacing-lg: 15px;
+$spacing-xl: 16px;
+$spacing-2xl: 20px;
+$spacing-3xl: 25px;
+$spacing-4xl: 30px;
+
+/* ==================================================
+   TYPOGRAPHY
+   ================================================== */
+$font-size-xs: 11px;
+$font-size-sm: 12px;
+$font-size-base: 13px;
+$font-size-md: 14px;
+$font-size-lg: 18px;
+$font-size-xl: 20px;
+
+$font-weight-normal: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$line-height-base: 1.5;
+
+/* ==================================================
+   BORDERS & RADIUS
+   ================================================== */
+$border-width: 1px;
+$border-width-md: 2px;
+
+$border-radius-sm: 3px;
+$border-radius-base: 4px;
+$border-radius-md: 6px;
+$border-radius-lg: 8px;
+$border-radius-xl: 12px;
+$border-radius-full: 50%;
+$border-radius-pill: 16px;
+
+/* ==================================================
+   SHADOWS
+   ================================================== */
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+$shadow-md: 0 2px 8px rgba(139, 92, 246, 0.3);
+$shadow-lg: 0 4px 12px rgba(139, 92, 246, 0.4);
+$shadow-danger: 0 4px 12px rgba(239, 68, 68, 0.4);
+$shadow-hover: 0 4px 12px rgba(139, 92, 246, 0.2);
+$shadow-focus: 0 0 0 3px rgba(139, 92, 246, 0.1);
+
+/* ==================================================
+   TRANSITIONS
+   ================================================== */
+$transition-fast: 0.2s;
+$transition-base: 0.3s;
+$transition-all: all 0.3s ease;
+
+/* ==================================================
+   LAYOUT
+   ================================================== */
+$sidebar-label-width: 200px;
+$sidebar-label-width-sm: 140px;
+$sidebar-gap: 30px;
+$sidebar-gap-sm: 20px;
+
+$input-padding: 10px 14px;
+$button-padding: 10px 18px;
+
+/* ==================================================
+   COMPONENT SIZES
+   ================================================== */
+$icon-size-sm: 18px;
+$icon-size-base: 20px;
+$icon-size-md: 24px;
+$icon-size-lg: 28px;
+$icon-size-xl: 32px;
+
+$toggle-width: 120px;
+$toggle-height: 32px;
+$toggle-circle-size: 26px;
+
+$gallery-item-min: 100px;
+$gallery-item-min-lg: 120px;
+$gallery-gap: 12px;
+$gallery-gap-lg: 15px;
+
+/* ==================================================
+   BREAKPOINTS
+   ================================================== */
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 782px;
+
+/* ==================================================
+   Z-INDEX
+   ================================================== */
+$z-index-toggle: 10;
+$z-index-overlay: 20;

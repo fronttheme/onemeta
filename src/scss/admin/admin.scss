@@ -1,0 +1,44 @@
+// =============================================================================
+// ONEMETA ADMIN STYLES
+// Main entry point for all admin styles
+// =============================================================================
+
+// =============================================================================
+// 1. ABSTRACTS - Variables, mixins, functions
+// =============================================================================
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+// =============================================================================
+// 2. BASE - Resets, typography, WordPress overrides
+// =============================================================================
+@use '../base/wp-overrides';
+// IMPORTANT: Load this first to override WP
+@use '../base/reset';
+@use '../base/typography';
+@use '../base/helpers';
+
+// =============================================================================
+// 3. COMPONENTS - Reusable UI components
+// =============================================================================
+@use '../components/buttons';
+@use '../components/cards';
+@use '../components/badges';
+@use '../components/tables';
+@use '../components/forms';
+@use '../components/fields';
+@use '../components/components';
+
+// =============================================================================
+// 4. LAYOUT - Grid, containers, wrappers
+// =============================================================================
+@use '../layout/field-palette-sidebar';
+@use '../layout/insertion-zones';
+
+// =============================================================================
+// 5. PAGES - Page-specific styles
+// =============================================================================
+@use '../pages/dashboard';
+@use '../pages/builder';
+@use '../pages/about';
+@use '../pages/docs';
