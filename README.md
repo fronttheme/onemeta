@@ -1,6 +1,6 @@
 <div align="center">
 
-![OneMeta - Custom Meta Fields](assets/images/OneMeta - Custom Meta Fields.webp)
+<img src="assets/images/OneMeta - Custom Meta Fields.webp" alt="OneMeta - Custom Meta Fields"/>
 
 # OneMeta — Custom Meta Fields Made Simple
 
