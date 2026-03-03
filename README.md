@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-# onemeta
-Reserved for upcoming lightweight custom fields plugin for WordPress.
-=======
 <div align="center">
 
-<img src="assets/images/logo/onemeta-logo.svg" alt="OneMeta" height="60" />
+<img src="assets/images/logo/onemeta-logo-dark.svg" alt="OneMeta" height="60" />
 
 # OneMeta — Custom Meta Fields Made Simple
 
@@ -430,4 +426,3 @@ OneMeta is licensed under the [GPL-2.0-or-later](LICENSE) license — the same l
 Made with ❤️ for the WordPress community · [fronttheme.com](https://fronttheme.com)
 
 </div>
->>>>>>> 7065ece (Initial release v1.0.0)
