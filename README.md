@@ -14,6 +14,10 @@ Build powerful custom fields with a beautiful visual builder — no bloat, no pa
 
 [Features](#-features) · [Field Types](#-field-types) · [Installation](#-installation) · [Usage](#-usage) · [Export](#-export-as-php) · [Contributing](#-contributing)
 
+<br>
+
+[![Full Documentation](https://img.shields.io/badge/Full%20Documentation-%20fronttheme.com-6f42c1?style=for-the-badge&logo=wordpress&logoColor=white)](https://www.fronttheme.com/docs/onemeta/)
+
 </div>
 
 ---
@@ -354,38 +358,85 @@ OneMeta field data is accessible via the WordPress REST API. Field values are ex
 
 - Node.js 18+
 - npm
+- Local WordPress install (e.g. [LocalWP](https://localwp.com/), Laragon, MAMP)
 
 ### Setup
 
 ```bash
+cd wp-content/plugins
 git clone https://github.com/fronttheme/onemeta.git
 cd onemeta
 npm install
 ```
 
+### Enable Dev Mode
+
+OneMeta includes a dev mode that loads JS and CSS directly from the Vite dev server (`localhost:3000`) with Hot Module Replacement (HMR). To enable it, add the following constants to your `wp-config.php`:
+
+```php
+define( 'WP_DEBUG', true );
+define( 'ONEMETA_DEV_MODE', true );
+define( 'WP_DEBUG_LOG', true );
+define( 'WP_DEBUG_DISPLAY', false );
+define( 'WP_ENVIRONMENT_TYPE', 'local' );
+```
+
+> **Important:** `ONEMETA_DEV_MODE` must be the boolean `true` — not the string `"true"`.
+
+How dev mode works per context:
+
+| Context | Condition to activate dev mode |
+|---|---|
+| Admin builder (JS + CSS) | `ONEMETA_DEV_MODE === true` |
+| Frontend field assets (JS + CSS) | `WP_DEBUG === true` **and** `ONEMETA_DEV_MODE === true` |
+
+Then start the Vite dev server:
+
+```bash
+npm run dev
+```
+
+Changes to any file in `src/js/` or `src/scss/` will now hot-reload instantly in the browser.
+
+### Disable Dev Mode
+
+To test the production build locally, comment out `ONEMETA_DEV_MODE`:
+
+```php
+// define( 'ONEMETA_DEV_MODE', true );
+```
+
+Then run a production build:
+
+```bash
+npm run build
+```
+
+The plugin will now load compiled assets from `assets/js/` and `assets/css/` — exactly as it does for end users.
+
 ### Commands
 
 ```bash
-# Start development with HMR
+# Start Vite dev server with HMR (requires ONEMETA_DEV_MODE)
 npm run dev
 
-# Build for production
+# Production build
 npm run build
 
-# Watch mode
+# Watch mode — rebuilds on change, no HMR
 npm run watch
 
-# Generate translation POT file
+# Generate translation .pot file
 npm run pot
 
-# Package for distribution
+# Build and package release ZIP
 npm run package
 ```
 
 ### Tech Stack
 
 - **Build Tool:** Vite 5
-- **CSS:** SCSS (modular architecture)
+- **CSS:** SCSS (modular 7-1 architecture)
 - **JS:** Vanilla ES Modules (no jQuery)
 - **PHP:** PSR-4 autoloaded, singleton pattern
 - **Database:** Custom `wp_onemeta_field_groups` table
@@ -403,6 +454,8 @@ Contributions are welcome! Please:
 5. Open a Pull Request
 
 Please follow WordPress coding standards for PHP and keep JS changes consistent with the existing modular architecture.
+
+For a full contribution guide including how to add new field types, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
