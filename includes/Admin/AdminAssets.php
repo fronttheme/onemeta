@@ -42,6 +42,7 @@
 		 */
 		private function __construct() {
 			add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_assets' ] );
+			add_action( 'admin_head', [ $this, 'clean_admin_page' ], 999 ); // High priority
 		}
 
 		/**
@@ -378,5 +379,65 @@
 				'toggleSubFields'    => __( 'Toggle Sub-Fields', 'onemeta' ),
 				'saving'             => __( 'Saving...', 'onemeta' ),
 			];
+		}
+
+		/**
+		 * Clean up admin page - hide other notices
+		 */
+		public function clean_admin_page(): void {
+			$screen = get_current_screen();
+
+			// Check if current page is any onemeta page
+			if ( ! $screen || strpos( $screen->id, 'onemeta' ) === false ) {
+				return;
+			}
+
+			// CSS to hide all notices (except onemeta)
+			?>
+      <style>
+        /* Hide ALL notices on any onemeta page */
+        body[id*="onemeta"] .notice:not(.onemeta-notice),
+        body[id*="onemeta"] .update-nag,
+        body[id*="onemeta"] .updated {
+          display: none !important;
+        }
+        /* Show only onemeta notices */
+        .onemeta-notice {
+          display: block !important;
+          margin: 15px 0 !important;
+          border-left-color: #2271b1 !important;
+        }
+        /* Optional: Clean up admin UI */
+        body[id*="onemeta"] #wpbody-content > .notice {
+          display: none;
+        }
+        /* Hide screen options & help tabs */
+        body[id*="onemeta"] #screen-meta,
+        body[id*="onemeta"] #screen-meta-links {
+          display: none;
+        }
+      </style>
+
+      <!-- Optional: Remove admin footer text -->
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          // Remove footer text
+          const footer = document.getElementById('footer-left');
+          if (footer) {
+            footer.innerHTML = '';
+          }
+
+          // Remove footer upgrade notice
+          const upgrade = document.getElementById('footer-upgrade');
+          if (upgrade) {
+            upgrade.remove();
+          }
+        });
+      </script>
+			<?php
+
+			// Remove admin notices via PHP
+			remove_all_actions( 'admin_notices' );
+			remove_all_actions( 'all_admin_notices' );
 		}
 	}
