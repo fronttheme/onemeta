@@ -135,6 +135,8 @@
 			);
 
 			wp_set_script_translations( 'onemeta-builder-app', 'onemeta' );
+
+			add_filter( 'script_loader_tag', [ $this, 'add_vite_module_type' ], 10, 2 );
 		}
 
 		/**
