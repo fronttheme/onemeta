@@ -6,6 +6,7 @@ src/
 
 # Build tooling
 node_modules/
+package/
 package.json
 package-lock.json
 vite.config.js

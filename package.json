@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "watch": "vite build --watch",
     "pot": "wp i18n make-pot . languages/onemeta.pot --domain=onemeta",
-    "package": "npm run build && npm run pot && rm -rf ../onemeta-packaged && rm -f ../onemeta.zip && rsync -av --exclude-from='.distignore' . ../onemeta-packaged && cd .. && zip -r onemeta.zip onemeta-packaged && echo '✅ onemeta.zip ready for release!'"
+    "package": "npm run build && npm run pot && rm -rf package/onemeta && rm -f package/onemeta.zip && mkdir -p package/onemeta && rsync -av --exclude-from='.distignore' . package/onemeta && cd package && zip -r onemeta.zip onemeta && rm -rf onemeta && echo '✅ package/onemeta.zip ready!'"
   },
   "keywords": [
     "wordpress",
