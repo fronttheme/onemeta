@@ -64,6 +64,8 @@
 				$this->enqueue_production_assets();
 			}
 
+			add_filter( 'script_loader_tag', [ $this, 'add_module_type' ], 10, 3 );
+
 			$this->localize_script();
 		}
 
@@ -86,8 +88,6 @@
 				null,
 				false
 			);
-
-			add_filter( 'script_loader_tag', [ $this, 'add_vite_module_type' ], 10, 2 );
 		}
 
 		/**
@@ -128,16 +128,16 @@
 		}
 
 		/**
-		 * Add Vite module type
+		 * Add module type
 		 *
 		 * @param string $tag Script tag
 		 * @param string $handle Script handle
 		 *
 		 * @return string Modified script tag
 		 */
-		public function add_vite_module_type( string $tag, string $handle ): string {
+		public function add_module_type( string $tag, string $handle, $src ): string {
 			if ( in_array( $handle, [ 'vite-client-frontend', 'onemeta-meta-fields' ] ) ) {
-				return str_replace( '<script', '<script type="module"', $tag );
+				return '<script type="module" src="' . esc_url( $src ) . '"></script>';
 			}
 
 			return $tag;
