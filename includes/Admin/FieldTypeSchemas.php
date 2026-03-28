@@ -35,6 +35,27 @@
 		public static function get_all_schemas(): array {
 			$schemas = [
 				// Basic Fields
+				'heading' => [
+					'tag'       => [
+						'type'    => 'select',
+						'label'   => __( 'HTML Tag', 'onemeta' ),
+						'choices' => [
+							'h2' => 'H2',
+							'h3' => 'H3',
+							'h4' => 'H4',
+							'h5' => 'H5',
+							'h6' => 'H6',
+							'p'  => 'Paragraph',
+						],
+						'default' => 'h3',
+					],
+					'separator' => [
+						'type'    => 'toggle',
+						'label'   => __( 'Show Separator', 'onemeta' ),
+						'default' => '0',
+					],
+				],
+
 				'text' => [
 					'default'   => [
 						'type'        => 'text',
@@ -317,6 +338,7 @@
 		public static function get_field_type_groups(): array {
 			return [
 				'Basic'    => [
+					'heading'  => __( 'Heading', 'onemeta' ),
 					'text'     => __( 'Text', 'onemeta' ),
 					'textarea' => __( 'Textarea', 'onemeta' ),
 					'url'      => __( 'URL', 'onemeta' ),
@@ -368,6 +390,9 @@
 			];
 
 			foreach ( $schemas as $type => $settings ) {
+				if ( $type === 'heading' ) {
+					continue; // skip — heading is display-only
+				}
 				$schemas[ $type ]['conditional'] = $conditional_setting;
 			}
 

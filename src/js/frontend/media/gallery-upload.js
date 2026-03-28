@@ -68,6 +68,7 @@ export class GalleryUpload {
       const currentIds = $input.val() ? $input.val().split(',') : [];
       const allIds = currentIds.concat(ids);
       $input.val(allIds.join(','));
+      $input[0].dispatchEvent(new Event('change', { bubbles: true }));
     }, {
       title: 'Select Images',
       buttonText: 'Add to Gallery',
@@ -98,6 +99,7 @@ export class GalleryUpload {
       if (input && input.value) {
         const ids = input.value.split(',').filter(id => id != imageId);
         input.value = ids.join(',');
+        input.dispatchEvent(new Event('change', { bubbles: true }));
       }
     });
   }

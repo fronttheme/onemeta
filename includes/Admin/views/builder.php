@@ -233,6 +233,7 @@
                           <option value="file" <?php selected( $field['type'], 'file' ); ?>><?php esc_html_e( 'File', 'onemeta' ); ?></option>
                           <option value="gallery" <?php selected( $field['type'], 'gallery' ); ?>><?php esc_html_e( 'Gallery', 'onemeta' ); ?></option>
                           <option value="repeater" <?php selected( $field['type'], 'repeater' ); ?>><?php esc_html_e( 'Repeater', 'onemeta' ); ?></option>
+                          <option value="heading" <?php selected( $field['type'], 'heading' ); ?>><?php esc_html_e( 'Heading', 'onemeta' ); ?></option>
                         </select>
                       </div>
                     </div>
@@ -347,6 +348,7 @@
           <option value="file"><?php esc_html_e( 'File', 'onemeta' ); ?></option>
           <option value="gallery"><?php esc_html_e( 'Gallery', 'onemeta' ); ?></option>
           <option value="repeater"><?php esc_html_e( 'Repeater', 'onemeta' ); ?></option>
+          <option value="heading"><?php esc_html_e( 'Heading', 'onemeta' ); ?></option>
         </select>
       </div>
     </div>

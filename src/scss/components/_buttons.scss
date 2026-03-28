@@ -162,6 +162,7 @@
     background: rgba($color-danger, 0.1);
     border-color: rgba($color-danger, 0.15);
     color: $color-danger;
+    flex-shrink: 0;
 
     &:hover {
       color: $color-danger;

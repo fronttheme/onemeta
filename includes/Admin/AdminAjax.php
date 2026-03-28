@@ -267,10 +267,21 @@
 					return $sanitized;
 
 				case 'conditional':
+					$rules = [];
+					foreach ( $setting_value['rules'] ?? [] as $rule ) {
+						if ( ! is_array( $rule ) ) {
+							continue;
+						}
+						$rules[] = [
+							'field'    => sanitize_text_field( $rule['field'] ?? '' ),
+							'operator' => sanitize_text_field( $rule['operator'] ?? '==' ),
+							'value'    => sanitize_text_field( $rule['value'] ?? '' ),
+						];
+					}
+
 					return [
-						'field'    => sanitize_text_field( $setting_value['field'] ?? '' ),
-						'operator' => sanitize_text_field( $setting_value['operator'] ?? '==' ),
-						'value'    => sanitize_text_field( $setting_value['value'] ?? '' ),
+						'relation' => sanitize_text_field( $setting_value['relation'] ?? 'AND' ),
+						'rules'    => $rules,
 					];
 
 				case 'default':

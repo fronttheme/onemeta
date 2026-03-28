@@ -30,15 +30,11 @@
   align-items: start;
   padding: $spacing-3xl $spacing-2xl;
   margin-bottom: 0;
-  border-bottom: $border-width solid $color-border-light;
+  border-radius: $border-radius-md;
   transition: $transition-all;
 
-  &:hover {
-    background: $color-bg-lighter;
-  }
-
-  &:last-child {
-    border-bottom: none;
+  &:hover:not(.onemeta-heading-field) {
+    background: rgba($color-primary, 0.05);
   }
 
   // Label styling
@@ -86,7 +82,7 @@
   select {
     width: 100%;
     padding: $input-padding;
-    border: $border-width-md solid $color-border-light;
+    border: $border-width-md solid rgba($color-primary, 0.2);
     border-radius: $border-radius-md;
     font-size: $font-size-md;
     transition: $transition-all;
@@ -107,6 +103,60 @@
   textarea {
     resize: vertical;
     font-family: inherit;
+  }
+}
+
+/* ==================================================
+   HEADING FIELD
+   ================================================== */
+
+.onemeta-heading-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0 !important;
+  margin: 20px 0 !important;
+  padding: 0 !important;
+  padding-left: 20px !important;
+  border: 0 !important;
+  border-left: 3px solid $color-primary !important;
+  background: none;
+  border-radius: 0 !important;
+
+  &__title {
+    margin: 0;
+    padding: 0 !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $color-primary;
+  }
+
+  // Tag-based font sizes
+  h2.onemeta-heading-field__title { font-size: 16px !important; }
+
+  h3.onemeta-heading-field__title { font-size: 15px !important; }
+
+  h4.onemeta-heading-field__title { font-size: 14px !important; }
+
+  h5.onemeta-heading-field__title { font-size: 13px !important; }
+
+  h6.onemeta-heading-field__title { font-size: 12px !important; font-weight: 500 !important; text-transform: none; letter-spacing: 0; }
+
+  p.onemeta-heading-field__title { font-size: 12px !important; font-weight: 500 !important; text-transform: none; letter-spacing: 0; }
+
+  &__desc {
+    font-style: normal !important;
+    margin: 4px 0 0;
+    color: $color-text-secondary;
+  }
+
+  &__separator {
+    margin: 10px 0 0;
+    border: none;
+    padding: 1px;
+    background: rgba($color-primary, 0.5);
+    width: 100px;
   }
 }
 
@@ -528,8 +578,8 @@
 }
 
 .onemeta-repeater-row {
-  background: $color-bg-lighter;
-  border: $border-width-md solid $color-border-light;
+  background: rgba($color-primary, 0.05);
+  border: $border-width-md solid rgba($color-primary, 0.25);
   border-radius: $border-radius-lg;
   padding: $spacing-3xl;
   position: relative;
@@ -606,14 +656,14 @@
     grid-template-columns: $sidebar-label-width-sm 1fr;
     gap: $sidebar-gap-sm;
     padding: $spacing-lg 0;
-    border-bottom: $border-width solid $color-border-light;
+    border-bottom: 0 !important;
     margin-bottom: 0;
 
     &:last-child {
       border-bottom: none;
     }
 
-    &:hover {
+    &:hover:not(.onemeta-heading-field) {
       background: transparent;
       padding-left: 0;
     }

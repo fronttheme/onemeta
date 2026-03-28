@@ -69,6 +69,44 @@
     }
 
     /**
+     * Render heading field (display only, no input)
+     *
+     * @param array $args Field arguments
+     *
+     * @return string
+     */
+    public function heading( array $args ): string {
+      $defaults = [
+          'label'       => '',
+          'description' => '',
+          'tag'         => 'h3',
+          'separator'   => '0',
+      ];
+
+      $args      = wp_parse_args( $args, $defaults );
+      $tag       = in_array( $args['tag'], [ 'h2', 'h3', 'h4', 'h5', 'h6', 'p' ] ) ? $args['tag'] : 'h3';
+      $separator = $args['separator'] === '1' || $args['separator'] === true;
+
+      ob_start();
+      ?>
+      <div class="onemeta-field-wrap onemeta-heading-field">
+      <<?php echo $tag; ?> class="onemeta-heading-field__title">
+      <?php echo esc_html( $args['label'] ); ?>
+      </<?php echo $tag; ?>>
+      <?php if ( ! empty( $args['description'] ) ): ?>
+        <p class="description onemeta-heading-field__desc">
+          <?php echo wp_kses_post( $args['description'] ); ?>
+        </p>
+      <?php endif; ?>
+      <?php if ( $separator ): ?>
+        <hr class="onemeta-heading-field__separator">
+      <?php endif; ?>
+      </div>
+      <?php
+      return ob_get_clean();
+    }
+
+    /**
      * Render text field
      *
      * @param array $args Field arguments
@@ -352,15 +390,15 @@
           'file_type'   => 'any', // video, audio, document, archive, font, spreadsheet, any
       ];
 
-      $args      = wp_parse_args( $args, $defaults );
-      $file_url  = $args['value'];
-      $file_name = $file_url ? basename( $file_url ) : '';
+      $args = wp_parse_args( $args, $defaults );
 
       // Get file type config
       $file_config = $this->get_file_type_config( $args['file_type'] );
 
-      // Get file extension for icon
-      $file_ext = $file_url ? pathinfo( $file_url, PATHINFO_EXTENSION ) : '';
+      $file_id   = is_numeric( $args['value'] ) ? (int) $args['value'] : 0;
+      $file_url  = $file_id ? wp_get_attachment_url( $file_id ) : $args['value'];
+      $file_name = $file_url ? basename( $file_url ) : '';
+      $file_ext  = $file_url ? pathinfo( $file_url, PATHINFO_EXTENSION ) : '';
 
       ob_start();
       ?>
@@ -405,7 +443,7 @@
           <input type="hidden"
                  id="<?php echo esc_attr( $args['id'] ); ?>"
                  name="<?php echo esc_attr( $args['name'] ); ?>"
-                 value="<?php echo esc_url( $file_url ); ?>"/>
+                 value="<?php echo esc_attr( $args['value'] ); ?>"/>
         </div>
 
       </div>

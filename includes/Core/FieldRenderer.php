@@ -100,7 +100,9 @@
           'file_type',
           'instructions',
           'layout',
-          'rows'
+          'rows',
+          'tag',
+          'separator',
       ];
       foreach ( $optional_keys as $key ) {
         if ( isset( $field[ $key ] ) ) {

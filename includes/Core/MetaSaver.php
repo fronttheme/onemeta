@@ -144,6 +144,11 @@
 					continue;
 				}
 
+				// Skip heading fields — display only, no value to save
+				if ( $type === 'heading' ) {
+					continue;
+				}
+
 				$cleared_field = $field_id . '_cleared';
 
 				// Check if this is a date field that was cleared

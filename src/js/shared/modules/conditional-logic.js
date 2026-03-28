@@ -25,53 +25,48 @@ class ConditionalLogic {
    */
   setupField(fieldWrap) {
     try {
-      // Parse conditional logic data
-      const conditionalStr = fieldWrap.dataset.conditional;
-      const conditional = JSON.parse(conditionalStr);
+      const conditional = JSON.parse(fieldWrap.dataset.conditional);
+      const rules = conditional.rules;
+      const relation = conditional.relation || 'AND';
 
-      // Find source field - try multiple patterns
-      const sourceField = document.querySelector(`[name*="[${conditional.field}]"]`);
+      // Collect all source fields
+      const sourceFields = [];
+      rules.forEach(rule => {
+        const sourceField = document.querySelector(`[name*="[${rule.field}]"]`);
+        if (sourceField) sourceFields.push({field: sourceField, rule});
+        else console.warn(`Source field not found: ${rule.field}`);
+      });
 
-      if (!sourceField) {
-        console.warn(`Source field not found for conditional: ${conditional.field}`);
-        return;
-      }
+      if (sourceFields.length === 0) return;
 
-      // Create visibility updater function
       const updateVisibility = () => {
-        const sourceValue = this.getFieldValue(sourceField);
-        const condValue = String(conditional.value);
-        const operator = conditional.operator;
+        const results = sourceFields.map(({field, rule}) => {
+          const sourceValue = this.getFieldValue(field);
+          const condValue = String(rule.value ?? '');
 
-        let show = false;
+          switch (rule.operator) {
+            case '==':
+              return sourceValue === condValue;
+            case '!=':
+              return sourceValue !== condValue;
+            case 'contains':
+              return sourceValue.toLowerCase().includes(condValue.toLowerCase());
+            case '!contains':
+              return !sourceValue.toLowerCase().includes(condValue.toLowerCase());
+            default:
+              console.warn(`Unknown operator: ${rule.operator}`);
+              return false;
+          }
+        });
 
-        switch (operator) {
-          case '==':
-            show = sourceValue === condValue;
-            break;
-          case '!=':
-            show = sourceValue !== condValue;
-            break;
-          case 'contains':
-            // Check if source value contains the condition value
-            show = sourceValue.toLowerCase().includes(condValue.toLowerCase());
-            break;
-          case '!contains':
-            // Check if source value does NOT contain the condition value
-            show = !sourceValue.toLowerCase().includes(condValue.toLowerCase());
-            break;
-          default:
-            console.warn(`Unknown operator: ${operator}`);
-        }
+        const show = relation === 'OR'
+          ? results.some(Boolean)
+          : results.every(Boolean);
 
-        // Update display
         fieldWrap.style.display = show ? 'grid' : 'none';
       };
 
-      // Bind events based on field type
-      this.bindEvents(sourceField, updateVisibility);
-
-      // Initial visibility check
+      sourceFields.forEach(({field}) => this.bindEvents(field, updateVisibility));
       updateVisibility();
 
     } catch (error) {
@@ -95,8 +90,16 @@ class ConditionalLogic {
       return checked ? String(checked.value) : '';
     }
 
-    // Checkbox/Toggle - return '1' or '0'
+    // Checkbox group - return comma-separated checked values
+    // Toggle - return '1' or '0'
     if (type === 'checkbox') {
+      const name = field.getAttribute('name');
+      // Checkbox groups use name="...[field][]" (ends with [])
+      if (name && name.endsWith('[]')) {
+        const checked = document.querySelectorAll(`input[name="${name}"]:checked`);
+        return Array.from(checked).map(cb => cb.value).join(',');
+      }
+      // Single toggle checkbox
       return field.checked ? '1' : '0';
     }
 
@@ -124,23 +127,22 @@ class ConditionalLogic {
     const tagName = sourceField.tagName;
 
     if (type === 'radio') {
-      // For radio buttons, bind to all radios in the group
       const name = sourceField.getAttribute('name');
-      const radios = document.querySelectorAll(`input[name="${name}"]`);
+      document.querySelectorAll(`input[name="${name}"]`)
+        .forEach(r => r.addEventListener('change', callback));
 
-      radios.forEach(radio => {
-        radio.addEventListener('change', callback);
-      });
+    } else if (type === 'checkbox') {
+      const name = sourceField.getAttribute('name');
+      // Bind to ALL checkboxes in the group
+      document.querySelectorAll(`input[name="${name}"]`)
+        .forEach(cb => cb.addEventListener('change', callback));
+
     } else if (tagName === 'SELECT') {
-      // For select dropdowns
       sourceField.addEventListener('change', callback);
-    } else {
-      // For text inputs, textareas, etc. - listen to multiple events
-      const events = ['input', 'change', 'blur'];
 
-      events.forEach(eventType => {
-        sourceField.addEventListener(eventType, callback);
-      });
+    } else {
+      ['input', 'change', 'blur']
+        .forEach(e => sourceField.addEventListener(e, callback));
     }
   }
 }

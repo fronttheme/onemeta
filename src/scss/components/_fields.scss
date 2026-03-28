@@ -215,6 +215,25 @@
     border-radius: $border-radius-base;
     padding: $spacing-lg;
     margin-top: $spacing-md;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xl;
+
+    .conditional-relation {
+      display: flex;
+      gap: $spacing-md;
+      align-items: center;
+    }
+
+    button.conditional-add-rule {
+      max-width: max-content;
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-lg;
+    }
 
     .conditional-label {
       font-size: $font-size-sm;
@@ -228,16 +247,15 @@
       display: flex;
       align-items: center;
       gap: $spacing-sm;
-      flex-wrap: wrap;
 
       .conditional-field-select {
         flex: 2;
-        min-width: 200px;
+        min-width: 35%;
       }
 
       .conditional-operator {
         flex: 1;
-        min-width: 120px;
+        min-width: 20%;
       }
 
       .conditional-value {

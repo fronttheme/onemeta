@@ -1,6 +1,6 @@
 <?php
 	/**
-	 * Plugin Name: OneMeta - Custom Meta Fields Made Simple
+	 * Plugin Name: OneMeta - Custom Meta Fields
 	 * Plugin URI: https://fronttheme.com/products/onemeta
 	 * Description: Build powerful custom fields with a visual builder. Export as PHP code or use directly in WordPress.
 	 * Version: 1.0.0
@@ -189,16 +189,18 @@
 	function onemeta_get_meta( int $post_id, string $key, mixed $default = '' ): mixed {
 		$meta_key = 'onemeta_' . $key;
 
-		// Check if meta exists first
 		if ( ! metadata_exists( 'post', $post_id, $meta_key ) ) {
 			return $default;
 		}
 
 		$value = get_post_meta( $post_id, $meta_key, true );
 
-		// Return value even if it's 0, false, or empty array
-		// Only return default if value is truly empty string or null
-		return ( $value !== '' && $value !== null ) ? $value : $default;
+		if ( $value === '' || $value === null ) {
+			return $default;
+		}
+
+		// Resolve return format for image/gallery/file fields
+		return \OneMeta\Core\FieldValueResolver::instance()->resolve( $value, $key, 'post' );
 	}
 
 	/**
@@ -213,15 +215,18 @@
 	function onemeta_get_user_meta( int $user_id, string $key, mixed $default = '' ): mixed {
 		$meta_key = 'onemeta_' . $key;
 
-		// Check if meta exists first
 		if ( ! metadata_exists( 'user', $user_id, $meta_key ) ) {
 			return $default;
 		}
 
 		$value = get_user_meta( $user_id, $meta_key, true );
 
-		// Return value even if it's 0, false, or empty array
-		return ( $value !== '' && $value !== null ) ? $value : $default;
+		if ( $value === '' || $value === null ) {
+			return $default;
+		}
+
+		// Resolve return format for image/gallery/file fields
+		return \OneMeta\Core\FieldValueResolver::instance()->resolve( $value, $key, 'user' );
 	}
 
 	/**

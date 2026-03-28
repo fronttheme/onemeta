@@ -49,6 +49,7 @@ export class ImageUpload {
     openImageSelector((attachment) => {
       // Update hidden input with image ID
       $input.val(attachment.id);
+      $input[0].dispatchEvent(new Event('change', {bubbles: true}));
 
       // Update preview
       $preview.html(`<img src="${attachment.url}" alt="" />`).show();
@@ -77,7 +78,10 @@ export class ImageUpload {
       const preview = DOM.find('.onemeta-image-preview', wrapper);
 
       // Clear input value
-      if (input) input.value = '';
+      if (input) {
+        input.value = '';
+        input.dispatchEvent(new Event('change', {bubbles: true}));
+      }
 
       // Hide preview
       if (preview) {

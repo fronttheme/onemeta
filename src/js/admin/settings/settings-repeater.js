@@ -75,6 +75,7 @@ export class SettingsRepeater {
     const showChoices = choiceBasedTypes.includes(currentType);
     const showToggleOptions = currentType === 'toggle';
     const showLayout = ['checkbox', 'radio'].includes(currentType);
+    const showDefault = currentType !== 'heading';
 
     // Convert array default back to string for display
     let defaultValue = subField.default || '';
@@ -118,6 +119,7 @@ export class SettingsRepeater {
     html += '<select class="sub-field-type-select">';
 
     const types = [
+      {value: 'heading', label: 'Heading'},
       {value: 'text', label: 'Text'},
       {value: 'textarea', label: 'Textarea'},
       {value: 'url', label: 'URL'},
@@ -182,7 +184,7 @@ export class SettingsRepeater {
     html += '</div>';
 
     // Default Value
-    html += '<div class="sub-field-setting">';
+    html += `<div class="sub-field-setting" style="display: ${showDefault ? 'block' : 'none'};">`;
     html += '<label>Default Value';
     // Show hint for checkbox fields
     if (currentType === 'checkbox') {
@@ -380,16 +382,28 @@ export class SettingsRepeater {
       $row.find('.sub-field-type').text(type);
 
       // Show/hide conditional settings
-      const textBasedTypes = ['text', 'textarea', 'url', 'email'];
+      const textBasedTypes = ['heading', 'text', 'textarea', 'url', 'email'];
       const choiceBasedTypes = ['select', 'checkbox', 'radio', 'button_group'];
 
-      // Placeholder
+      // Placeholder and Default
+      const $defaultSetting = $row.find('.sub-field-setting:has(.sub-field-default)');
       const $placeholderSetting = $row.find('.sub-field-placeholder-setting');
+
       if (textBasedTypes.includes(type)) {
         $placeholderSetting.show();
       } else {
         $placeholderSetting.hide();
         $row.find('.sub-field-placeholder').val('');
+      }
+
+      // Hide placeholder and default for heading
+      if (type === 'heading') {
+        $placeholderSetting.hide();
+        $row.find('.sub-field-placeholder').val('');
+        $defaultSetting.hide();
+        $row.find('.sub-field-default').val('');
+      } else {
+        $defaultSetting.show();
       }
 
       // Choices

@@ -115,7 +115,8 @@ export class FieldPaletteSidebar {
       basic: {
         label: 'Basic',
         types: [
-          {type: 'text', icon: 'fa-heading', label: 'Text', repeater: true},
+          {type: 'heading', icon: 'fa-heading', label: 'Heading', repeater: true},
+          {type: 'text', icon: 'fa-font', label: 'Text', repeater: true},
           {type: 'textarea', icon: 'fa-paragraph', label: 'Textarea', repeater: true},
           {type: 'url', icon: 'fa-link', label: 'URL', repeater: true},
           {type: 'email', icon: 'fa-at', label: 'Email', repeater: true},

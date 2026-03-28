@@ -53,8 +53,9 @@ export class FileUpload {
 
     // Open WordPress file selector
     openFileSelector((attachment) => {
-      // Update hidden input with file URL
-      $input.val(attachment.url);
+      // Update hidden input with file ID
+      $input.val(attachment.id);
+      $input[0].dispatchEvent(new Event('change', {bubbles: true}));
 
       // Update file name display
       $fileName.text(attachment.filename);
@@ -89,7 +90,10 @@ export class FileUpload {
       const fileInfo = DOM.find('.onemeta-file-info', wrapper);
 
       // Clear input value
-      if (input) input.value = '';
+      if (input) {
+        input.value = '';
+        input.dispatchEvent(new Event('change', {bubbles: true}));
+      }
 
       // Hide file info
       DOM.hide(fileInfo);
