@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-28T18:15:20+00:00\n"
+"POT-Creation-Date: 2026-03-28T18:50:44+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: onemeta\n"
@@ -347,37 +347,37 @@ msgid "Saving..."
 msgstr ""
 
 #: includes/Admin/AdminMenu.php:53
-#: includes/Admin/AdminMenu.php:98
-#: includes/Admin/AdminMenu.php:99
+#: includes/Admin/AdminMenu.php:104
+#: includes/Admin/AdminMenu.php:105
 #: includes/Admin/views/builder.php:37
 msgid "Edit Field Group"
 msgstr ""
 
-#: includes/Admin/AdminMenu.php:68
-#: includes/Admin/AdminMenu.php:69
+#: includes/Admin/AdminMenu.php:74
+#: includes/Admin/AdminMenu.php:75
 msgid "OneMeta"
 msgstr ""
 
-#: includes/Admin/AdminMenu.php:79
-#: includes/Admin/AdminMenu.php:80
+#: includes/Admin/AdminMenu.php:85
+#: includes/Admin/AdminMenu.php:86
 #: includes/Admin/views/about.php:224
 #: includes/Admin/views/dashboard.php:44
 msgid "Field Groups"
 msgstr ""
 
-#: includes/Admin/AdminMenu.php:88
-#: includes/Admin/AdminMenu.php:89
+#: includes/Admin/AdminMenu.php:94
+#: includes/Admin/AdminMenu.php:95
 #: includes/Admin/views/about.php:235
 msgid "Add New"
 msgstr ""
 
-#: includes/Admin/AdminMenu.php:107
-#: includes/Admin/AdminMenu.php:108
+#: includes/Admin/AdminMenu.php:113
+#: includes/Admin/AdminMenu.php:114
 msgid "About"
 msgstr ""
 
-#: includes/Admin/AdminMenu.php:116
-#: includes/Admin/AdminMenu.php:117
+#: includes/Admin/AdminMenu.php:122
+#: includes/Admin/AdminMenu.php:123
 #: includes/Admin/views/about.php:246
 #: includes/Admin/views/docs.php:136
 msgid "Documentation"
@@ -1154,67 +1154,67 @@ msgstr ""
 msgid "Show or hide fields based on the value of other fields using conditional logic."
 msgstr ""
 
-#: includes/Admin/views/docs.php:457
+#: includes/Admin/views/docs.php:462
 msgid "Conditional Logic Operators"
 msgstr ""
 
-#: includes/Admin/views/docs.php:463
+#: includes/Admin/views/docs.php:468
 msgid "Equal to"
 msgstr ""
 
-#: includes/Admin/views/docs.php:467
+#: includes/Admin/views/docs.php:472
 msgid "Not equal to"
 msgstr ""
 
-#: includes/Admin/views/docs.php:471
+#: includes/Admin/views/docs.php:476
 msgid "Contains text"
 msgstr ""
 
-#: includes/Admin/views/docs.php:475
+#: includes/Admin/views/docs.php:480
 msgid "Does not contain text"
 msgstr ""
 
-#: includes/Admin/views/docs.php:478
+#: includes/Admin/views/docs.php:483
 msgid "Note: \"contains\" operators are case-insensitive."
 msgstr ""
 
-#: includes/Admin/views/docs.php:491
+#: includes/Admin/views/docs.php:496
 msgid "Quick Start Guide"
 msgstr ""
 
-#: includes/Admin/views/docs.php:499
+#: includes/Admin/views/docs.php:504
 msgid "Create a Field Group"
 msgstr ""
 
-#: includes/Admin/views/docs.php:500
+#: includes/Admin/views/docs.php:505
 msgid "Go to OneMeta → Add New and create your first field group"
 msgstr ""
 
-#: includes/Admin/views/docs.php:506
+#: includes/Admin/views/docs.php:511
 msgid "Add Fields"
 msgstr ""
 
-#: includes/Admin/views/docs.php:507
+#: includes/Admin/views/docs.php:512
 msgid "Click \"Add Field\" and choose from 14 different field types"
 msgstr ""
 
-#: includes/Admin/views/docs.php:513
+#: includes/Admin/views/docs.php:518
 msgid "Configure Settings"
 msgstr ""
 
-#: includes/Admin/views/docs.php:514
+#: includes/Admin/views/docs.php:519
 msgid "Set field labels, descriptions, and advanced options"
 msgstr ""
 
-#: includes/Admin/views/docs.php:520
+#: includes/Admin/views/docs.php:525
 msgid "Use in Your Theme"
 msgstr ""
 
-#: includes/Admin/views/docs.php:521
+#: includes/Admin/views/docs.php:526
 msgid "Access field values using onemeta_get_meta() function"
 msgstr ""
 
-#: includes/Admin/views/docs.php:530
+#: includes/Admin/views/docs.php:535
 msgid "Create Your First Field Group"
 msgstr ""
 
