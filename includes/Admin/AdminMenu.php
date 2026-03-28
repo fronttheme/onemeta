@@ -57,6 +57,12 @@
 		 * Add admin menu
 		 */
 		public function add_admin_menu(): void {
+
+			// Allow themes/plugins to hide OneMeta admin UI
+			if ( ! apply_filters( 'onemeta/show_admin', true ) ) {
+				return;
+			}
+
 			// OneMeta SVG icon (Recommended size: 20x20)
 			$svg_icon = 'data:image/svg+xml;base64,' . base64_encode(
 					'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50" height="50">

@@ -442,9 +442,14 @@ if ($is_featured === '1') {
     'placeholder' => 'Text placeholder',
     'default' => 'My default text',
     'conditional' => [
-        'field' => 'my_other_field',
-        'operator' => '!=',
-        'value' => '',
+        'relation' => 'AND', // 'AND', 'OR'
+        'rules'    => [
+            [
+                'field'    => 'my_other_field',
+                'operator' => '!=',
+                'value'    => '',
+            ],
+        ],
     ],
 ],</code></pre>
         </div>
