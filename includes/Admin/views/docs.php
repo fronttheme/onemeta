@@ -1,130 +1,130 @@
 <?php
-  /**
-   * OneMeta Documentation View
-   * Field types documentation and export interface
-   *
-   * @package OneMeta
-   */
+/**
+ * OneMeta Documentation View
+ * Field types documentation and export interface
+ *
+ * @package OneMeta
+ */
 
-  if ( ! defined( 'ABSPATH' ) ) {
-    exit;
-  }
+if ( ! defined( 'ABSPATH' ) ) {
+  exit;
+}
 
-  // Field types data
-  $field_types = [
-      [
-          'type'        => 'text',
-          'title'       => __( 'Text', 'onemeta' ),
-          'description' => __( 'Single line text input for short text content', 'onemeta' ),
-          'icon'        => 'fa-heading',
-          'badge'       => __( 'Basic', 'onemeta' ),
-          'docs_url'    => '#text-field'
-      ],
-      [
-          'type'        => 'textarea',
-          'title'       => __( 'Textarea', 'onemeta' ),
-          'description' => __( 'Multi-line text input for longer content', 'onemeta' ),
-          'icon'        => 'fa-paragraph',
-          'badge'       => __( 'Basic', 'onemeta' ),
-          'docs_url'    => '#textarea-field'
-      ],
-      [
-          'type'        => 'url',
-          'title'       => __( 'URL', 'onemeta' ),
-          'description' => __( 'URL field with validation for web addresses', 'onemeta' ),
-          'icon'        => 'fa-link',
-          'badge'       => __( 'Basic', 'onemeta' ),
-          'docs_url'    => '#url-field'
-      ],
-      [
-          'type'        => 'email',
-          'title'       => __( 'Email', 'onemeta' ),
-          'description' => __( 'Email field with validation', 'onemeta' ),
-          'icon'        => 'fa-at',
-          'badge'       => __( 'Basic', 'onemeta' ),
-          'docs_url'    => '#email-field'
-      ],
-      [
-          'type'        => 'date',
-          'title'       => __( 'Date', 'onemeta' ),
-          'description' => __( 'Date picker for selecting dates', 'onemeta' ),
-          'icon'        => 'fa-calendar-days',
-          'badge'       => __( 'Basic', 'onemeta' ),
-          'docs_url'    => '#date-field'
-      ],
-      [
-          'type'        => 'toggle',
-          'title'       => __( 'Toggle', 'onemeta' ),
-          'description' => __( 'On/Off switch for boolean values', 'onemeta' ),
-          'icon'        => 'fa-toggle-on',
-          'badge'       => __( 'Choice', 'onemeta' ),
-          'docs_url'    => '#toggle-field'
-      ],
-      [
-          'type'        => 'select',
-          'title'       => __( 'Select', 'onemeta' ),
-          'description' => __( 'Dropdown select for single choice', 'onemeta' ),
-          'icon'        => 'fa-circle-chevron-down',
-          'badge'       => __( 'Choice', 'onemeta' ),
-          'docs_url'    => '#select-field'
-      ],
-      [
-          'type'        => 'checkbox',
-          'title'       => __( 'Checkbox', 'onemeta' ),
-          'description' => __( 'Multiple selection with checkboxes', 'onemeta' ),
-          'icon'        => 'fa-square-check',
-          'badge'       => __( 'Multiple', 'onemeta' ),
-          'docs_url'    => '#checkbox-field'
-      ],
-      [
-          'type'        => 'radio',
-          'title'       => __( 'Radio', 'onemeta' ),
-          'description' => __( 'Radio buttons for single selection', 'onemeta' ),
-          'icon'        => 'fa-circle-dot',
-          'badge'       => __( 'Choice', 'onemeta' ),
-          'docs_url'    => '#radio-field'
-      ],
-      [
-          'type'        => 'button_group',
-          'title'       => __( 'Button Group', 'onemeta' ),
-          'description' => __( 'Button group selector for visual choice', 'onemeta' ),
-          'icon'        => 'fa-mattress-pillow',
-          'badge'       => __( 'Choice', 'onemeta' ),
-          'docs_url'    => '#button-group-field'
-      ],
-      [
-          'type'        => 'image',
-          'title'       => __( 'Image', 'onemeta' ),
-          'description' => __( 'Image uploader with media library', 'onemeta' ),
-          'icon'        => 'fa-image',
-          'badge'       => __( 'Media', 'onemeta' ),
-          'docs_url'    => '#image-field'
-      ],
-      [
-          'type'        => 'file',
-          'title'       => __( 'File', 'onemeta' ),
-          'description' => __( 'File uploader with type restrictions', 'onemeta' ),
-          'icon'        => 'fa-file-image',
-          'badge'       => __( 'Media', 'onemeta' ),
-          'docs_url'    => '#file-field'
-      ],
-      [
-          'type'        => 'gallery',
-          'title'       => __( 'Gallery', 'onemeta' ),
-          'description' => __( 'Multiple images uploader with ordering', 'onemeta' ),
-          'icon'        => 'fa-images',
-          'badge'       => __( 'Media', 'onemeta' ),
-          'docs_url'    => '#gallery-field'
-      ],
-      [
-          'type'        => 'repeater',
-          'title'       => __( 'Repeater', 'onemeta' ),
-          'description' => __( 'Repeatable field group with sub-fields', 'onemeta' ),
-          'icon'        => 'fa-cubes',
-          'badge'       => __( 'Advanced', 'onemeta' ),
-          'docs_url'    => '#repeater-field'
-      ],
-  ];
+// Field types data
+$onemeta_field_types = [
+    [
+        'type'        => 'text',
+        'title'       => __( 'Text', 'onemeta' ),
+        'description' => __( 'Single line text input for short text content', 'onemeta' ),
+        'icon'        => 'fa-heading',
+        'badge'       => __( 'Basic', 'onemeta' ),
+        'docs_url'    => '#text-field'
+    ],
+    [
+        'type'        => 'textarea',
+        'title'       => __( 'Textarea', 'onemeta' ),
+        'description' => __( 'Multi-line text input for longer content', 'onemeta' ),
+        'icon'        => 'fa-paragraph',
+        'badge'       => __( 'Basic', 'onemeta' ),
+        'docs_url'    => '#textarea-field'
+    ],
+    [
+        'type'        => 'url',
+        'title'       => __( 'URL', 'onemeta' ),
+        'description' => __( 'URL field with validation for web addresses', 'onemeta' ),
+        'icon'        => 'fa-link',
+        'badge'       => __( 'Basic', 'onemeta' ),
+        'docs_url'    => '#url-field'
+    ],
+    [
+        'type'        => 'email',
+        'title'       => __( 'Email', 'onemeta' ),
+        'description' => __( 'Email field with validation', 'onemeta' ),
+        'icon'        => 'fa-at',
+        'badge'       => __( 'Basic', 'onemeta' ),
+        'docs_url'    => '#email-field'
+    ],
+    [
+        'type'        => 'date',
+        'title'       => __( 'Date', 'onemeta' ),
+        'description' => __( 'Date picker for selecting dates', 'onemeta' ),
+        'icon'        => 'fa-calendar-days',
+        'badge'       => __( 'Basic', 'onemeta' ),
+        'docs_url'    => '#date-field'
+    ],
+    [
+        'type'        => 'toggle',
+        'title'       => __( 'Toggle', 'onemeta' ),
+        'description' => __( 'On/Off switch for boolean values', 'onemeta' ),
+        'icon'        => 'fa-toggle-on',
+        'badge'       => __( 'Choice', 'onemeta' ),
+        'docs_url'    => '#toggle-field'
+    ],
+    [
+        'type'        => 'select',
+        'title'       => __( 'Select', 'onemeta' ),
+        'description' => __( 'Dropdown select for single choice', 'onemeta' ),
+        'icon'        => 'fa-circle-chevron-down',
+        'badge'       => __( 'Choice', 'onemeta' ),
+        'docs_url'    => '#select-field'
+    ],
+    [
+        'type'        => 'checkbox',
+        'title'       => __( 'Checkbox', 'onemeta' ),
+        'description' => __( 'Multiple selection with checkboxes', 'onemeta' ),
+        'icon'        => 'fa-square-check',
+        'badge'       => __( 'Multiple', 'onemeta' ),
+        'docs_url'    => '#checkbox-field'
+    ],
+    [
+        'type'        => 'radio',
+        'title'       => __( 'Radio', 'onemeta' ),
+        'description' => __( 'Radio buttons for single selection', 'onemeta' ),
+        'icon'        => 'fa-circle-dot',
+        'badge'       => __( 'Choice', 'onemeta' ),
+        'docs_url'    => '#radio-field'
+    ],
+    [
+        'type'        => 'button_group',
+        'title'       => __( 'Button Group', 'onemeta' ),
+        'description' => __( 'Button group selector for visual choice', 'onemeta' ),
+        'icon'        => 'fa-mattress-pillow',
+        'badge'       => __( 'Choice', 'onemeta' ),
+        'docs_url'    => '#button-group-field'
+    ],
+    [
+        'type'        => 'image',
+        'title'       => __( 'Image', 'onemeta' ),
+        'description' => __( 'Image uploader with media library', 'onemeta' ),
+        'icon'        => 'fa-image',
+        'badge'       => __( 'Media', 'onemeta' ),
+        'docs_url'    => '#image-field'
+    ],
+    [
+        'type'        => 'file',
+        'title'       => __( 'File', 'onemeta' ),
+        'description' => __( 'File uploader with type restrictions', 'onemeta' ),
+        'icon'        => 'fa-file-image',
+        'badge'       => __( 'Media', 'onemeta' ),
+        'docs_url'    => '#file-field'
+    ],
+    [
+        'type'        => 'gallery',
+        'title'       => __( 'Gallery', 'onemeta' ),
+        'description' => __( 'Multiple images uploader with ordering', 'onemeta' ),
+        'icon'        => 'fa-images',
+        'badge'       => __( 'Media', 'onemeta' ),
+        'docs_url'    => '#gallery-field'
+    ],
+    [
+        'type'        => 'repeater',
+        'title'       => __( 'Repeater', 'onemeta' ),
+        'description' => __( 'Repeatable field group with sub-fields', 'onemeta' ),
+        'icon'        => 'fa-cubes',
+        'badge'       => __( 'Advanced', 'onemeta' ),
+        'docs_url'    => '#repeater-field'
+    ],
+];
 ?>
 
 <div class="wrap onemeta-wrapper onemeta-page-wrapper onemeta-docs-page">
@@ -161,22 +161,22 @@
     </div>
 
     <div class="onemeta-field-types-grid">
-      <?php foreach ( $field_types as $field_type ): ?>
-        <a href="<?php echo esc_url( $field_type['docs_url'] ); ?>"
+      <?php foreach ( $onemeta_field_types as $onemeta_field_type ): ?>
+        <a href="<?php echo esc_url( $onemeta_field_type['docs_url'] ); ?>"
            class="onemeta-field-card"
-           data-type="<?php echo esc_attr( $field_type['type'] ); ?>">
+           data-type="<?php echo esc_attr( $onemeta_field_type['type'] ); ?>">
           <div class="onemeta-field-card__icon">
-            <i class="fa-solid <?php echo esc_attr( $field_type['icon'] ); ?>"></i>
+            <i class="fa-solid <?php echo esc_attr( $onemeta_field_type['icon'] ); ?>"></i>
           </div>
           <h3 class="onemeta-field-card__title">
-            <?php echo esc_html( $field_type['title'] ); ?>
+            <?php echo esc_html( $onemeta_field_type['title'] ); ?>
           </h3>
           <p class="onemeta-field-card__description">
-            <?php echo esc_html( $field_type['description'] ); ?>
+            <?php echo esc_html( $onemeta_field_type['description'] ); ?>
           </p>
           <div class="onemeta-field-card__footer">
-            <span class="onemeta-badge onemeta-field-type-badge onemeta-field-type-badge--<?php echo esc_attr( strtolower( $field_type['badge'] ) ); ?>">
-              <?php echo esc_html( $field_type['badge'] ); ?>
+            <span class="onemeta-badge onemeta-field-type-badge onemeta-field-type-badge--<?php echo esc_attr( strtolower( $onemeta_field_type['badge'] ) ); ?>">
+              <?php echo esc_html( $onemeta_field_type['badge'] ); ?>
             </span>
           </div>
         </a>

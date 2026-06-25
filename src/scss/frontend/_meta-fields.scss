@@ -85,6 +85,7 @@
     border: $border-width-md solid rgba($color-primary, 0.2);
     border-radius: $border-radius-md;
     font-size: $font-size-md;
+    line-height: 1.7;
     transition: $transition-all;
     background: $color-bg-white;
     color: $color-text-primary;
@@ -98,6 +99,7 @@
 
   select:hover {
     color: $color-primary;
+    border-color: rgba($color-primary, 0.5);
   }
 
   textarea {
@@ -275,7 +277,13 @@
     cursor: pointer;
     border: $border-width solid $color-primary;
 
+    &:focus {
+      box-shadow: 0 0 0 2px #fff, 0 0 0 4px $color-primary;
+    }
+
     &:checked {
+      background: rgba($color-primary, 0.75);
+
       &::before {
         background-color: $color-primary;
       }
@@ -390,23 +398,30 @@
   input[type="checkbox"] {
     width: $icon-size-base;
     height: $icon-size-base;
+    border-radius: $border-radius-base;
     margin: 0;
     cursor: pointer;
     accent-color: $color-primary;
     border: $border-width solid $color-primary;
     position: relative;
 
+    &:focus {
+      box-shadow: 0 0 0 2px #fff, 0 0 0 4px $color-primary;
+    }
+
     &:checked {
+      background: $color-primary;
+
       &::before {
         content: "";
         display: block;
         position: absolute;
         left: 7px;
-        top: calc(50% + 2px);
+        top: calc(50% + 1px);
         width: 10px;
         height: 6px;
-        border-left: $border-width-md solid $color-primary;
-        border-bottom: $border-width-md solid $color-primary;
+        border-left: $border-width-md solid #fff;
+        border-bottom: $border-width-md solid #fff;
         transform: translateY(-50%) rotate(-45deg);
       }
 

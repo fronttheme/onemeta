@@ -9,9 +9,9 @@ import {DOM} from '@/js/shared/utils/dom';
 
 export class FieldPaletteSidebar {
   constructor(core) {
-    this.core = core;
+    this.core        = core;
     this.isCollapsed = true;
-    this.position = this.getSavedPosition();
+    this.position    = this.getSavedPosition();
     this.init();
   }
 
@@ -20,6 +20,7 @@ export class FieldPaletteSidebar {
     this.setupEventListeners();
     this.applyPosition();
     this.applyCollapsedState();
+    this.syncWrapperClasses();
   }
 
   /**
@@ -30,7 +31,7 @@ export class FieldPaletteSidebar {
       this.sidebar.classList.add('collapsed');
 
       // Update icons
-      const expandedIcon = this.sidebar.querySelector('.onemeta-palette-icon-expanded');
+      const expandedIcon  = this.sidebar.querySelector('.onemeta-palette-icon-expanded');
       const collapsedIcon = this.sidebar.querySelector('.onemeta-palette-icon-collapsed');
       if (expandedIcon) expandedIcon.style.display = 'none';
       if (collapsedIcon) collapsedIcon.style.display = 'block';
@@ -41,7 +42,7 @@ export class FieldPaletteSidebar {
    * Create sidebar HTML
    */
   createSidebar() {
-    const sidebar = document.createElement('div');
+    const sidebar     = document.createElement('div');
     sidebar.className = 'onemeta-field-palette-sidebar';
     sidebar.innerHTML = this.getSidebarHTML();
 
@@ -191,12 +192,12 @@ export class FieldPaletteSidebar {
     toggleBtn?.addEventListener('click', () => this.toggle());
 
     // Position selector
-    const positionBtn = this.sidebar.querySelector('.onemeta-palette-position-btn');
+    const positionBtn      = this.sidebar.querySelector('.onemeta-palette-position-btn');
     const positionSelector = this.sidebar.querySelector('.onemeta-position-selector');
 
     positionBtn?.addEventListener('click', (e) => {
       e.stopPropagation();
-      const isVisible = positionSelector.style.display === 'block';
+      const isVisible                = positionSelector.style.display === 'block';
       positionSelector.style.display = isVisible ? 'none' : 'block';
     });
 
@@ -269,7 +270,7 @@ export class FieldPaletteSidebar {
       item.addEventListener('click', () => {
         // Check if fields container is empty
         const fieldsContainer = DOM.find('#onemeta-fields-container');
-        const hasFields = fieldsContainer && fieldsContainer.querySelectorAll('.onemeta-field__item').length > 0;
+        const hasFields       = fieldsContainer && fieldsContainer.querySelectorAll('.onemeta-field__item').length > 0;
 
         if (hasFields) {
           // Fields exist - show hint to drag instead
@@ -278,7 +279,7 @@ export class FieldPaletteSidebar {
         }
 
         // EMPTY STATE - clicking adds field!
-        const type = item.dataset.type;
+        const type  = item.dataset.type;
         const label = item.dataset.label;
 
         const fieldList = this.core.getModule('fieldList');
@@ -303,12 +304,12 @@ export class FieldPaletteSidebar {
    * Handle search
    */
   handleSearch(query) {
-    const items = this.sidebar.querySelectorAll('.onemeta-palette-item');
+    const items      = this.sidebar.querySelectorAll('.onemeta-palette-item');
     const lowerQuery = query.toLowerCase();
 
     items.forEach(item => {
-      const label = item.dataset.label.toLowerCase();
-      const type = item.dataset.type.toLowerCase();
+      const label   = item.dataset.label.toLowerCase();
+      const type    = item.dataset.type.toLowerCase();
       const matches = label.includes(lowerQuery) || type.includes(lowerQuery);
 
       item.style.display = matches ? '' : 'none';
@@ -317,11 +318,11 @@ export class FieldPaletteSidebar {
     // Hide empty categories
     const categories = this.sidebar.querySelectorAll('.onemeta-palette-category');
     categories.forEach(category => {
-      const items = category.nextElementSibling;
+      const items        = category.nextElementSibling;
       const visibleItems = items.querySelectorAll('.onemeta-palette-item:not([style*="display: none"])');
 
       category.style.display = visibleItems.length > 0 ? '' : 'none';
-      items.style.display = visibleItems.length > 0 ? '' : 'none';
+      items.style.display    = visibleItems.length > 0 ? '' : 'none';
     });
   }
 
@@ -329,7 +330,7 @@ export class FieldPaletteSidebar {
    * Toggle sidebar
    */
   toggle() {
-    const expandedIcon = this.sidebar.querySelector('.onemeta-palette-icon-expanded');
+    const expandedIcon  = this.sidebar.querySelector('.onemeta-palette-icon-expanded');
     const collapsedIcon = this.sidebar.querySelector('.onemeta-palette-icon-collapsed');
 
     if (this.isCollapsed) {
@@ -350,6 +351,7 @@ export class FieldPaletteSidebar {
     this.isCollapsed = false;
     this.sidebar.classList.remove('collapsed');
     this.saveState();
+    this.syncWrapperClasses();
   }
 
   /**
@@ -359,6 +361,7 @@ export class FieldPaletteSidebar {
     this.isCollapsed = true;
     this.sidebar.classList.add('collapsed');
     this.saveState();
+    this.syncWrapperClasses();
   }
 
   /**
@@ -368,6 +371,7 @@ export class FieldPaletteSidebar {
     this.position = position;
     this.applyPosition();
     this.saveState();
+    this.syncWrapperClasses();
   }
 
   /**
@@ -376,6 +380,22 @@ export class FieldPaletteSidebar {
   applyPosition() {
     this.sidebar.classList.remove('position-left', 'position-right');
     this.sidebar.classList.add(`position-${this.position}`);
+  }
+
+  /**
+   * Mirror sidebar position + collapsed state onto the builder page wrapper,
+   * so admin CSS can offset .onemeta-page-wrapper.onemeta-builder-page's
+   * margin without reaching into sidebar internals.
+   */
+  syncWrapperClasses() {
+    const wrapper = document.querySelector('.onemeta-builder-page');
+    if (!wrapper) return;
+
+    wrapper.classList.remove('onemeta-sidebar-pos-left', 'onemeta-sidebar-pos-right');
+    wrapper.classList.add(`onemeta-sidebar-pos-${this.position}`);
+
+    wrapper.classList.toggle('onemeta-sidebar-collapsed', this.isCollapsed);
+    wrapper.classList.toggle('onemeta-sidebar-expanded', !this.isCollapsed);
   }
 
   /**
@@ -399,8 +419,8 @@ export class FieldPaletteSidebar {
     try {
       const saved = localStorage.getItem('onemeta_palette_state');
       if (saved) {
-        const state = JSON.parse(saved);
-        this.isCollapsed = state.isCollapsed || true;
+        const state      = JSON.parse(saved);
+        this.isCollapsed = state.isCollapsed ?? true;
 
         // Apply collapsed state after sidebar is created
         setTimeout(() => {
@@ -424,8 +444,8 @@ export class FieldPaletteSidebar {
     if (window.OnemetaToast) {
       window.OnemetaToast.success(message);
     } else {
-      const toast = document.createElement('div');
-      toast.className = 'onemeta-palette-toast';
+      const toast       = document.createElement('div');
+      toast.className   = 'onemeta-palette-toast';
       toast.textContent = message;
       document.body.appendChild(toast);
 

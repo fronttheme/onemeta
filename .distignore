@@ -12,9 +12,9 @@ package-lock.json
 vite.config.js
 
 # Git files
-.git/
-.gitignore
+.git
 .gitattributes
+.gitignore
 .distignore
 
 # GitHub specific
@@ -22,7 +22,7 @@ vite.config.js
 
 # Development & IDE files
 .DS_Store
-*.DS_Store
+**/.DS_Store
 .idea/
 .vscode/
 *.log

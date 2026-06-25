@@ -1,8 +1,8 @@
-=== OneMeta - Custom Meta Fields Made Simple ===
+=== OneMeta - Custom Meta Fields ===
 Contributors: farukahmed
 Tags: custom fields, meta fields, acf alternative, field builder, repeater
 Requires at least: 6.8
-Tested up to: 6.8
+Tested up to: 7.0
 Stable tag: 1.0.0
 Requires PHP: 8.2
 License: GPLv2 or later

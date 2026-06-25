@@ -1,25 +1,25 @@
 <?php
-  /**
-   * OneMeta Plugin
-   * About OneMeta plugin
-   *
-   * @package OneMeta
-   */
+/**
+ * OneMeta Plugin
+ * About OneMeta plugin
+ *
+ * @package OneMeta
+ */
 
-  if ( ! defined( 'ABSPATH' ) ) {
-    exit;
-  }
+if ( ! defined( 'ABSPATH' ) ) {
+  exit;
+}
 
-  global $wpdb;
+global $wpdb;
 
-  $table_name    = $wpdb->prefix . 'onemeta_field_groups';
-  $total_groups  = $wpdb->get_var( "SELECT COUNT(*) FROM $table_name" );
-  $active_groups = $wpdb->get_var(
-      $wpdb->prepare(
-          "SELECT COUNT(*) FROM $table_name WHERE status = %s",
-          'active'
-      )
-  );
+$onemeta_table_name = $wpdb->prefix . 'onemeta_field_groups';
+// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- Custom plugin table; no core WP API exists for this query.
+$onemeta_total_groups = $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i', $onemeta_table_name ) );
+
+// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- Custom plugin table; no core WP API exists for this query.
+$onemeta_active_groups = $wpdb->get_var(
+    $wpdb->prepare( 'SELECT COUNT(*) FROM %i WHERE status = %s', $onemeta_table_name, 'active' )
+);
 ?>
 
 <div class="wrap onemeta-wrapper onemeta-page-wrapper onemeta-about-page">
@@ -181,7 +181,7 @@
             <div class="onemeta-info-item">
               <span class="onemeta-info-item__label"><?php esc_html_e( 'Database Table', 'onemeta' ); ?></span>
               <span class="onemeta-info-item__value">
-              <code class="onemeta-code-inline"><?php echo esc_html( $table_name ); ?></code>
+              <code class="onemeta-code-inline"><?php echo esc_html( $onemeta_table_name ); ?></code>
             </span>
             </div>
 
@@ -293,12 +293,12 @@
   <div class="onemeta-about-footer onemeta-page-footer">
     <p>
       <?php
-        printf(
-        /* translators: %1$s: heart icon, %2$s: company link */
-            esc_html__( 'Made with %1$s by %2$s', 'onemeta' ),
-            '<i class="fa-solid fa-heart" style="color: #ff00ac; font-size: 16px; vertical-align: text-bottom; margin: 0 3px;"></i>',
-            '<a href="https://www.fronttheme.com/" target="_blank" rel="noopener">fronttheme</a>'
-        );
+      printf(
+      /* translators: %1$s: heart icon, %2$s: company link */
+          esc_html__( 'Made with %1$s by %2$s', 'onemeta' ),
+          '<i class="fa-solid fa-heart" style="color: #ff00ac; font-size: 16px; vertical-align: text-bottom; margin: 0 3px;"></i>',
+          '<a href="https://www.fronttheme.com/" target="_blank" rel="noopener">fronttheme</a>'
+      );
       ?>
     </p>
   </div>

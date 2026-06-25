@@ -1,31 +1,32 @@
 <?php
-  /**
-   * OneMeta Builder View
-   *
-   * @package OneMeta
-   */
+/**
+ * OneMeta Builder View
+ *
+ * @package OneMeta
+ */
 
-  if ( ! defined( 'ABSPATH' ) ) {
-    exit;
-  }
+if ( ! defined( 'ABSPATH' ) ) {
+  exit;
+}
 
-  // Get field group if editing
-  $group_id         = isset( $_GET['id'] ) ? sanitize_text_field( $_GET['id'] ) : '';
-  $field_group_data = \OneMeta\Admin\FieldGroupEditor::get_field_group_for_edit( $group_id );
-  $editing          = $field_group_data['editing'];
-  $field_group      = $field_group_data['field_group'];
+// Get field group if editing
+// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reading admin page parameter to select which group to edit; no state change occurs here.
+$onemeta_group_id         = isset( $_GET['id'] ) ? sanitize_text_field( wp_unslash( $_GET['id'] ) ) : '';
+$onemeta_field_group_data = \OneMeta\Admin\FieldGroupEditor::get_field_group_for_edit( $onemeta_group_id );
+$onemeta_editing          = $onemeta_field_group_data['editing'];
+$onemeta_field_group      = $onemeta_field_group_data['field_group'];
 
-  // Get post types
-  $post_types = get_post_types( [
-      'public'  => true,
-      'show_ui' => true,
-  ], 'objects' );
+// Get post types
+$onemeta_post_types = get_post_types( [
+    'public'  => true,
+    'show_ui' => true,
+], 'objects' );
 
-  // Remove attachment
-  unset( $post_types['attachment'] );
+// Remove attachment
+unset( $onemeta_post_types['attachment'] );
 
-  // Get selected
-  $selected = $editing && isset( $field_group['post_type'] ) ? $field_group['post_type'] : 'post';
+// Get selected
+$onemeta_selected = $onemeta_editing && isset( $onemeta_field_group['post_type'] ) ? $onemeta_field_group['post_type'] : 'post';
 ?>
 
 <div class="wrap onemeta-wrapper onemeta-page-wrapper onemeta-builder-page">
@@ -34,10 +35,10 @@
   <div class="onemeta-page-header">
     <div class="onemeta-page-header__content">
       <h1 class="onemeta-page-header__title">
-        <?php echo $editing ? esc_html__( 'Edit Field Group', 'onemeta' ) : esc_html__( 'Add New Field Group', 'onemeta' ); ?>
+        <?php echo $onemeta_editing ? esc_html__( 'Edit Field Group', 'onemeta' ) : esc_html__( 'Add New Field Group', 'onemeta' ); ?>
       </h1>
       <p class="onemeta-page-header__description">
-        <?php echo $editing
+        <?php echo $onemeta_editing
             ? esc_html__( 'Modify your field group configuration', 'onemeta' )
             : esc_html__( 'Create a new custom field group', 'onemeta' ); ?>
       </p>
@@ -80,8 +81,8 @@
                       id="group_key"
                       name="group_key"
                       class="regular-text onemeta-input"
-                      value="<?php echo $editing ? esc_attr( $field_group['group_key'] ) : ''; ?>"
-                      <?php echo $editing ? 'readonly' : ''; ?>
+                      value="<?php echo $onemeta_editing ? esc_attr( $onemeta_field_group['group_key'] ) : ''; ?>"
+                      <?php echo $onemeta_editing ? 'readonly' : ''; ?>
                       required
                       pattern="[a-z0-9_]+"
                       placeholder="my_field_group"
@@ -89,7 +90,7 @@
                   <p class="onemeta-field-description">
                     <?php esc_html_e( 'Unique identifier (lowercase, underscores only)', 'onemeta' ); ?>
                   </p>
-                  <?php if ( $editing ): ?>
+                  <?php if ( $onemeta_editing ): ?>
                     <p class="onemeta-field-note">
                       <i class="fa-solid fa-lock"></i>
                       <?php esc_html_e( 'Field group key cannot be changed after creation', 'onemeta' ); ?>
@@ -110,7 +111,7 @@
                       id="group_title"
                       name="group_title"
                       class="regular-text onemeta-input"
-                      value="<?php echo $editing ? esc_attr( $field_group['title'] ) : ''; ?>"
+                      value="<?php echo $onemeta_editing ? esc_attr( $onemeta_field_group['title'] ) : ''; ?>"
                       required
                       placeholder="My Custom Fields"
                   >
@@ -126,10 +127,10 @@
                 </th>
                 <td class="onemeta-form-field">
                   <select id="group_type" name="group_type" class="onemeta-select" required>
-                    <option value="post" <?php echo ( $editing && $field_group['type'] === 'post' ) ? 'selected' : ''; ?>>
+                    <option value="post" <?php echo ( $onemeta_editing && $onemeta_field_group['type'] === 'post' ) ? 'selected' : ''; ?>>
                       <?php esc_html_e( 'Post/Page Meta', 'onemeta' ); ?>
                     </option>
-                    <option value="user" <?php echo ( $editing && $field_group['type'] === 'user' ) ? 'selected' : ''; ?>>
+                    <option value="user" <?php echo ( $onemeta_editing && $onemeta_field_group['type'] === 'user' ) ? 'selected' : ''; ?>>
                       <?php esc_html_e( 'User Meta', 'onemeta' ); ?>
                     </option>
                   </select>
@@ -142,9 +143,9 @@
                 </th>
                 <td class="onemeta-form-field">
                   <select id="post_type" name="post_type" class="onemeta-select">
-                    <?php foreach ( $post_types as $post_type ): ?>
+                    <?php foreach ( $onemeta_post_types as $post_type ): ?>
                       <option value="<?php echo esc_attr( $post_type->name ); ?>"
-                          <?php selected( $selected, $post_type->name ); ?>>
+                          <?php selected( $onemeta_selected, $post_type->name ); ?>>
                         <?php echo esc_html( $post_type->labels->singular_name ); ?>
                       </option>
                     <?php endforeach; ?>
@@ -158,10 +159,10 @@
                 </th>
                 <td class="onemeta-form-field">
                   <select id="position" name="position" class="onemeta-select">
-                    <option value="normal" <?php echo ( $editing && isset( $field_group['position'] ) && $field_group['position'] === 'normal' ) ? 'selected' : ''; ?>>
+                    <option value="normal" <?php echo ( $onemeta_editing && isset( $onemeta_field_group['position'] ) && $onemeta_field_group['position'] === 'normal' ) ? 'selected' : ''; ?>>
                       <?php esc_html_e( 'Normal', 'onemeta' ); ?>
                     </option>
-                    <option value="side" <?php echo ( $editing && isset( $field_group['position'] ) && $field_group['position'] === 'side' ) ? 'selected' : ''; ?>>
+                    <option value="side" <?php echo ( $onemeta_editing && isset( $onemeta_field_group['position'] ) && $onemeta_field_group['position'] === 'side' ) ? 'selected' : ''; ?>>
                       <?php esc_html_e( 'Side', 'onemeta' ); ?>
                     </option>
                   </select>
@@ -178,7 +179,7 @@
               <i class="fa-solid fa-table-list"></i>
               <?php esc_html_e( 'Fields', 'onemeta' ); ?>
               <span class="onemeta-badge onemeta-badge--primary onemeta-field-count">
-                <?php echo $editing && ! empty( $field_group['fields'] ) ? count( $field_group['fields'] ) : '0'; ?>
+                <?php echo $onemeta_editing && ! empty( $onemeta_field_group['fields'] ) ? count( $onemeta_field_group['fields'] ) : '0'; ?>
               </span>
             </h2>
             <button type="button" class="onemeta-button onemeta-button--secondary onemeta-button--small" id="add-field-btn">
@@ -191,7 +192,7 @@
             <div id="onemeta-fields-container" class="onemeta-fields-container">
 
               <!-- Empty State -->
-              <div class="onemeta-fields-empty-state" style="<?php echo ( $editing && ! empty( $field_group['fields'] ) ) ? 'display: none;' : 'display: flex;'; ?>">
+              <div class="onemeta-fields-empty-state" style="<?php echo ( $onemeta_editing && ! empty( $onemeta_field_group['fields'] ) ) ? 'display: none;' : 'display: flex;'; ?>">
                 <div class="onemeta-fields-empty-state__icon onemeta-empty-field__add-icon">
                   <i class="fa-solid fa-plus"></i>
                 </div>
@@ -204,10 +205,10 @@
               </div>
 
               <!-- Existing Fields -->
-              <?php if ( $editing && ! empty( $field_group['fields'] ) ): ?>
-                <?php $field_index = 0; ?>
-                <?php foreach ( $field_group['fields'] as $field_key => $field ): ?>
-                  <div class="onemeta-field onemeta-field__item" data-index="<?php echo $field_index; ?>">
+              <?php if ( $onemeta_editing && ! empty( $onemeta_field_group['fields'] ) ): ?>
+                <?php $onemeta_field_index = 0; ?>
+                <?php foreach ( $onemeta_field_group['fields'] as $onemeta_field_key => $onemeta_field ): ?>
+                  <div class="onemeta-field onemeta-field__item" data-index="<?php echo esc_attr( $onemeta_field_index ); ?>">
                     <div class="field-header onemeta-field__header">
                       <button type="button" class="onemeta-button onemeta-button--icon onemeta-button--liquid onemeta-button--danger onemeta-field-remove" title="<?php esc_attr_e( 'Remove Field', 'onemeta' ); ?>">
                         <i class="fa-solid fa-trash-can"></i>
@@ -215,25 +216,25 @@
                       <div class="onemeta-field-key-label-type">
                         <div class="onemeta-field-key-wrapper">
                           <i class="fa-solid fa-key field-handle onemeta-field__handle"></i>
-                          <input type="text" class="onemeta-field-key onemeta-input onemeta-input--inline" value="<?php echo esc_attr( $field_key ); ?>" placeholder="field_key" required pattern="[a-z0-9_]+">
+                          <input type="text" class="onemeta-field-key onemeta-input onemeta-input--inline" value="<?php echo esc_attr( $onemeta_field_key ); ?>" placeholder="field_key" required pattern="[a-z0-9_]+">
                         </div>
-                        <input type="text" class="onemeta-field-label onemeta-input onemeta-input--inline" value="<?php echo esc_attr( $field['label'] ); ?>" placeholder="Field Label" required>
+                        <input type="text" class="onemeta-field-label onemeta-input onemeta-input--inline" value="<?php echo esc_attr( $onemeta_field['label'] ); ?>" placeholder="Field Label" required>
                         <select class="field-type-select onemeta-select onemeta-field-type" required>
-                          <option value="text" <?php selected( $field['type'], 'text' ); ?>><?php esc_html_e( 'Text', 'onemeta' ); ?></option>
-                          <option value="textarea" <?php selected( $field['type'], 'textarea' ); ?>><?php esc_html_e( 'Textarea', 'onemeta' ); ?></option>
-                          <option value="url" <?php selected( $field['type'], 'url' ); ?>><?php esc_html_e( 'URL', 'onemeta' ); ?></option>
-                          <option value="email" <?php selected( $field['type'], 'email' ); ?>><?php esc_html_e( 'Email', 'onemeta' ); ?></option>
-                          <option value="date" <?php selected( $field['type'], 'date' ); ?>><?php esc_html_e( 'Date', 'onemeta' ); ?></option>
-                          <option value="toggle" <?php selected( $field['type'], 'toggle' ); ?>><?php esc_html_e( 'Toggle', 'onemeta' ); ?></option>
-                          <option value="select" <?php selected( $field['type'], 'select' ); ?>><?php esc_html_e( 'Select', 'onemeta' ); ?></option>
-                          <option value="checkbox" <?php selected( $field['type'], 'checkbox' ); ?>><?php esc_html_e( 'Checkbox', 'onemeta' ); ?></option>
-                          <option value="radio" <?php selected( $field['type'], 'radio' ); ?>><?php esc_html_e( 'Radio', 'onemeta' ); ?></option>
-                          <option value="button_group" <?php selected( $field['type'], 'button_group' ); ?>><?php esc_html_e( 'Button Group', 'onemeta' ); ?></option>
-                          <option value="image" <?php selected( $field['type'], 'image' ); ?>><?php esc_html_e( 'Image', 'onemeta' ); ?></option>
-                          <option value="file" <?php selected( $field['type'], 'file' ); ?>><?php esc_html_e( 'File', 'onemeta' ); ?></option>
-                          <option value="gallery" <?php selected( $field['type'], 'gallery' ); ?>><?php esc_html_e( 'Gallery', 'onemeta' ); ?></option>
-                          <option value="repeater" <?php selected( $field['type'], 'repeater' ); ?>><?php esc_html_e( 'Repeater', 'onemeta' ); ?></option>
-                          <option value="heading" <?php selected( $field['type'], 'heading' ); ?>><?php esc_html_e( 'Heading', 'onemeta' ); ?></option>
+                          <option value="text" <?php selected( $onemeta_field['type'], 'text' ); ?>><?php esc_html_e( 'Text', 'onemeta' ); ?></option>
+                          <option value="textarea" <?php selected( $onemeta_field['type'], 'textarea' ); ?>><?php esc_html_e( 'Textarea', 'onemeta' ); ?></option>
+                          <option value="url" <?php selected( $onemeta_field['type'], 'url' ); ?>><?php esc_html_e( 'URL', 'onemeta' ); ?></option>
+                          <option value="email" <?php selected( $onemeta_field['type'], 'email' ); ?>><?php esc_html_e( 'Email', 'onemeta' ); ?></option>
+                          <option value="date" <?php selected( $onemeta_field['type'], 'date' ); ?>><?php esc_html_e( 'Date', 'onemeta' ); ?></option>
+                          <option value="toggle" <?php selected( $onemeta_field['type'], 'toggle' ); ?>><?php esc_html_e( 'Toggle', 'onemeta' ); ?></option>
+                          <option value="select" <?php selected( $onemeta_field['type'], 'select' ); ?>><?php esc_html_e( 'Select', 'onemeta' ); ?></option>
+                          <option value="checkbox" <?php selected( $onemeta_field['type'], 'checkbox' ); ?>><?php esc_html_e( 'Checkbox', 'onemeta' ); ?></option>
+                          <option value="radio" <?php selected( $onemeta_field['type'], 'radio' ); ?>><?php esc_html_e( 'Radio', 'onemeta' ); ?></option>
+                          <option value="button_group" <?php selected( $onemeta_field['type'], 'button_group' ); ?>><?php esc_html_e( 'Button Group', 'onemeta' ); ?></option>
+                          <option value="image" <?php selected( $onemeta_field['type'], 'image' ); ?>><?php esc_html_e( 'Image', 'onemeta' ); ?></option>
+                          <option value="file" <?php selected( $onemeta_field['type'], 'file' ); ?>><?php esc_html_e( 'File', 'onemeta' ); ?></option>
+                          <option value="gallery" <?php selected( $onemeta_field['type'], 'gallery' ); ?>><?php esc_html_e( 'Gallery', 'onemeta' ); ?></option>
+                          <option value="repeater" <?php selected( $onemeta_field['type'], 'repeater' ); ?>><?php esc_html_e( 'Repeater', 'onemeta' ); ?></option>
+                          <option value="heading" <?php selected( $onemeta_field['type'], 'heading' ); ?>><?php esc_html_e( 'Heading', 'onemeta' ); ?></option>
                         </select>
                       </div>
                     </div>
@@ -242,26 +243,26 @@
                       <div class="onemeta-field-settings__row">
                         <label class="onemeta-setting onemeta-field-setting">
                           <span class="onemeta-setting__label"><?php esc_html_e( 'Description', 'onemeta' ); ?>:</span>
-                          <input type="text" class="onemeta-input onemeta-field-description" value="<?php echo isset( $field['description'] ) ? esc_attr( $field['description'] ) : ''; ?>" placeholder="<?php esc_attr_e( 'Optional description', 'onemeta' ); ?>">
+                          <input type="text" class="onemeta-input onemeta-field-description" value="<?php echo isset( $onemeta_field['description'] ) ? esc_attr( $onemeta_field['description'] ) : ''; ?>" placeholder="<?php esc_attr_e( 'Optional description', 'onemeta' ); ?>">
                         </label>
-                        <label class="onemeta-setting onemeta-field-setting onemeta-placeholder-setting" style="<?php echo ! in_array( $field['type'], [
+                        <label class="onemeta-setting onemeta-field-setting onemeta-placeholder-setting" style="<?php echo ! in_array( $onemeta_field['type'], [
                             'text',
                             'textarea',
                             'url',
                             'email'
                         ] ) ? 'display: none;' : ''; ?>">
                           <span class="onemeta-setting__label"><?php esc_html_e( 'Placeholder', 'onemeta' ); ?>:</span>
-                          <input type="text" class="onemeta-input onemeta-field-placeholder" value="<?php echo isset( $field['placeholder'] ) ? esc_attr( $field['placeholder'] ) : ''; ?>" placeholder="<?php esc_attr_e( 'Optional placeholder', 'onemeta' ); ?>">
+                          <input type="text" class="onemeta-input onemeta-field-placeholder" value="<?php echo isset( $onemeta_field['placeholder'] ) ? esc_attr( $onemeta_field['placeholder'] ) : ''; ?>" placeholder="<?php esc_attr_e( 'Optional placeholder', 'onemeta' ); ?>">
                         </label>
                       </div>
                     </div>
 
                     <!-- Dynamic Advanced Settings -->
-                    <div class="onemeta-field-advanced-settings" data-field-index="<?php echo $field_index; ?>">
+                    <div class="onemeta-field-advanced-settings" data-field-index="<?php echo esc_attr( $onemeta_field_index ); ?>">
                       <!-- Settings rendered by JavaScript based on field type -->
                     </div>
                   </div>
-                  <?php $field_index ++; ?>
+                  <?php $onemeta_field_index ++; ?>
                 <?php endforeach; ?>
               <?php endif; ?>
             </div>

@@ -1,6 +1,26 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 
+.onemeta-page-wrapper {
+  transition: margin 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+
+  &.onemeta-builder-page.onemeta-sidebar-pos-left.onemeta-sidebar-expanded {
+    margin-left: calc(280px + 8px);
+  }
+
+  &.onemeta-builder-page.onemeta-sidebar-pos-left.onemeta-sidebar-collapsed {
+    margin-left: calc(64px + 8px);
+  }
+
+  &.onemeta-builder-page.onemeta-sidebar-expanded.onemeta-sidebar-pos-right {
+    margin-right: calc(300px + 8px);
+  }
+
+  &.onemeta-builder-page.onemeta-sidebar-collapsed.onemeta-sidebar-pos-right {
+    margin-right: calc(84px + 8px);
+  }
+}
+
 .onemeta-field-palette-sidebar {
   position: fixed;
   background: white;

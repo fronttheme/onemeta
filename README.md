@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/images/OneMeta - Custom Meta Fields.webp" alt="OneMeta - Custom Meta Fields"/>
+<img src="assets/images/onemeta-custom-meta-fields.webp" alt="OneMeta - Custom Meta Fields"/>
 
 # OneMeta — Custom Meta Fields Made Simple
 
@@ -435,7 +435,7 @@ npm run package
 
 ### Tech Stack
 
-- **Build Tool:** Vite 5
+- **Build Tool:** Vite 7
 - **CSS:** SCSS (modular 7-1 architecture)
 - **JS:** Vanilla ES Modules (no jQuery)
 - **PHP:** PSR-4 autoloaded, singleton pattern
