@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-25T21:39:53+00:00\n"
+"POT-Creation-Date: 2026-06-26T14:05:41+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: onemeta\n"
@@ -28,6 +28,8 @@ msgstr ""
 #: onemeta.php
 #: includes/Admin/views/about.php:45
 #: includes/Admin/views/dashboard.php:34
+#: package/onemeta/includes/Admin/views/about.php:45
+#: package/onemeta/includes/Admin/views/dashboard.php:34
 msgid "Build powerful custom fields with a visual builder. Export as PHP code or use directly in WordPress."
 msgstr ""
 
@@ -42,103 +44,129 @@ msgid "https://fronttheme.com"
 msgstr ""
 
 #: includes/Admin/AdminAjax.php:58
+#: package/onemeta/includes/Admin/AdminAjax.php:58
 msgid "You do not have sufficient permissions."
 msgstr ""
 
 #: includes/Admin/AdminAjax.php:96
 #: includes/Admin/AdminAjax.php:125
+#: package/onemeta/includes/Admin/AdminAjax.php:96
+#: package/onemeta/includes/Admin/AdminAjax.php:125
 msgid "Insufficient permissions."
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:154
+#: package/onemeta/includes/Admin/AdminAssets.php:154
 msgid "Total Groups"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:155
+#: package/onemeta/includes/Admin/AdminAssets.php:155
 msgid "Active Groups"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:156
+#: package/onemeta/includes/Admin/AdminAssets.php:156
 msgid "Total Fields"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:157
+#: package/onemeta/includes/Admin/AdminAssets.php:157
 msgid "Failed to load field groups. Please refresh the page."
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:158
+#: package/onemeta/includes/Admin/AdminAssets.php:158
 msgid "Preparing export..."
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:159
+#: package/onemeta/includes/Admin/AdminAssets.php:159
 msgid "Export:"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:160
+#: package/onemeta/includes/Admin/AdminAssets.php:160
 msgid "Copy this code to your theme's <code style=\"font-family: 'JetBrains Mono', monospace;\">functions.php</code> file:"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:161
+#: package/onemeta/includes/Admin/AdminAssets.php:161
 msgid "Copy to Clipboard"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:162
+#: package/onemeta/includes/Admin/AdminAssets.php:162
 msgid "Download PHP File"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:163
+#: package/onemeta/includes/Admin/AdminAssets.php:163
 msgid "PHP code copied to clipboard!"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:164
+#: package/onemeta/includes/Admin/AdminAssets.php:164
 msgid "Failed to copy. Please copy manually."
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:165
+#: package/onemeta/includes/Admin/AdminAssets.php:165
 msgid "Export failed:"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:166
+#: package/onemeta/includes/Admin/AdminAssets.php:166
 msgid "Unknown error"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:167
+#: package/onemeta/includes/Admin/AdminAssets.php:167
 msgid "Export failed. Please try again."
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:168
+#: package/onemeta/includes/Admin/AdminAssets.php:168
 msgid "File downloaded successfully!"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:169
+#: package/onemeta/includes/Admin/AdminAssets.php:169
 msgid "status updated!"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:170
+#: package/onemeta/includes/Admin/AdminAssets.php:170
 msgid "Failed to update status:"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:171
+#: package/onemeta/includes/Admin/AdminAssets.php:171
 msgid "Failed to update status. Please try again."
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:172
+#: package/onemeta/includes/Admin/AdminAssets.php:172
 msgid "field group"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:173
+#: package/onemeta/includes/Admin/AdminAssets.php:173
 msgid "Field group deleted successfully!"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:174
+#: package/onemeta/includes/Admin/AdminAssets.php:174
 msgid "Failed to delete:"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:175
+#: package/onemeta/includes/Admin/AdminAssets.php:175
 msgid "Failed to delete. Please try again."
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:176
+#: package/onemeta/includes/Admin/AdminAssets.php:176
 msgid "Network response was not ok!"
 msgstr ""
 
@@ -147,6 +175,11 @@ msgstr ""
 #: includes/Admin/views/builder.php:223
 #: includes/Admin/views/builder.php:338
 #: includes/Admin/views/docs.php:17
+#: package/onemeta/includes/Admin/AdminAssets.php:257
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:342
+#: package/onemeta/includes/Admin/views/builder.php:223
+#: package/onemeta/includes/Admin/views/builder.php:338
+#: package/onemeta/includes/Admin/views/docs.php:17
 msgid "Text"
 msgstr ""
 
@@ -155,6 +188,11 @@ msgstr ""
 #: includes/Admin/views/builder.php:224
 #: includes/Admin/views/builder.php:339
 #: includes/Admin/views/docs.php:25
+#: package/onemeta/includes/Admin/AdminAssets.php:263
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:343
+#: package/onemeta/includes/Admin/views/builder.php:224
+#: package/onemeta/includes/Admin/views/builder.php:339
+#: package/onemeta/includes/Admin/views/docs.php:25
 msgid "Textarea"
 msgstr ""
 
@@ -163,6 +201,11 @@ msgstr ""
 #: includes/Admin/views/builder.php:225
 #: includes/Admin/views/builder.php:340
 #: includes/Admin/views/docs.php:33
+#: package/onemeta/includes/Admin/AdminAssets.php:269
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:344
+#: package/onemeta/includes/Admin/views/builder.php:225
+#: package/onemeta/includes/Admin/views/builder.php:340
+#: package/onemeta/includes/Admin/views/docs.php:33
 msgid "URL"
 msgstr ""
 
@@ -171,6 +214,11 @@ msgstr ""
 #: includes/Admin/views/builder.php:226
 #: includes/Admin/views/builder.php:341
 #: includes/Admin/views/docs.php:41
+#: package/onemeta/includes/Admin/AdminAssets.php:275
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:345
+#: package/onemeta/includes/Admin/views/builder.php:226
+#: package/onemeta/includes/Admin/views/builder.php:341
+#: package/onemeta/includes/Admin/views/docs.php:41
 msgid "Email"
 msgstr ""
 
@@ -179,6 +227,11 @@ msgstr ""
 #: includes/Admin/views/builder.php:227
 #: includes/Admin/views/builder.php:342
 #: includes/Admin/views/docs.php:49
+#: package/onemeta/includes/Admin/AdminAssets.php:281
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:346
+#: package/onemeta/includes/Admin/views/builder.php:227
+#: package/onemeta/includes/Admin/views/builder.php:342
+#: package/onemeta/includes/Admin/views/docs.php:49
 msgid "Date"
 msgstr ""
 
@@ -187,6 +240,11 @@ msgstr ""
 #: includes/Admin/views/builder.php:228
 #: includes/Admin/views/builder.php:343
 #: includes/Admin/views/docs.php:57
+#: package/onemeta/includes/Admin/AdminAssets.php:287
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:349
+#: package/onemeta/includes/Admin/views/builder.php:228
+#: package/onemeta/includes/Admin/views/builder.php:343
+#: package/onemeta/includes/Admin/views/docs.php:57
 msgid "Toggle"
 msgstr ""
 
@@ -195,6 +253,11 @@ msgstr ""
 #: includes/Admin/views/builder.php:229
 #: includes/Admin/views/builder.php:344
 #: includes/Admin/views/docs.php:65
+#: package/onemeta/includes/Admin/AdminAssets.php:293
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:350
+#: package/onemeta/includes/Admin/views/builder.php:229
+#: package/onemeta/includes/Admin/views/builder.php:344
+#: package/onemeta/includes/Admin/views/docs.php:65
 msgid "Select"
 msgstr ""
 
@@ -203,6 +266,11 @@ msgstr ""
 #: includes/Admin/views/builder.php:230
 #: includes/Admin/views/builder.php:345
 #: includes/Admin/views/docs.php:73
+#: package/onemeta/includes/Admin/AdminAssets.php:299
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:353
+#: package/onemeta/includes/Admin/views/builder.php:230
+#: package/onemeta/includes/Admin/views/builder.php:345
+#: package/onemeta/includes/Admin/views/docs.php:73
 msgid "Checkbox"
 msgstr ""
 
@@ -211,6 +279,11 @@ msgstr ""
 #: includes/Admin/views/builder.php:231
 #: includes/Admin/views/builder.php:346
 #: includes/Admin/views/docs.php:81
+#: package/onemeta/includes/Admin/AdminAssets.php:305
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:351
+#: package/onemeta/includes/Admin/views/builder.php:231
+#: package/onemeta/includes/Admin/views/builder.php:346
+#: package/onemeta/includes/Admin/views/docs.php:81
 msgid "Radio"
 msgstr ""
 
@@ -219,6 +292,11 @@ msgstr ""
 #: includes/Admin/views/builder.php:232
 #: includes/Admin/views/builder.php:347
 #: includes/Admin/views/docs.php:89
+#: package/onemeta/includes/Admin/AdminAssets.php:311
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:352
+#: package/onemeta/includes/Admin/views/builder.php:232
+#: package/onemeta/includes/Admin/views/builder.php:347
+#: package/onemeta/includes/Admin/views/docs.php:89
 msgid "Button Group"
 msgstr ""
 
@@ -227,6 +305,11 @@ msgstr ""
 #: includes/Admin/views/builder.php:233
 #: includes/Admin/views/builder.php:348
 #: includes/Admin/views/docs.php:97
+#: package/onemeta/includes/Admin/AdminAssets.php:317
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:356
+#: package/onemeta/includes/Admin/views/builder.php:233
+#: package/onemeta/includes/Admin/views/builder.php:348
+#: package/onemeta/includes/Admin/views/docs.php:97
 msgid "Image"
 msgstr ""
 
@@ -235,6 +318,11 @@ msgstr ""
 #: includes/Admin/views/builder.php:234
 #: includes/Admin/views/builder.php:349
 #: includes/Admin/views/docs.php:105
+#: package/onemeta/includes/Admin/AdminAssets.php:323
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:357
+#: package/onemeta/includes/Admin/views/builder.php:234
+#: package/onemeta/includes/Admin/views/builder.php:349
+#: package/onemeta/includes/Admin/views/docs.php:105
 msgid "File"
 msgstr ""
 
@@ -243,6 +331,11 @@ msgstr ""
 #: includes/Admin/views/builder.php:235
 #: includes/Admin/views/builder.php:350
 #: includes/Admin/views/docs.php:113
+#: package/onemeta/includes/Admin/AdminAssets.php:329
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:358
+#: package/onemeta/includes/Admin/views/builder.php:235
+#: package/onemeta/includes/Admin/views/builder.php:350
+#: package/onemeta/includes/Admin/views/docs.php:113
 msgid "Gallery"
 msgstr ""
 
@@ -251,98 +344,126 @@ msgstr ""
 #: includes/Admin/views/builder.php:236
 #: includes/Admin/views/builder.php:351
 #: includes/Admin/views/docs.php:121
+#: package/onemeta/includes/Admin/AdminAssets.php:335
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:361
+#: package/onemeta/includes/Admin/views/builder.php:236
+#: package/onemeta/includes/Admin/views/builder.php:351
+#: package/onemeta/includes/Admin/views/docs.php:121
 msgid "Repeater"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:349
+#: package/onemeta/includes/Admin/AdminAssets.php:349
 msgid "Any File"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:350
+#: package/onemeta/includes/Admin/AdminAssets.php:350
 msgid "Video"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:351
+#: package/onemeta/includes/Admin/AdminAssets.php:351
 msgid "Audio"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:352
+#: package/onemeta/includes/Admin/AdminAssets.php:352
 msgid "Document"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:353
+#: package/onemeta/includes/Admin/AdminAssets.php:353
 msgid "Archive"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:354
+#: package/onemeta/includes/Admin/AdminAssets.php:354
 msgid "Font"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:355
+#: package/onemeta/includes/Admin/AdminAssets.php:355
 msgid "Spreadsheet"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:366
+#: package/onemeta/includes/Admin/AdminAssets.php:366
 msgid "Are you sure you want to delete this field?"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:367
+#: package/onemeta/includes/Admin/AdminAssets.php:367
 msgid "Are you sure you want to delete this field group?"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:368
+#: package/onemeta/includes/Admin/AdminAssets.php:368
 msgid "Field group saved successfully!"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:369
+#: package/onemeta/includes/Admin/AdminAssets.php:369
 msgid "Error saving field group. Please try again."
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:370
+#: package/onemeta/includes/Admin/AdminAssets.php:370
 msgid "PHP code exported to clipboard!"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:371
+#: package/onemeta/includes/Admin/AdminAssets.php:371
 msgid "Failed to copy code. Please try again."
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:372
+#: package/onemeta/includes/Admin/AdminAssets.php:372
 msgid "Field key must be lowercase with underscores only (a-z, 0-9, _)"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:373
+#: package/onemeta/includes/Admin/AdminAssets.php:373
 msgid "Field key already exists. Please use a unique key."
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:374
+#: package/onemeta/includes/Admin/AdminAssets.php:374
 msgid "Add Choice"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:375
+#: package/onemeta/includes/Admin/AdminAssets.php:375
 msgid "Remove Choice"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:376
+#: package/onemeta/includes/Admin/AdminAssets.php:376
 msgid "Value"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:377
+#: package/onemeta/includes/Admin/AdminAssets.php:377
 msgid "Label"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:378
+#: package/onemeta/includes/Admin/AdminAssets.php:378
 msgid "Add Sub-Field"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:379
+#: package/onemeta/includes/Admin/AdminAssets.php:379
 msgid "No sub-fields added yet."
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:380
+#: package/onemeta/includes/Admin/AdminAssets.php:380
 msgid "Toggle Sub-Fields"
 msgstr ""
 
 #: includes/Admin/AdminAssets.php:381
+#: package/onemeta/includes/Admin/AdminAssets.php:381
 msgid "Saving..."
 msgstr ""
 
@@ -350,11 +471,17 @@ msgstr ""
 #: includes/Admin/AdminMenu.php:104
 #: includes/Admin/AdminMenu.php:105
 #: includes/Admin/views/builder.php:38
+#: package/onemeta/includes/Admin/AdminMenu.php:53
+#: package/onemeta/includes/Admin/AdminMenu.php:104
+#: package/onemeta/includes/Admin/AdminMenu.php:105
+#: package/onemeta/includes/Admin/views/builder.php:38
 msgid "Edit Field Group"
 msgstr ""
 
 #: includes/Admin/AdminMenu.php:74
 #: includes/Admin/AdminMenu.php:75
+#: package/onemeta/includes/Admin/AdminMenu.php:74
+#: package/onemeta/includes/Admin/AdminMenu.php:75
 msgid "OneMeta"
 msgstr ""
 
@@ -362,17 +489,26 @@ msgstr ""
 #: includes/Admin/AdminMenu.php:86
 #: includes/Admin/views/about.php:224
 #: includes/Admin/views/dashboard.php:44
+#: package/onemeta/includes/Admin/AdminMenu.php:85
+#: package/onemeta/includes/Admin/AdminMenu.php:86
+#: package/onemeta/includes/Admin/views/about.php:224
+#: package/onemeta/includes/Admin/views/dashboard.php:44
 msgid "Field Groups"
 msgstr ""
 
 #: includes/Admin/AdminMenu.php:94
 #: includes/Admin/AdminMenu.php:95
 #: includes/Admin/views/about.php:235
+#: package/onemeta/includes/Admin/AdminMenu.php:94
+#: package/onemeta/includes/Admin/AdminMenu.php:95
+#: package/onemeta/includes/Admin/views/about.php:235
 msgid "Add New"
 msgstr ""
 
 #: includes/Admin/AdminMenu.php:113
 #: includes/Admin/AdminMenu.php:114
+#: package/onemeta/includes/Admin/AdminMenu.php:113
+#: package/onemeta/includes/Admin/AdminMenu.php:114
 msgid "About"
 msgstr ""
 
@@ -380,14 +516,20 @@ msgstr ""
 #: includes/Admin/AdminMenu.php:123
 #: includes/Admin/views/about.php:246
 #: includes/Admin/views/docs.php:136
+#: package/onemeta/includes/Admin/AdminMenu.php:122
+#: package/onemeta/includes/Admin/AdminMenu.php:123
+#: package/onemeta/includes/Admin/views/about.php:246
+#: package/onemeta/includes/Admin/views/docs.php:136
 msgid "Documentation"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:41
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:41
 msgid "HTML Tag"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:54
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:54
 msgid "Show Separator"
 msgstr ""
 
@@ -399,41 +541,60 @@ msgstr ""
 #: includes/Admin/FieldTypeSchemas.php:171
 #: includes/Admin/FieldTypeSchemas.php:188
 #: includes/Admin/FieldTypeSchemas.php:209
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:62
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:75
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:93
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:101
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:109
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:171
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:188
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:209
 msgid "Default Value"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:63
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:63
 msgid "Enter default value"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:67
 #: includes/Admin/FieldTypeSchemas.php:85
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:67
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:85
 msgid "Max Length"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:80
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:80
 msgid "Rows"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:117
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:117
 msgid "Default State"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:119
 #: includes/Admin/FieldTypeSchemas.php:132
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:119
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:132
 msgid "Off"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:120
 #: includes/Admin/FieldTypeSchemas.php:127
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:120
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:127
 msgid "On"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:126
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:126
 msgid "On Text"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:131
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:131
 msgid "Off Text"
 msgstr ""
 
@@ -441,33 +602,46 @@ msgstr ""
 #: includes/Admin/FieldTypeSchemas.php:166
 #: includes/Admin/FieldTypeSchemas.php:183
 #: includes/Admin/FieldTypeSchemas.php:204
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:139
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:166
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:183
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:204
 msgid "Choices"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:140
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:140
 msgid "Enter each choice on a new row (key : Label)"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:144
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:144
 msgid "Default Values (Enter comma-separated values (e.g., red, green))"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:145
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:145
 msgid "Enter comma-separated values (e.g., red, green)"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:149
 #: includes/Admin/FieldTypeSchemas.php:192
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:149
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:192
 msgid "Layout"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:151
 #: includes/Admin/FieldTypeSchemas.php:194
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:151
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:194
 msgid "Vertical"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:152
 #: includes/Admin/FieldTypeSchemas.php:195
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:152
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:195
 msgid "Horizontal"
 msgstr ""
 
@@ -476,435 +650,564 @@ msgstr ""
 #: includes/Admin/FieldTypeSchemas.php:388
 #: includes/Admin/views/about.php:83
 #: includes/Admin/views/docs.php:421
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:158
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:322
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:388
+#: package/onemeta/includes/Admin/views/about.php:83
+#: package/onemeta/includes/Admin/views/docs.php:421
 msgid "Conditional Logic"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:159
 #: includes/Admin/FieldTypeSchemas.php:323
 #: includes/Admin/FieldTypeSchemas.php:389
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:159
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:323
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:389
 msgid "Control when this field is visible"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:167
 #: includes/Admin/FieldTypeSchemas.php:184
 #: includes/Admin/FieldTypeSchemas.php:205
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:167
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:184
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:205
 msgid "Enter each choice on a new line. Use format: value : Label"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:175
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:175
 msgid "Allow Null"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:217
 #: includes/Admin/FieldTypeSchemas.php:259
 #: includes/Admin/FieldTypeSchemas.php:287
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:217
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:259
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:287
 msgid "Return Format"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:219
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:219
 msgid "Image ID"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:220
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:220
 msgid "Image URL"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:221
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:221
 msgid "Image Array"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:227
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:227
 msgid "Preview Size"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:229
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:229
 msgid "Thumbnail"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:230
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:230
 msgid "Medium"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:231
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:231
 msgid "Large"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:240
 #: includes/Admin/FieldTypeSchemas.php:272
 #: includes/Admin/FieldTypeSchemas.php:300
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:240
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:272
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:300
 msgid "Button Text"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:241
 #: includes/Core/Renderer.php:363
 #: includes/Core/Renderer.php:389
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:241
+#: package/onemeta/includes/Core/Renderer.php:363
+#: package/onemeta/includes/Core/Renderer.php:389
 msgid "Select File"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:245
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:245
 msgid "File Type"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:247
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:247
 msgid "Any"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:248
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:248
 msgid "Video (MP4, WEBM, OGV, MOV)"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:249
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:249
 msgid "Audio (MP3, WAV, OGG)"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:250
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:250
 msgid "Document (PDF, DOC, DOCX, TXT)"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:251
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:251
 msgid "Archive (ZIP, RAR, 7Z)"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:252
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:252
 msgid "Font (WOFF, WOFF2, TTF, OTF)"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:253
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:253
 msgid "Spreadsheet (XLS, XLSX, CSV)"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:261
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:261
 msgid "File ID"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:262
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:262
 msgid "File URL"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:263
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:263
 msgid "File Array"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:273
 #: includes/Core/Renderer.php:469
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:273
+#: package/onemeta/includes/Core/Renderer.php:469
 msgid "Add Images"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:277
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:277
 msgid "Minimum Images"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:282
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:282
 msgid "Maximum Images"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:283
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:283
 msgid "Unlimited"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:289
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:289
 msgid "Image IDs"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:290
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:290
 msgid "Image URLs"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:291
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:291
 msgid "Image Arrays"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:301
 #: includes/Admin/FieldTypeSchemas.php:302
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:301
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:302
 msgid "Add Item"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:306
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:306
 msgid "Minimum Rows"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:312
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:312
 msgid "Maximum Rows"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:313
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:313
 msgid "No limit"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:317
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:317
 msgid "Sub Fields"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:318
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:318
 msgid "Add fields that will appear in each row"
 msgstr ""
 
 #: includes/Admin/FieldTypeSchemas.php:341
 #: includes/Admin/views/builder.php:237
 #: includes/Admin/views/builder.php:352
+#: package/onemeta/includes/Admin/FieldTypeSchemas.php:341
+#: package/onemeta/includes/Admin/views/builder.php:237
+#: package/onemeta/includes/Admin/views/builder.php:352
 msgid "Heading"
 msgstr ""
 
 #: includes/Admin/views/about.php:32
 #: includes/Admin/views/dashboard.php:21
+#: package/onemeta/includes/Admin/views/about.php:32
+#: package/onemeta/includes/Admin/views/dashboard.php:21
 msgid "OneMeta Logo"
 msgstr ""
 
 #: includes/Admin/views/about.php:42
 #: includes/Admin/views/dashboard.php:31
+#: package/onemeta/includes/Admin/views/about.php:42
+#: package/onemeta/includes/Admin/views/dashboard.php:31
 msgid "Custom Meta Fields Made Simple"
 msgstr ""
 
 #: includes/Admin/views/about.php:61
+#: package/onemeta/includes/Admin/views/about.php:61
 msgid "Features"
 msgstr ""
 
 #: includes/Admin/views/about.php:71
+#: package/onemeta/includes/Admin/views/about.php:71
 msgid "14 Field Types"
 msgstr ""
 
 #: includes/Admin/views/about.php:73
+#: package/onemeta/includes/Admin/views/about.php:73
 msgid "Text, Textarea, URL, Email, Date, Toggle, Select, Checkbox, Radio, Button Group, Image, File, Gallery, Repeater"
 msgstr ""
 
 #: includes/Admin/views/about.php:85
+#: package/onemeta/includes/Admin/views/about.php:85
 msgid "Show/hide fields based on other field values"
 msgstr ""
 
 #: includes/Admin/views/about.php:95
+#: package/onemeta/includes/Admin/views/about.php:95
 msgid "Repeater Fields"
 msgstr ""
 
 #: includes/Admin/views/about.php:97
+#: package/onemeta/includes/Admin/views/about.php:97
 msgid "Create repeatable field groups with sub-fields"
 msgstr ""
 
 #: includes/Admin/views/about.php:107
+#: package/onemeta/includes/Admin/views/about.php:107
 msgid "User Meta Support"
 msgstr ""
 
 #: includes/Admin/views/about.php:109
+#: package/onemeta/includes/Admin/views/about.php:109
 msgid "Add custom fields to user profiles"
 msgstr ""
 
 #: includes/Admin/views/about.php:119
+#: package/onemeta/includes/Admin/views/about.php:119
 msgid "Export as PHP"
 msgstr ""
 
 #: includes/Admin/views/about.php:121
+#: package/onemeta/includes/Admin/views/about.php:121
 msgid "Export field groups as clean PHP config code"
 msgstr ""
 
 #: includes/Admin/views/about.php:131
+#: package/onemeta/includes/Admin/views/about.php:131
 msgid "REST API"
 msgstr ""
 
 #: includes/Admin/views/about.php:133
+#: package/onemeta/includes/Admin/views/about.php:133
 msgid "Full REST API support for modern integrations"
 msgstr ""
 
 #: includes/Admin/views/about.php:146
+#: package/onemeta/includes/Admin/views/about.php:146
 msgid "System Information"
 msgstr ""
 
 #: includes/Admin/views/about.php:152
+#: package/onemeta/includes/Admin/views/about.php:152
 msgid "Version"
 msgstr ""
 
 #: includes/Admin/views/about.php:161
+#: package/onemeta/includes/Admin/views/about.php:161
 msgid "Author"
 msgstr ""
 
 #: includes/Admin/views/about.php:168
+#: package/onemeta/includes/Admin/views/about.php:168
 msgid "Organization"
 msgstr ""
 
 #: includes/Admin/views/about.php:175
+#: package/onemeta/includes/Admin/views/about.php:175
 msgid "Plugin Directory"
 msgstr ""
 
 #: includes/Admin/views/about.php:182
+#: package/onemeta/includes/Admin/views/about.php:182
 msgid "Database Table"
 msgstr ""
 
 #: includes/Admin/views/about.php:189
+#: package/onemeta/includes/Admin/views/about.php:189
 msgid "PHP Version"
 msgstr ""
 
 #: includes/Admin/views/about.php:198
+#: package/onemeta/includes/Admin/views/about.php:198
 msgid "WordPress Version"
 msgstr ""
 
 #: includes/Admin/views/about.php:214
+#: package/onemeta/includes/Admin/views/about.php:214
 msgid "Quick Links"
 msgstr ""
 
 #: includes/Admin/views/about.php:225
+#: package/onemeta/includes/Admin/views/about.php:225
 msgid "Manage your field groups"
 msgstr ""
 
 #: includes/Admin/views/about.php:236
+#: package/onemeta/includes/Admin/views/about.php:236
 msgid "Create a new field group"
 msgstr ""
 
 #: includes/Admin/views/about.php:247
+#: package/onemeta/includes/Admin/views/about.php:247
 msgid "Learn how to use OneMeta"
 msgstr ""
 
 #: includes/Admin/views/about.php:257
+#: package/onemeta/includes/Admin/views/about.php:257
 msgid "GitHub Repository"
 msgstr ""
 
 #: includes/Admin/views/about.php:258
+#: package/onemeta/includes/Admin/views/about.php:258
 msgid "View source code"
 msgstr ""
 
 #: includes/Admin/views/about.php:271
+#: package/onemeta/includes/Admin/views/about.php:271
 msgid "Need Help?"
 msgstr ""
 
 #: includes/Admin/views/about.php:275
+#: package/onemeta/includes/Admin/views/about.php:275
 msgid "Get support, report bugs, or request features:"
 msgstr ""
 
 #: includes/Admin/views/about.php:279
+#: package/onemeta/includes/Admin/views/about.php:279
 msgid "GitHub Issues"
 msgstr ""
 
 #: includes/Admin/views/about.php:283
+#: package/onemeta/includes/Admin/views/about.php:283
 msgid "Email Support"
 msgstr ""
 
 #. translators: %1$s: heart icon, %2$s: company link
 #: includes/Admin/views/about.php:298
+#: package/onemeta/includes/Admin/views/about.php:298
 #, php-format
 msgid "Made with %1$s by %2$s"
 msgstr ""
 
 #: includes/Admin/views/builder.php:38
 #: includes/Admin/views/dashboard.php:54
+#: package/onemeta/includes/Admin/views/builder.php:38
+#: package/onemeta/includes/Admin/views/dashboard.php:54
 msgid "Add New Field Group"
 msgstr ""
 
 #: includes/Admin/views/builder.php:42
+#: package/onemeta/includes/Admin/views/builder.php:42
 msgid "Modify your field group configuration"
 msgstr ""
 
 #: includes/Admin/views/builder.php:43
+#: package/onemeta/includes/Admin/views/builder.php:43
 msgid "Create a new custom field group"
 msgstr ""
 
 #: includes/Admin/views/builder.php:50
+#: package/onemeta/includes/Admin/views/builder.php:50
 msgid "Back to Field Groups"
 msgstr ""
 
 #: includes/Admin/views/builder.php:66
+#: package/onemeta/includes/Admin/views/builder.php:66
 msgid "Basic Settings"
 msgstr ""
 
 #: includes/Admin/views/builder.php:74
+#: package/onemeta/includes/Admin/views/builder.php:74
 msgid "Field Group Key"
 msgstr ""
 
 #: includes/Admin/views/builder.php:91
+#: package/onemeta/includes/Admin/views/builder.php:91
 msgid "Unique identifier (lowercase, underscores only)"
 msgstr ""
 
 #: includes/Admin/views/builder.php:96
+#: package/onemeta/includes/Admin/views/builder.php:96
 msgid "Field group key cannot be changed after creation"
 msgstr ""
 
 #: includes/Admin/views/builder.php:104
+#: package/onemeta/includes/Admin/views/builder.php:104
 msgid "Title"
 msgstr ""
 
 #: includes/Admin/views/builder.php:119
+#: package/onemeta/includes/Admin/views/builder.php:119
 msgid "Display name for this field group"
 msgstr ""
 
 #: includes/Admin/views/builder.php:126
+#: package/onemeta/includes/Admin/views/builder.php:126
 msgid "Type"
 msgstr ""
 
 #: includes/Admin/views/builder.php:131
+#: package/onemeta/includes/Admin/views/builder.php:131
 msgid "Post/Page Meta"
 msgstr ""
 
 #: includes/Admin/views/builder.php:134
+#: package/onemeta/includes/Admin/views/builder.php:134
 msgid "User Meta"
 msgstr ""
 
 #: includes/Admin/views/builder.php:142
+#: package/onemeta/includes/Admin/views/builder.php:142
 msgid "Post Type"
 msgstr ""
 
 #: includes/Admin/views/builder.php:158
+#: package/onemeta/includes/Admin/views/builder.php:158
 msgid "Position"
 msgstr ""
 
 #: includes/Admin/views/builder.php:163
+#: package/onemeta/includes/Admin/views/builder.php:163
 msgid "Normal"
 msgstr ""
 
 #: includes/Admin/views/builder.php:166
+#: package/onemeta/includes/Admin/views/builder.php:166
 msgid "Side"
 msgstr ""
 
 #: includes/Admin/views/builder.php:180
+#: package/onemeta/includes/Admin/views/builder.php:180
 msgid "Fields"
 msgstr ""
 
 #: includes/Admin/views/builder.php:187
 #: includes/Admin/views/builder.php:274
+#: package/onemeta/includes/Admin/views/builder.php:187
+#: package/onemeta/includes/Admin/views/builder.php:274
 msgid "Add Field"
 msgstr ""
 
 #: includes/Admin/views/builder.php:200
+#: package/onemeta/includes/Admin/views/builder.php:200
 msgid "No Fields Yet"
 msgstr ""
 
 #: includes/Admin/views/builder.php:203
+#: package/onemeta/includes/Admin/views/builder.php:203
 msgid "Drag a field type from the sidebar or click \"Add Field\" to create your first custom field"
 msgstr ""
 
 #: includes/Admin/views/builder.php:213
 #: includes/Admin/views/builder.php:328
+#: package/onemeta/includes/Admin/views/builder.php:213
+#: package/onemeta/includes/Admin/views/builder.php:328
 msgid "Remove Field"
 msgstr ""
 
 #: includes/Admin/views/builder.php:245
 #: includes/Admin/views/builder.php:360
+#: package/onemeta/includes/Admin/views/builder.php:245
+#: package/onemeta/includes/Admin/views/builder.php:360
 msgid "Description"
 msgstr ""
 
 #: includes/Admin/views/builder.php:246
 #: includes/Admin/views/builder.php:361
+#: package/onemeta/includes/Admin/views/builder.php:246
+#: package/onemeta/includes/Admin/views/builder.php:361
 msgid "Optional description"
 msgstr ""
 
 #: includes/Admin/views/builder.php:254
 #: includes/Admin/views/builder.php:364
+#: package/onemeta/includes/Admin/views/builder.php:254
+#: package/onemeta/includes/Admin/views/builder.php:364
 msgid "Placeholder"
 msgstr ""
 
 #: includes/Admin/views/builder.php:255
 #: includes/Admin/views/builder.php:365
+#: package/onemeta/includes/Admin/views/builder.php:255
+#: package/onemeta/includes/Admin/views/builder.php:365
 msgid "Optional placeholder"
 msgstr ""
 
 #: includes/Admin/views/builder.php:285
+#: package/onemeta/includes/Admin/views/builder.php:285
 msgid "Save Field Group"
 msgstr ""
 
 #: includes/Admin/views/builder.php:289
+#: package/onemeta/includes/Admin/views/builder.php:289
 msgid "Export PHP"
 msgstr ""
 
 #: includes/Admin/views/builder.php:292
+#: package/onemeta/includes/Admin/views/builder.php:292
 msgid "Cancel"
 msgstr ""
 
 #: includes/Admin/views/builder.php:308
+#: package/onemeta/includes/Admin/views/builder.php:308
 msgid "PHP Code Preview"
 msgstr ""
 
@@ -912,60 +1215,82 @@ msgstr ""
 #: includes/Admin/views/docs.php:230
 #: includes/Admin/views/docs.php:252
 #: includes/Admin/views/docs.php:435
+#: package/onemeta/includes/Admin/views/builder.php:312
+#: package/onemeta/includes/Admin/views/docs.php:230
+#: package/onemeta/includes/Admin/views/docs.php:252
+#: package/onemeta/includes/Admin/views/docs.php:435
 msgid "Copy"
 msgstr ""
 
 #: includes/Admin/views/builder.php:316
+#: package/onemeta/includes/Admin/views/builder.php:316
 msgid "Add fields to see generated code..."
 msgstr ""
 
 #: includes/Admin/views/builder.php:336
+#: package/onemeta/includes/Admin/views/builder.php:336
 msgid "Field Label"
 msgstr ""
 
 #: includes/Admin/views/dashboard.php:47
+#: package/onemeta/includes/Admin/views/dashboard.php:47
 msgid "Manage your custom field groups"
 msgstr ""
 
 #: includes/Admin/views/dashboard.php:69
 #: includes/Admin/views/docs.php:202
+#: package/onemeta/includes/Admin/views/dashboard.php:69
+#: package/onemeta/includes/Admin/views/docs.php:202
 msgid "Loading field groups..."
 msgstr ""
 
 #: includes/Admin/views/dashboard.php:80
+#: package/onemeta/includes/Admin/views/dashboard.php:80
 msgid "No Field Groups Yet"
 msgstr ""
 
 #: includes/Admin/views/dashboard.php:83
+#: package/onemeta/includes/Admin/views/dashboard.php:83
 msgid "Create your first field group to start building custom fields for your content."
 msgstr ""
 
 #: includes/Admin/views/dashboard.php:88
 #: includes/Admin/views/docs.php:146
+#: package/onemeta/includes/Admin/views/dashboard.php:88
+#: package/onemeta/includes/Admin/views/docs.php:146
 msgid "Create Field Group"
 msgstr ""
 
 #: includes/Admin/views/dashboard.php:118
 #: includes/Admin/views/dashboard.php:119
+#: package/onemeta/includes/Admin/views/dashboard.php:118
+#: package/onemeta/includes/Admin/views/dashboard.php:119
 msgid "Edit"
 msgstr ""
 
 #: includes/Admin/views/dashboard.php:124
 #: includes/Admin/views/dashboard.php:125
+#: package/onemeta/includes/Admin/views/dashboard.php:124
+#: package/onemeta/includes/Admin/views/dashboard.php:125
 msgid "Export"
 msgstr ""
 
 #: includes/Admin/views/dashboard.php:130
 #: includes/Admin/views/dashboard.php:131
+#: package/onemeta/includes/Admin/views/dashboard.php:130
+#: package/onemeta/includes/Admin/views/dashboard.php:131
 msgid "Toggle Status"
 msgstr ""
 
 #: includes/Admin/views/dashboard.php:136
 #: includes/Admin/views/dashboard.php:137
+#: package/onemeta/includes/Admin/views/dashboard.php:136
+#: package/onemeta/includes/Admin/views/dashboard.php:137
 msgid "Delete"
 msgstr ""
 
 #: includes/Admin/views/docs.php:18
+#: package/onemeta/includes/Admin/views/docs.php:18
 msgid "Single line text input for short text content"
 msgstr ""
 
@@ -974,26 +1299,36 @@ msgstr ""
 #: includes/Admin/views/docs.php:36
 #: includes/Admin/views/docs.php:44
 #: includes/Admin/views/docs.php:52
+#: package/onemeta/includes/Admin/views/docs.php:20
+#: package/onemeta/includes/Admin/views/docs.php:28
+#: package/onemeta/includes/Admin/views/docs.php:36
+#: package/onemeta/includes/Admin/views/docs.php:44
+#: package/onemeta/includes/Admin/views/docs.php:52
 msgid "Basic"
 msgstr ""
 
 #: includes/Admin/views/docs.php:26
+#: package/onemeta/includes/Admin/views/docs.php:26
 msgid "Multi-line text input for longer content"
 msgstr ""
 
 #: includes/Admin/views/docs.php:34
+#: package/onemeta/includes/Admin/views/docs.php:34
 msgid "URL field with validation for web addresses"
 msgstr ""
 
 #: includes/Admin/views/docs.php:42
+#: package/onemeta/includes/Admin/views/docs.php:42
 msgid "Email field with validation"
 msgstr ""
 
 #: includes/Admin/views/docs.php:50
+#: package/onemeta/includes/Admin/views/docs.php:50
 msgid "Date picker for selecting dates"
 msgstr ""
 
 #: includes/Admin/views/docs.php:58
+#: package/onemeta/includes/Admin/views/docs.php:58
 msgid "On/Off switch for boolean values"
 msgstr ""
 
@@ -1001,376 +1336,478 @@ msgstr ""
 #: includes/Admin/views/docs.php:68
 #: includes/Admin/views/docs.php:84
 #: includes/Admin/views/docs.php:92
+#: package/onemeta/includes/Admin/views/docs.php:60
+#: package/onemeta/includes/Admin/views/docs.php:68
+#: package/onemeta/includes/Admin/views/docs.php:84
+#: package/onemeta/includes/Admin/views/docs.php:92
 msgid "Choice"
 msgstr ""
 
 #: includes/Admin/views/docs.php:66
+#: package/onemeta/includes/Admin/views/docs.php:66
 msgid "Dropdown select for single choice"
 msgstr ""
 
 #: includes/Admin/views/docs.php:74
+#: package/onemeta/includes/Admin/views/docs.php:74
 msgid "Multiple selection with checkboxes"
 msgstr ""
 
 #: includes/Admin/views/docs.php:76
+#: package/onemeta/includes/Admin/views/docs.php:76
 msgid "Multiple"
 msgstr ""
 
 #: includes/Admin/views/docs.php:82
+#: package/onemeta/includes/Admin/views/docs.php:82
 msgid "Radio buttons for single selection"
 msgstr ""
 
 #: includes/Admin/views/docs.php:90
+#: package/onemeta/includes/Admin/views/docs.php:90
 msgid "Button group selector for visual choice"
 msgstr ""
 
 #: includes/Admin/views/docs.php:98
+#: package/onemeta/includes/Admin/views/docs.php:98
 msgid "Image uploader with media library"
 msgstr ""
 
 #: includes/Admin/views/docs.php:100
 #: includes/Admin/views/docs.php:108
 #: includes/Admin/views/docs.php:116
+#: package/onemeta/includes/Admin/views/docs.php:100
+#: package/onemeta/includes/Admin/views/docs.php:108
+#: package/onemeta/includes/Admin/views/docs.php:116
 msgid "Media"
 msgstr ""
 
 #: includes/Admin/views/docs.php:106
+#: package/onemeta/includes/Admin/views/docs.php:106
 msgid "File uploader with type restrictions"
 msgstr ""
 
 #: includes/Admin/views/docs.php:114
+#: package/onemeta/includes/Admin/views/docs.php:114
 msgid "Multiple images uploader with ordering"
 msgstr ""
 
 #: includes/Admin/views/docs.php:122
+#: package/onemeta/includes/Admin/views/docs.php:122
 msgid "Repeatable field group with sub-fields"
 msgstr ""
 
 #: includes/Admin/views/docs.php:124
+#: package/onemeta/includes/Admin/views/docs.php:124
 msgid "Advanced"
 msgstr ""
 
 #: includes/Admin/views/docs.php:139
+#: package/onemeta/includes/Admin/views/docs.php:139
 msgid "Learn how to use OneMeta field types, helper functions, and advanced features"
 msgstr ""
 
 #: includes/Admin/views/docs.php:156
+#: package/onemeta/includes/Admin/views/docs.php:156
 msgid "Available Field Types"
 msgstr ""
 
 #: includes/Admin/views/docs.php:159
+#: package/onemeta/includes/Admin/views/docs.php:159
 msgid "14 powerful field types to cover all your custom field needs"
 msgstr ""
 
 #: includes/Admin/views/docs.php:193
+#: package/onemeta/includes/Admin/views/docs.php:193
 msgid "Export Field Groups"
 msgstr ""
 
 #: includes/Admin/views/docs.php:197
+#: package/onemeta/includes/Admin/views/docs.php:197
 msgid "Export your field groups as PHP code that you can add to your theme or plugin."
 msgstr ""
 
 #: includes/Admin/views/docs.php:215
+#: package/onemeta/includes/Admin/views/docs.php:215
 msgid "Helper Functions"
 msgstr ""
 
 #: includes/Admin/views/docs.php:219
+#: package/onemeta/includes/Admin/views/docs.php:219
 msgid "Use these helper functions to easily work with OneMeta fields in your theme or plugin."
 msgstr ""
 
 #: includes/Admin/views/docs.php:271
+#: package/onemeta/includes/Admin/views/docs.php:271
 msgid "Real-World Usage Examples"
 msgstr ""
 
 #: includes/Admin/views/docs.php:328
+#: package/onemeta/includes/Admin/views/docs.php:328
 msgid "Important Notes"
 msgstr ""
 
 #: includes/Admin/views/docs.php:333
+#: package/onemeta/includes/Admin/views/docs.php:333
 msgid "Field Keys:"
 msgstr ""
 
 #: includes/Admin/views/docs.php:333
+#: package/onemeta/includes/Admin/views/docs.php:333
 msgid "Do not include the \"onemeta_\" prefix - it's added automatically"
 msgstr ""
 
 #: includes/Admin/views/docs.php:336
+#: package/onemeta/includes/Admin/views/docs.php:336
 msgid "Context Matters:"
 msgstr ""
 
 #: includes/Admin/views/docs.php:336
+#: package/onemeta/includes/Admin/views/docs.php:336
 msgid "Use onemeta_get_meta() for posts/pages and onemeta_get_user_meta() for users"
 msgstr ""
 
 #: includes/Admin/views/docs.php:339
+#: package/onemeta/includes/Admin/views/docs.php:339
 msgid "Security:"
 msgstr ""
 
 #: includes/Admin/views/docs.php:339
+#: package/onemeta/includes/Admin/views/docs.php:339
 msgid "Always sanitize and escape output values (esc_html, esc_url, wp_kses_post)"
 msgstr ""
 
 #: includes/Admin/views/docs.php:342
+#: package/onemeta/includes/Admin/views/docs.php:342
 msgid "Arrays:"
 msgstr ""
 
 #: includes/Admin/views/docs.php:342
+#: package/onemeta/includes/Admin/views/docs.php:342
 msgid "Repeater, gallery, and checkbox fields return arrays - use is_array() before looping"
 msgstr ""
 
 #: includes/Admin/views/docs.php:345
+#: package/onemeta/includes/Admin/views/docs.php:345
 msgid "Toggle Fields:"
 msgstr ""
 
 #: includes/Admin/views/docs.php:345
+#: package/onemeta/includes/Admin/views/docs.php:345
 msgid "Return string '0' or '1', not boolean - compare with === '1'"
 msgstr ""
 
 #: includes/Admin/views/docs.php:348
+#: package/onemeta/includes/Admin/views/docs.php:348
 msgid "Image/File Fields:"
 msgstr ""
 
 #: includes/Admin/views/docs.php:348
+#: package/onemeta/includes/Admin/views/docs.php:348
 msgid "Return attachment ID (integer) - use wp_get_attachment_image() or wp_get_attachment_url()"
 msgstr ""
 
 #: includes/Admin/views/docs.php:360
+#: package/onemeta/includes/Admin/views/docs.php:360
 msgid "Field Return Types"
 msgstr ""
 
 #: includes/Admin/views/docs.php:366
+#: package/onemeta/includes/Admin/views/docs.php:366
 msgid "Field Type"
 msgstr ""
 
 #: includes/Admin/views/docs.php:367
+#: package/onemeta/includes/Admin/views/docs.php:367
 msgid "Return Type"
 msgstr ""
 
 #: includes/Admin/views/docs.php:368
+#: package/onemeta/includes/Admin/views/docs.php:368
 msgid "Example"
 msgstr ""
 
 #: includes/Admin/views/docs.php:425
+#: package/onemeta/includes/Admin/views/docs.php:425
 msgid "Show or hide fields based on the value of other fields using conditional logic."
 msgstr ""
 
 #: includes/Admin/views/docs.php:462
+#: package/onemeta/includes/Admin/views/docs.php:462
 msgid "Conditional Logic Operators"
 msgstr ""
 
 #: includes/Admin/views/docs.php:468
+#: package/onemeta/includes/Admin/views/docs.php:468
 msgid "Equal to"
 msgstr ""
 
 #: includes/Admin/views/docs.php:472
+#: package/onemeta/includes/Admin/views/docs.php:472
 msgid "Not equal to"
 msgstr ""
 
 #: includes/Admin/views/docs.php:476
+#: package/onemeta/includes/Admin/views/docs.php:476
 msgid "Contains text"
 msgstr ""
 
 #: includes/Admin/views/docs.php:480
+#: package/onemeta/includes/Admin/views/docs.php:480
 msgid "Does not contain text"
 msgstr ""
 
 #: includes/Admin/views/docs.php:483
+#: package/onemeta/includes/Admin/views/docs.php:483
 msgid "Note: \"contains\" operators are case-insensitive."
 msgstr ""
 
 #: includes/Admin/views/docs.php:496
+#: package/onemeta/includes/Admin/views/docs.php:496
 msgid "Quick Start Guide"
 msgstr ""
 
 #: includes/Admin/views/docs.php:504
+#: package/onemeta/includes/Admin/views/docs.php:504
 msgid "Create a Field Group"
 msgstr ""
 
 #: includes/Admin/views/docs.php:505
+#: package/onemeta/includes/Admin/views/docs.php:505
 msgid "Go to OneMeta → Add New and create your first field group"
 msgstr ""
 
 #: includes/Admin/views/docs.php:511
+#: package/onemeta/includes/Admin/views/docs.php:511
 msgid "Add Fields"
 msgstr ""
 
 #: includes/Admin/views/docs.php:512
+#: package/onemeta/includes/Admin/views/docs.php:512
 msgid "Click \"Add Field\" and choose from 14 different field types"
 msgstr ""
 
 #: includes/Admin/views/docs.php:518
+#: package/onemeta/includes/Admin/views/docs.php:518
 msgid "Configure Settings"
 msgstr ""
 
 #: includes/Admin/views/docs.php:519
+#: package/onemeta/includes/Admin/views/docs.php:519
 msgid "Set field labels, descriptions, and advanced options"
 msgstr ""
 
 #: includes/Admin/views/docs.php:525
+#: package/onemeta/includes/Admin/views/docs.php:525
 msgid "Use in Your Theme"
 msgstr ""
 
 #: includes/Admin/views/docs.php:526
+#: package/onemeta/includes/Admin/views/docs.php:526
 msgid "Access field values using onemeta_get_meta() function"
 msgstr ""
 
 #: includes/Admin/views/docs.php:535
+#: package/onemeta/includes/Admin/views/docs.php:535
 msgid "Create Your First Field Group"
 msgstr ""
 
 #: includes/API/RestAPI.php:197
 #: includes/API/RestAPI.php:366
+#: package/onemeta/includes/API/RestAPI.php:197
+#: package/onemeta/includes/API/RestAPI.php:366
 msgid "Field group not found"
 msgstr ""
 
 #: includes/API/RestAPI.php:228
 #: includes/API/RestAPI.php:286
+#: package/onemeta/includes/API/RestAPI.php:228
+#: package/onemeta/includes/API/RestAPI.php:286
 msgid "Missing required fields"
 msgstr ""
 
 #: includes/API/RestAPI.php:240
+#: package/onemeta/includes/API/RestAPI.php:240
 msgid "A field group with this key already exists"
 msgstr ""
 
 #: includes/API/RestAPI.php:259
+#: package/onemeta/includes/API/RestAPI.php:259
 msgid "Failed to create field group"
 msgstr ""
 
 #: includes/API/RestAPI.php:265
+#: package/onemeta/includes/API/RestAPI.php:265
 msgid "Field group created successfully"
 msgstr ""
 
 #: includes/API/RestAPI.php:305
+#: package/onemeta/includes/API/RestAPI.php:305
 msgid "Failed to update field group"
 msgstr ""
 
 #: includes/API/RestAPI.php:311
+#: package/onemeta/includes/API/RestAPI.php:311
 msgid "Field group updated successfully"
 msgstr ""
 
 #: includes/API/RestAPI.php:336
+#: package/onemeta/includes/API/RestAPI.php:336
 msgid "Failed to delete field group"
 msgstr ""
 
 #: includes/API/RestAPI.php:342
+#: package/onemeta/includes/API/RestAPI.php:342
 msgid "Field group deleted successfully"
 msgstr ""
 
 #: includes/API/RestAPI.php:384
+#: package/onemeta/includes/API/RestAPI.php:384
 msgid "Failed to toggle field group status"
 msgstr ""
 
 #: includes/API/RestAPI.php:391
+#: package/onemeta/includes/API/RestAPI.php:391
 msgid "Field group status updated"
 msgstr ""
 
 #: includes/Core/FieldRenderer.php:164
 #: includes/Core/UserFieldManager.php:232
+#: package/onemeta/includes/Core/FieldRenderer.php:164
+#: package/onemeta/includes/Core/UserFieldManager.php:232
 msgid "Add Row"
 msgstr ""
 
 #: includes/Core/FieldRenderer.php:186
 #: includes/Core/UserFieldManager.php:255
+#: package/onemeta/includes/Core/FieldRenderer.php:186
+#: package/onemeta/includes/Core/UserFieldManager.php:255
 msgid "No sub-fields defined for this repeater."
 msgstr ""
 
 #: includes/Core/Renderer.php:251
+#: package/onemeta/includes/Core/Renderer.php:251
 msgid "Select Image"
 msgstr ""
 
 #: includes/Core/Renderer.php:252
 #: includes/Core/Renderer.php:390
+#: package/onemeta/includes/Core/Renderer.php:252
+#: package/onemeta/includes/Core/Renderer.php:390
 msgid "Remove"
 msgstr ""
 
 #: includes/Core/Renderer.php:306
+#: package/onemeta/includes/Core/Renderer.php:306
 msgid "Select Video"
 msgstr ""
 
 #: includes/Core/Renderer.php:307
+#: package/onemeta/includes/Core/Renderer.php:307
 msgid "Use Video"
 msgstr ""
 
 #: includes/Core/Renderer.php:311
+#: package/onemeta/includes/Core/Renderer.php:311
 msgid "Supported formats: MP4, WEBM, OGV, MOV"
 msgstr ""
 
 #: includes/Core/Renderer.php:314
+#: package/onemeta/includes/Core/Renderer.php:314
 msgid "Select Audio"
 msgstr ""
 
 #: includes/Core/Renderer.php:315
+#: package/onemeta/includes/Core/Renderer.php:315
 msgid "Use Audio"
 msgstr ""
 
 #: includes/Core/Renderer.php:319
+#: package/onemeta/includes/Core/Renderer.php:319
 msgid "Supported formats: MP3, WAV, OGG"
 msgstr ""
 
 #: includes/Core/Renderer.php:322
+#: package/onemeta/includes/Core/Renderer.php:322
 msgid "Select Document"
 msgstr ""
 
 #: includes/Core/Renderer.php:323
+#: package/onemeta/includes/Core/Renderer.php:323
 msgid "Use Document"
 msgstr ""
 
 #: includes/Core/Renderer.php:332
+#: package/onemeta/includes/Core/Renderer.php:332
 msgid "Supported formats: PDF, DOC, DOCX, TXT"
 msgstr ""
 
 #: includes/Core/Renderer.php:335
+#: package/onemeta/includes/Core/Renderer.php:335
 msgid "Select Archive"
 msgstr ""
 
 #: includes/Core/Renderer.php:336
+#: package/onemeta/includes/Core/Renderer.php:336
 msgid "Use Archive"
 msgstr ""
 
 #: includes/Core/Renderer.php:340
+#: package/onemeta/includes/Core/Renderer.php:340
 msgid "Supported formats: ZIP, RAR, 7Z"
 msgstr ""
 
 #: includes/Core/Renderer.php:343
+#: package/onemeta/includes/Core/Renderer.php:343
 msgid "Select Font"
 msgstr ""
 
 #: includes/Core/Renderer.php:344
+#: package/onemeta/includes/Core/Renderer.php:344
 msgid "Use Font"
 msgstr ""
 
 #: includes/Core/Renderer.php:348
+#: package/onemeta/includes/Core/Renderer.php:348
 msgid "Supported formats: WOFF, WOFF2, TTF, OTF"
 msgstr ""
 
 #: includes/Core/Renderer.php:351
+#: package/onemeta/includes/Core/Renderer.php:351
 msgid "Select Spreadsheet"
 msgstr ""
 
 #: includes/Core/Renderer.php:352
+#: package/onemeta/includes/Core/Renderer.php:352
 msgid "Use Spreadsheet"
 msgstr ""
 
 #: includes/Core/Renderer.php:360
+#: package/onemeta/includes/Core/Renderer.php:360
 msgid "Supported formats: XLS, XLSX, CSV"
 msgstr ""
 
 #: includes/Core/Renderer.php:364
+#: package/onemeta/includes/Core/Renderer.php:364
 msgid "Use File"
 msgstr ""
 
 #: includes/Core/Renderer.php:368
+#: package/onemeta/includes/Core/Renderer.php:368
 msgid "All file types supported"
 msgstr ""
 
 #: includes/Core/Renderer.php:546
+#: package/onemeta/includes/Core/Renderer.php:546
 msgid "Enable"
 msgstr ""
 
 #: includes/Core/Renderer.php:547
+#: package/onemeta/includes/Core/Renderer.php:547
 msgid "Disable"
 msgstr ""
 
 #: includes/Core/Renderer.php:658
+#: package/onemeta/includes/Core/Renderer.php:658
 msgid "No choices defined"
 msgstr ""

@@ -22,7 +22,7 @@ Whether you need simple text fields or advanced repeater groups with conditional
 * **Live PHP Code Preview** — See your generated PHP code update in real time as you build
 * **Export as PHP Code** — Export field groups to use in your theme or plugin without OneMeta installed
 * **Repeater Fields** — Create repeatable sub-field groups for complex data
-* **Conditional Logic** — Show or hide fields based on the value of other fields
+* **Conditional Logic** — Show or hide fields based on the value of other fields, with AND/OR rule combinations
 * **REST API Support** — Access field data via the WordPress REST API
 * **Zero Dependencies** — No jQuery, no bloat — built with vanilla JS and Vite
 * **14 Field Types** — Everything you need, nothing you don't
@@ -50,7 +50,7 @@ Use simple helper functions to retrieve field values in your theme:
 
 = 🔀 Conditional Logic =
 
-Show or hide fields dynamically based on the value of other fields. Supports `==`, `!=`, `contains`, and `!contains` operators.
+Show or hide fields dynamically based on the value of other fields, combining multiple rules with AND/OR. Supports `==`, `!=`, `contains`, and `!contains` operators.
 
 = 📤 Export as PHP =
 
@@ -129,7 +129,7 @@ Do not include the `onemeta_` prefix — it is added automatically.
 * Live PHP code preview
 * Export fields as PHP code
 * Repeater fields with sub-fields
-* Conditional logic with 4 operators
+* Conditional logic with AND/OR rules and 4 operators
 * REST API support
 * Post/page meta and user meta support
 * PSR-4 autoloaded PHP architecture
