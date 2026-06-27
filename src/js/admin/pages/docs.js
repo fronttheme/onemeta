@@ -2,6 +2,8 @@
  * Documentation
  * Manages documentation page, field type cards, and exports
  *
+ * File: /src/js/admin/pages/docs.js
+ *
  * @package OneMeta
  */
 
@@ -412,15 +414,15 @@ if ($team_members && is_array($team_members)) {
 ?>`,
         example: `<div class="team-section">
   <?php 
-  $team = onemeta_get_meta(get_the_ID(), 'field_team');
-  if ($team):
+  $team_members = onemeta_get_meta(get_the_ID(), 'field_team_members');
+  if ($team_members):
   ?>
-    <?php foreach ($team as $member): ?>
+    <?php foreach ($team_members as $member): ?>
       <article class="team-member">
-        <?php echo wp_get_attachment_image($member['avatar'], 'medium'); ?>
-        <h3><?php echo esc_html($member['name']); ?></h3>
+        <?php echo wp_get_attachment_image($member['member_avatar'], 'medium'); ?>
+        <h3><?php echo esc_html($member['member_name']); ?></h3>
         <p><?php echo esc_html($member['role']); ?></p>
-        <?php echo wp_kses_post(wpautop($member['bio'])); ?>
+        <?php echo wp_kses_post(wpautop($member['member_bio'])); ?>
       </article>
     <?php endforeach; ?>
   <?php endif; ?>
@@ -442,7 +444,7 @@ if ($team_members && is_array($team_members)) {
         e.preventDefault();
 
         const fieldType = card.dataset.type;
-        const usage = this.getFieldUsage(fieldType);
+        const usage     = this.getFieldUsage(fieldType);
 
         if (!usage) {
           console.warn('No usage documentation for field type:', fieldType);
@@ -450,7 +452,7 @@ if ($team_members && is_array($team_members)) {
         }
 
         // Create unique ID for code block
-        const codeId = `usage-code-${fieldType}`;
+        const codeId    = `usage-code-${fieldType}`;
         const exampleId = `usage-example-${fieldType}`;
 
         // Show comprehensive usage modal
@@ -524,7 +526,7 @@ if ($team_members && is_array($team_members)) {
           type: 'info',
           width: '800px',
           onConfirm: () => {
-            const adminUrl = window.onemetaAdmin.ajaxurl.replace('/admin-ajax.php', '/admin.php');
+            const adminUrl       = window.onemetaAdmin.ajaxurl.replace('/admin-ajax.php', '/admin.php');
             window.location.href = `${adminUrl}?page=onemeta-new`;
           }
         });
@@ -554,7 +556,7 @@ if ($team_members && is_array($team_members)) {
 
     inlineCopyButtons.forEach(button => {
       button.addEventListener('click', async () => {
-        const targetId = button.dataset.target;
+        const targetId  = button.dataset.target;
         const codeBlock = document.getElementById(targetId);
 
         if (!codeBlock) {
@@ -568,7 +570,7 @@ if ($team_members && is_array($team_members)) {
 
           // Show success feedback
           const originalHTML = button.innerHTML;
-          button.innerHTML = '<i class="fa-solid fa-check-double"></i> Copied!';
+          button.innerHTML   = '<i class="fa-solid fa-check-double"></i> Copied!';
           button.classList.add('onemeta-button--success');
 
           setTimeout(() => {
@@ -615,7 +617,7 @@ if ($team_members && is_array($team_members)) {
    * Render empty export list
    */
   renderEmptyExportList() {
-    const adminUrl = window.onemetaAdmin.ajaxurl.replace('/admin-ajax.php', '/admin.php');
+    const adminUrl            = window.onemetaAdmin.ajaxurl.replace('/admin-ajax.php', '/admin.php');
     this.exportList.innerHTML = `
       <div class="onemeta-empty-state onemeta-empty-state--small">
         <p>No field groups available to export.</p>
@@ -647,7 +649,7 @@ if ($team_members && is_array($team_members)) {
 
     groups.forEach(group => {
       const fieldCount = Object.keys(group.config.fields || {}).length;
-      const postType = group.config?.type === 'user' ? 'user' : (group.config?.post_type || 'N/A');
+      const postType   = group.config?.type === 'user' ? 'user' : (group.config?.post_type || 'N/A');
 
       html += `
         <tr>
@@ -699,7 +701,7 @@ if ($team_members && is_array($team_members)) {
     const buttons = document.querySelectorAll('.onemeta-export-btn');
     buttons.forEach(button => {
       button.addEventListener('click', () => {
-        const groupId = button.dataset.groupId;
+        const groupId    = button.dataset.groupId;
         const groupTitle = button.dataset.groupTitle;
         this.exportFieldGroup(groupId, groupTitle);
       });
@@ -732,7 +734,7 @@ if ($team_members && is_array($team_members)) {
       }
 
       if (result.success) {
-        const phpCode = result.data.code;
+        const phpCode  = result.data.code;
         const filename = result.data.filename || `onemeta-${groupId}.php`;
 
         modal({
@@ -785,10 +787,10 @@ if ($team_members && is_array($team_members)) {
       return await navigator.clipboard.writeText(text);
     }
 
-    const textarea = document.createElement('textarea');
-    textarea.value = text;
+    const textarea          = document.createElement('textarea');
+    textarea.value          = text;
     textarea.style.position = 'fixed';
-    textarea.style.opacity = '0';
+    textarea.style.opacity  = '0';
     document.body.appendChild(textarea);
     textarea.select();
 
@@ -806,9 +808,9 @@ if ($team_members && is_array($team_members)) {
    */
   downloadFile(content, filename) {
     const blob = new Blob([content], {type: 'application/x-php'});
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
+    const url  = window.URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href     = url;
     a.download = filename;
     document.body.appendChild(a);
     a.click();
@@ -825,7 +827,7 @@ if ($team_members && is_array($team_members)) {
 
     copyButtons.forEach(button => {
       button.addEventListener('click', async () => {
-        const targetId = button.dataset.target;
+        const targetId  = button.dataset.target;
         const codeBlock = document.getElementById(targetId);
 
         if (!codeBlock) {
@@ -839,7 +841,7 @@ if ($team_members && is_array($team_members)) {
           await this.copyToClipboard(code);
 
           const originalHTML = button.innerHTML;
-          button.innerHTML = '<i class="fa-solid fa-check-double"></i> Copied!';
+          button.innerHTML   = '<i class="fa-solid fa-check-double"></i> Copied!';
           button.classList.add('onemeta-button--success');
 
           setTimeout(() => {
@@ -862,7 +864,7 @@ if ($team_members && is_array($team_members)) {
    * @returns {string}
    */
   escapeHtml(text) {
-    const div = document.createElement('div');
+    const div       = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
   }

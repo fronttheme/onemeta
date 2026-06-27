@@ -9,6 +9,10 @@ if ( ! defined( 'ABSPATH' ) ) {
   exit;
 }
 
+if ( ! current_user_can( 'manage_options' ) ) {
+  wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'onemeta' ) );
+}
+
 // Get field group if editing
 // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reading admin page parameter to select which group to edit; no state change occurs here.
 $onemeta_group_id         = isset( $_GET['id'] ) ? sanitize_text_field( wp_unslash( $_GET['id'] ) ) : '';

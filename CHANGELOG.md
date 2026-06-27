@@ -25,7 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Field group status toggle (active/inactive)
 - PSR-4 autoloaded PHP architecture with singleton pattern
 - Custom database table `wp_onemeta_field_groups`
-- Vite 5 build system with modular SCSS and vanilla JS ES modules
+- Vite 7 build system with modular SCSS and vanilla JS ES modules
 - FontAwesome icons (self-hosted, no external requests)
 - Full i18n/l10n support with `.pot` file generation
 - WordPress.org and GitHub distribution packaging

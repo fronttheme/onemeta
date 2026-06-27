@@ -10,6 +10,7 @@ Build powerful custom fields with a beautiful visual builder — no bloat, no pa
 [![WordPress](https://img.shields.io/badge/WordPress-6.8%2B-blue?logo=wordpress)](https://wordpress.org)
 [![PHP](https://img.shields.io/badge/PHP-8.2%2B-777BB4?logo=php)](https://php.net)
 [![License](https://img.shields.io/badge/License-GPL--2.0--or--later-green)](LICENSE)
+![Size](https://img.shields.io/badge/Size-342KB-success)
 [![Version](https://img.shields.io/badge/Version-1.0.0-orange)](https://github.com/fronttheme/onemeta/releases)
 
 [Features](#-features) · [Field Types](#-field-types) · [Installation](#-installation) · [Usage](#-usage) · [Export](#-export-as-php) · [Contributing](#-contributing)
@@ -30,7 +31,7 @@ Build powerful custom fields with a beautiful visual builder — no bloat, no pa
 - 🔁 **Repeater Fields** — Create repeatable sub-field groups for complex data structures
 - 🔀 **Conditional Logic** — Show or hide fields based on the value of other fields
 - 🌐 **REST API Support** — Access your field data via the WordPress REST API
-- 🪶 **Zero Dependencies** — No jQuery, no bloat — built with vanilla JS and modern tooling (Vite)
+- 🪶 **Nothing Added to Your Live Site** — Field values render as plain PHP with zero extra scripts; jQuery (already bundled with WordPress) powers the Media Uploader and repeater drag-reordering inside the editor only
 - 🎯 **14 Field Types** — Everything you need, nothing you don't
 - 💅 **Modern UI** — Clean, polished admin interface that feels native to WordPress
 
@@ -38,22 +39,22 @@ Build powerful custom fields with a beautiful visual builder — no bloat, no pa
 
 ## 🧩 Field Types
 
-| Category | Fields |
-|---|---|
-| **Basic** | Text, Textarea, URL, Email, Date |
-| **Choice** | Toggle, Select, Radio, Button Group |
-| **Multiple** | Checkbox |
-| **Media** | Image, File, Gallery |
-| **Advanced** | Repeater |
+| Category     | Fields                              |
+|--------------|-------------------------------------|
+| **Basic**    | Text, Textarea, URL, Email, Date    |
+| **Choice**   | Toggle, Select, Radio, Button Group |
+| **Multiple** | Checkbox                            |
+| **Media**    | Image, File, Gallery                |
+| **Advanced** | Repeater                            |
 
 ---
 
 ## 📋 Requirements
 
-| Requirement | Version |
-|---|---|
-| WordPress | 6.8 or higher |
-| PHP | 8.2 or higher |
+| Requirement | Version       |
+|-------------|---------------|
+| WordPress   | 6.8 or higher |
+| PHP         | 8.2 or higher |
 
 ---
 
@@ -85,11 +86,13 @@ OneMeta will be available in the official WordPress plugin directory soon.
 
 ### 1. Create a Field Group
 
-Go to **OneMeta → Add New** in your WordPress admin. Give your field group a key and title, then select whether it applies to **Post/Page Meta** or **User Meta**.
+Go to **OneMeta → Add New** in your WordPress admin. Give your field group a key and title, then select whether it
+applies to **Post/Page Meta** or **User Meta**.
 
 ### 2. Add Fields
 
-Click **Add Field** or drag a field type from the sidebar. Configure each field's label, key, description, placeholder, and any advanced options (choices, conditional logic, repeater sub-fields).
+Click **Add Field** or drag a field type from the sidebar. Configure each field's label, key, description, placeholder,
+and any advanced options (choices, conditional logic, repeater sub-fields).
 
 ### 3. Use in Your Theme
 
@@ -140,15 +143,15 @@ onemeta_delete_user_meta( $user_id, 'field_key' );
 
 ### Field Return Types Reference
 
-| Field Type | Returns | Example |
-|---|---|---|
-| Text, Textarea, URL, Email, Date | `string` | `"Hello World"` |
-| Toggle | `string` | `"0"` or `"1"` |
-| Select, Radio, Button Group | `string` | `"option_value"` |
-| Checkbox | `array` | `["val1", "val2"]` |
-| Image, File | `int` | `123` (attachment ID) |
-| Gallery | `array` | `[123, 456, 789]` |
-| Repeater | `array` | `[["title" => "Item 1"], ...]` |
+| Field Type                       | Returns  | Example                        |
+|----------------------------------|----------|--------------------------------|
+| Text, Textarea, URL, Email, Date | `string` | `"Hello World"`                |
+| Toggle                           | `string` | `"0"` or `"1"`                 |
+| Select, Radio, Button Group      | `string` | `"option_value"`               |
+| Checkbox                         | `array`  | `["val1", "val2"]`             |
+| Image, File                      | `int`    | `123` (attachment ID)          |
+| Gallery                          | `array`  | `[123, 456, 789]`              |
+| Repeater                         | `array`  | `[["title" => "Item 1"], ...]` |
 
 ---
 
@@ -316,20 +319,25 @@ Show or hide fields dynamically based on the value of another field:
     'type'        => 'text',
     'label'       => 'My Text Field',
     'conditional' => [
-        'field'    => 'my_other_field',
-        'operator' => '!=',
-        'value'    => '',
+        'relation' => 'AND', // 'AND' or 'OR'
+        'rules'    => [
+            [
+                'field'    => 'my_other_field',
+                'operator' => '!=',
+                'value'    => '',
+            ],
+        ],
     ],
 ],
 ```
 
 **Supported operators:**
 
-| Operator | Description |
-|---|---|
-| `==` | Equal to |
-| `!=` | Not equal to |
-| `contains` | Contains text (case-insensitive) |
+| Operator    | Description                              |
+|-------------|------------------------------------------|
+| `==`        | Equal to                                 |
+| `!=`        | Not equal to                             |
+| `contains`  | Contains text (case-insensitive)         |
 | `!contains` | Does not contain text (case-insensitive) |
 
 ---
@@ -348,7 +356,8 @@ Click **Export PHP** in the builder or visit **OneMeta → Documentation → Exp
 
 ## 🔌 REST API
 
-OneMeta field data is accessible via the WordPress REST API. Field values are exposed on their respective post or user endpoints.
+OneMeta field data is accessible via the WordPress REST API. Field values are exposed on their respective post or user
+endpoints.
 
 ---
 
@@ -371,7 +380,8 @@ npm install
 
 ### Enable Dev Mode
 
-OneMeta includes a dev mode that loads JS and CSS directly from the Vite dev server (`localhost:3000`) with Hot Module Replacement (HMR). To enable it, add the following constants to your `wp-config.php`:
+OneMeta includes a dev mode that loads JS and CSS directly from the Vite dev server (`localhost:3000`) with Hot Module
+Replacement (HMR). To enable it, add the following constants to your `wp-config.php`:
 
 ```php
 define( 'WP_DEBUG', true );
@@ -385,9 +395,9 @@ define( 'WP_ENVIRONMENT_TYPE', 'local' );
 
 How dev mode works per context:
 
-| Context | Condition to activate dev mode |
-|---|---|
-| Admin builder (JS + CSS) | `ONEMETA_DEV_MODE === true` |
+| Context                          | Condition to activate dev mode                          |
+|----------------------------------|---------------------------------------------------------|
+| Admin builder (JS + CSS)         | `ONEMETA_DEV_MODE === true`                             |
 | Frontend field assets (JS + CSS) | `WP_DEBUG === true` **and** `ONEMETA_DEV_MODE === true` |
 
 Then start the Vite dev server:
@@ -461,13 +471,15 @@ For a full contribution guide including how to add new field types, see [CONTRIB
 
 ## 📄 License
 
-OneMeta is licensed under the [GPL-2.0-or-later](LICENSE) license — the same license as WordPress itself. You are free to use, modify, and distribute this plugin.
+OneMeta is licensed under the [GPL-2.0-or-later](LICENSE) license — the same license as WordPress itself. You are free
+to use, modify, and distribute this plugin.
 
 ---
 
 ## 👤 Author
 
 **Faruk Ahmed**
+
 - Website: [farukdesign.com](https://farukdesign.com)
 - Brand: [fronttheme.com](https://fronttheme.com)
 - GitHub: [@fronttheme](https://github.com/fronttheme)

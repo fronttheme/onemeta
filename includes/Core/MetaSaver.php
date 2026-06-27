@@ -65,22 +65,20 @@ class MetaSaver {
 
 		$config = ConfigLoader::instance()->get_config();
 
-		// Save each group
+		// Save each group — regular fields and repeater fields together,
+		// both gated by the same per-group nonce check.
 		foreach ( $config as $group_id => $group ) {
 			if ( ! $this->should_save_group( $group, $post ) ) {
 				continue;
 			}
 
-			// Verify nonce
 			if ( ! $this->verify_group_nonce( $group_id ) ) {
 				continue;
 			}
 
 			$this->save_group_fields( $post_id, $group_id, $group );
+			$this->save_group_repeater_fields( $post_id, $group_id, $group );
 		}
-
-		// Save repeater fields with config
-		$this->save_repeater_fields( $post_id, $config );
 	}
 
 	/**
@@ -129,14 +127,21 @@ class MetaSaver {
 	}
 
 	/**
-	 * Save group fields
+	 * Save group fields (non-repeater). Nonce-verified locally, even
+	 * though save_post_meta() already verified it, so this method is
+	 * safe to call on its own and so reviewers/static analysis can see
+	 * the check at the point $_POST is actually read.
 	 *
 	 * @param int $post_id Post ID
 	 * @param string $group_id Group ID
 	 * @param array $group Group config
 	 */
 	private function save_group_fields( int $post_id, string $group_id, array $group ): void {
-		// phpcs:ignore WordPress.Security.NonceVerification.Missing,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonce verified above via verify_group_nonce(); sanitized per-type inside save_field_value()/sanitize_by_type().
+		if ( ! $this->verify_group_nonce( $group_id ) ) {
+			return;
+		}
+
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonce verified above via verify_group_nonce(); sanitized per-type inside save_field_value()/Sanitizer::sanitize_by_type().
 		$data = wp_unslash( $_POST['onemeta_meta'][ $group_id ] ?? [] );
 
 		// Save each field
@@ -198,37 +203,42 @@ class MetaSaver {
 	}
 
 	/**
-	 * Save repeater fields
+	 * Save repeater fields belonging to a single, already nonce-relevant
+	 * group — only touches $_POST['onemeta_repeater'][$field_id] for
+	 * fields that actually belong to this group, so the nonce check
+	 * stays local to the data it's guarding instead of running once for
+	 * every group's repeaters against the whole superglobal.
 	 *
 	 * @param int $post_id Post ID
-	 * @param array $config Full config (to get sub-fields)
+	 * @param string $group_id Group ID
+	 * @param array $group Group config (this group's fields only)
 	 */
-	private function save_repeater_fields( int $post_id, array $config ): void {
-		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- Existence check only; the actual per-item nonce check (verify_group_nonce) runs inside the foreach below, since each repeater field belongs to a different group.
+	private function save_group_repeater_fields( int $post_id, string $group_id, array $group ): void {
+		if ( ! $this->verify_group_nonce( $group_id ) ) {
+			return;
+		}
+
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verified above via verify_group_nonce(); this is an existence check only.
 		if ( ! isset( $_POST['onemeta_repeater'] ) ) {
 			return;
 		}
 
-		// phpcs:ignore WordPress.Security.NonceVerification.Missing,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- See verify_group_nonce() call inside the loop below; sanitized per-type inside sanitize_repeater_items().
-		$repeater_data = wp_unslash( $_POST['onemeta_repeater'] );
-
-		foreach ( $repeater_data as $field_id => $items ) {
-			$group_id = $this->find_group_id_for_field( $field_id, $config );
-
-			if ( null === $group_id || ! $this->verify_group_nonce( $group_id ) ) {
+		foreach ( $group['fields'] ?? [] as $field_id => $field ) {
+			if ( ( $field['type'] ?? 'text' ) !== 'repeater' ) {
 				continue;
 			}
 
-			$field_config = $this->find_field_config( $field_id, $config );
-			$sub_fields   = $field_config['sub_fields'] ?? [];
+			// phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verified above via verify_group_nonce(); this is an existence check only.
+			if ( ! isset( $_POST['onemeta_repeater'][ $field_id ] ) ) {
+				continue;
+			}
 
-			$sanitized_items = $this->sanitize_repeater_items( $items, $sub_fields );
+			// phpcs:ignore WordPress.Security.NonceVerification.Missing,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonce verified above via verify_group_nonce(); sanitized per-type inside sanitize_repeater_items()/Sanitizer::sanitize_by_type().
+			$items = wp_unslash( $_POST['onemeta_repeater'][ $field_id ] );
 
-			update_post_meta(
-				$post_id,
-				'onemeta_' . $field_id,
-				$sanitized_items
-			);
+			$sanitized_items = $this->sanitize_repeater_items( $items, $field['sub_fields'] ?? [] );
+
+			update_post_meta( $post_id, 'onemeta_' . $field_id, $sanitized_items );
 		}
 	}
 
@@ -281,33 +291,5 @@ class MetaSaver {
 		}
 
 		return $sanitized;
-	}
-
-	private function find_group_id_for_field( string $field_id, array $config ): ?string {
-		foreach ( $config as $group_id => $group ) {
-			if ( isset( $group['fields'][ $field_id ] ) ) {
-				return $group_id;
-			}
-		}
-
-		return null;
-	}
-
-	/**
-	 * Find field config by field ID
-	 *
-	 * @param string $field_id Field ID
-	 * @param array $config Full config
-	 *
-	 * @return array Field config
-	 */
-	private function find_field_config( string $field_id, array $config ): array {
-		foreach ( $config as $group ) {
-			if ( isset( $group['fields'][ $field_id ] ) ) {
-				return $group['fields'][ $field_id ];
-			}
-		}
-
-		return [];
 	}
 }

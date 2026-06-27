@@ -24,7 +24,7 @@ Whether you need simple text fields or advanced repeater groups with conditional
 * **Repeater Fields** — Create repeatable sub-field groups for complex data
 * **Conditional Logic** — Show or hide fields based on the value of other fields, with AND/OR rule combinations
 * **REST API Support** — Access field data via the WordPress REST API
-* **Zero Dependencies** — No jQuery, no bloat — built with vanilla JS and Vite
+* **Nothing Added to Your Live Site** — Field values render as plain PHP with zero extra scripts; jQuery (already bundled with WordPress) powers the Media Uploader and repeater drag-reordering inside the editor only
 * **14 Field Types** — Everything you need, nothing you don't
 * **Modern UI** — Clean, polished admin interface
 
@@ -111,6 +111,16 @@ Use the `onemeta_get_meta()` function for post fields and `onemeta_get_user_meta
 `$value = onemeta_get_meta( get_the_ID(), 'your_field_key' );`
 
 Do not include the `onemeta_` prefix — it is added automatically.
+
+== Other Notes ==
+
+= Source Code =
+
+OneMeta's distributed JavaScript and CSS are built from human-readable source using Vite. The complete, uncompiled source — all JavaScript, SCSS, and build configuration — is publicly available at:
+
+https://github.com/fronttheme/onemeta
+
+The `/src` directory contains all uncompiled source files. To build from source: `npm install` then `npm run build`.
 
 == Screenshots ==
 

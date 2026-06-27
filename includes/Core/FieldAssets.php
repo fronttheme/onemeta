@@ -96,14 +96,14 @@ class FieldAssets {
 	private function enqueue_production_assets(): void {
 		wp_enqueue_style(
 			'onemeta-meta-fields',
-			ONEMETA_PLUGIN_URL . 'assets/css/frontend.css',
+			ONEMETA_PLUGIN_URL . 'dist/css/frontend.css',
 			[],
 			ONEMETA_VERSION
 		);
 
 		wp_enqueue_script(
 			'onemeta-meta-fields',
-			ONEMETA_PLUGIN_URL . 'assets/js/frontend.min.js',
+			ONEMETA_PLUGIN_URL . 'dist/js/frontend.min.js',
 			[ 'jquery', 'jquery-ui-sortable' ],
 			ONEMETA_VERSION,
 			true
