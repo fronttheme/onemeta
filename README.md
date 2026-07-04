@@ -11,7 +11,7 @@ Build powerful custom fields with a beautiful visual builder — no bloat, no pa
 [![PHP](https://img.shields.io/badge/PHP-8.2%2B-777BB4?logo=php)](https://php.net)
 [![License](https://img.shields.io/badge/License-GPL--2.0--or--later-green)](LICENSE)
 ![Size](https://img.shields.io/badge/Size-342KB-success)
-[![Version](https://img.shields.io/badge/Version-1.0.0-orange)](https://github.com/fronttheme/onemeta/releases)
+[![WordPress.org](https://img.shields.io/wordpress/plugin/v/onemeta?label=WordPress.org)](https://wordpress.org/plugins/onemeta/)
 
 [Features](#-features) · [Field Types](#-field-types) · [Installation](#-installation) · [Usage](#-usage) · [Export](#-export-as-php) · [Contributing](#-contributing)
 
@@ -76,9 +76,10 @@ git clone https://github.com/fronttheme/onemeta.git
 
 Then activate the plugin from **Plugins** in your WordPress admin.
 
-### Option 3 — WordPress.org *(coming soon)*
+### Option 3 — WordPress.org
 
-OneMeta will be available in the official WordPress plugin directory soon.
+Search OneMeta in Plugins → Add New, or install directly:
+[wordpress.org/plugins/onemeta](https://wordpress.org/plugins/onemeta/)
 
 ---
 
