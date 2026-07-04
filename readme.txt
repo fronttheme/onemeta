@@ -129,6 +129,9 @@ The `/src` directory contains all uncompiled source files. To build from source:
 3. Field type palette sidebar
 4. Field group dashboard listing all groups
 5. Documentation page with field types reference
+6. Export field groups
+7. Helper functions
+8. Field return types, conditional logic
 
 == Changelog ==
 
