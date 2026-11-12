@@ -2,8 +2,8 @@
 Contributors: farukahmed
 Tags: custom fields, meta fields, acf alternative, field builder, repeater
 Requires at least: 6.8
-Tested up to: 7.0
-Stable tag: 1.0.0
+Tested up to: 7.1
+Stable tag: 1.0.1
 Requires PHP: 8.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -29,6 +29,8 @@ Whether you need simple text fields or advanced repeater groups with conditional
 * **Modern UI** — Clean, polished admin interface
 
 = 🧩 Field Types =
+
+**Layout:** Heading (display only — shows a heading and optional separator, stores no value)
 
 **Basic:** Text, Textarea, URL, Email, Date
 
@@ -135,6 +137,13 @@ The `/src` directory contains all uncompiled source files. To build from source:
 
 == Changelog ==
 
+= 1.0.1 =
+* Fix: Select, Radio and Button Group fields save choices with numeric keys, such as post IDs.
+* Fix: Checkbox fields save only values that exist in the field's choices.
+* Fix: Repeater values without a sub-field config keep decimals and negative numbers.
+* Dev: Build tools updated to Vite 8 and Sass 1.98.
+* Docs: Usage guide for the Heading field; corrected Toggle, Date, File and Repeater examples.
+
 = 1.0.0 =
 * Initial release
 * 14 field types: Text, Textarea, URL, Email, Date, Toggle, Select, Checkbox, Radio, Button Group, Image, File, Gallery, Repeater
@@ -148,6 +157,9 @@ The `/src` directory contains all uncompiled source files. To build from source:
 * PSR-4 autoloaded PHP architecture
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+Fixes saving choice fields that use numeric keys.
 
 = 1.0.0 =
 Initial release of OneMeta.

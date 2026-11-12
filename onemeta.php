@@ -3,7 +3,7 @@
  * Plugin Name: OneMeta - Custom Meta Fields
  * Plugin URI: https://fronttheme.com/products/onemeta
  * Description: Build powerful custom fields with a visual builder. Export as PHP code or use directly in WordPress.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Faruk Ahmed
  * Author URI: https://fronttheme.com
  * Text Domain: onemeta
@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define plugin constants
-define( 'ONEMETA_VERSION', '1.0.0' );
+define( 'ONEMETA_VERSION', '1.0.1' );
 define( 'ONEMETA_PLUGIN_FILE', __FILE__ );
 define( 'ONEMETA_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ONEMETA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );

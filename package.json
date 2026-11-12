@@ -1,6 +1,6 @@
 {
   "name": "onemeta",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Build powerful custom fields with a visual builder. Export as PHP code or use directly in WordPress.",
   "author": "Faruk Ahmed",
   "license": "GPL-2.0-or-later",
@@ -26,8 +26,8 @@
     "field-builder"
   ],
   "devDependencies": {
-    "sass": "^1.94.2",
+    "sass": "^1.98.0",
     "terser": "^5.44.1",
-    "vite": "^7.3.0"
+    "vite": "^8.3.8"
   }
 }

@@ -10,7 +10,7 @@ Build powerful custom fields with a beautiful visual builder — no bloat, no pa
 [![WordPress](https://img.shields.io/badge/WordPress-6.8%2B-blue?logo=wordpress)](https://wordpress.org)
 [![PHP](https://img.shields.io/badge/PHP-8.2%2B-777BB4?logo=php)](https://php.net)
 [![License](https://img.shields.io/badge/License-GPL--2.0--or--later-green)](LICENSE)
-![Size](https://img.shields.io/badge/Size-342KB-success)
+![Size](https://img.shields.io/badge/Size-349KB-success)
 [![WordPress.org](https://img.shields.io/wordpress/plugin/v/onemeta?label=WordPress.org)](https://wordpress.org/plugins/onemeta/)
 
 [Features](#-features) · [Field Types](#-field-types) · [Installation](#-installation) · [Usage](#-usage) · [Export](#-export-as-php) · [Contributing](#-contributing)
@@ -39,13 +39,14 @@ Build powerful custom fields with a beautiful visual builder — no bloat, no pa
 
 ## 🧩 Field Types
 
-| Category     | Fields                              |
-|--------------|-------------------------------------|
-| **Basic**    | Text, Textarea, URL, Email, Date    |
-| **Choice**   | Toggle, Select, Radio, Button Group |
-| **Multiple** | Checkbox                            |
-| **Media**    | Image, File, Gallery                |
-| **Advanced** | Repeater                            |
+| Category     | Fields                                                                           |
+|--------------|----------------------------------------------------------------------------------|
+| **Layout**   | Heading (display only — shows a heading and optional separator, stores no value) |
+| **Basic**    | Text, Textarea, URL, Email, Date                                                 |
+| **Choice**   | Toggle, Select, Radio, Button Group                                              |
+| **Multiple** | Checkbox                                                                         |
+| **Media**    | Image, File, Gallery                                                             |
+| **Advanced** | Repeater                                                                         |
 
 ---
 
@@ -206,7 +207,7 @@ if ( $date ) {
 ### Toggle
 
 ```php
-// Returns "1" for on, empty string for off — not boolean
+// Returns "1" for on, "0" for off — strings, not booleans
 $is_featured = onemeta_get_meta( get_the_ID(), 'is_featured' );
 if ( $is_featured === '1' ) {
     echo '<span class="badge">⭐ Featured</span>';
@@ -266,7 +267,7 @@ if ( $file_id ) {
     $file_name = basename( get_attached_file( $file_id ) );
     $file_size = size_format( filesize( get_attached_file( $file_id ) ) );
     echo '<a href="' . esc_url( $file_url ) . '" download>';
-    echo esc_html( $file_name ) . ' (' . $file_size . ')';
+    echo esc_html( $file_name . ' (' . $file_size . ')' );
     echo '</a>';
 }
 ```
@@ -366,7 +367,7 @@ endpoints.
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 20.19+
 - npm
 - Local WordPress install (e.g. [LocalWP](https://localwp.com/), Laragon, MAMP)
 
@@ -423,7 +424,7 @@ Then run a production build:
 npm run build
 ```
 
-The plugin will now load compiled assets from `assets/js/` and `assets/css/` — exactly as it does for end users.
+The plugin will now load compiled assets from `dist/js/` and `dist/css/` — exactly as it does for end users.
 
 ### Commands
 
@@ -446,9 +447,9 @@ npm run package
 
 ### Tech Stack
 
-- **Build Tool:** Vite 7
+- **Build Tool:** Vite 8
 - **CSS:** SCSS (modular 7-1 architecture)
-- **JS:** Vanilla ES Modules (no jQuery)
+- **JS:** Vanilla ES Modules (jQuery only through WordPress's own media library)
 - **PHP:** PSR-4 autoloaded, singleton pattern
 - **Database:** Custom `wp_onemeta_field_groups` table
 

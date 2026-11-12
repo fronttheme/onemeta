@@ -104,9 +104,8 @@
 // =============================================================================
 
 .onemeta-field-card {
-  @include card(
-      $border-radius: $border-radius-2xl
-  );
+  @include card();
+  border-radius: $border-radius-2xl !important;
   transition: $transition-all;
   @include card-clickable;
   @include fade-in;

@@ -44,6 +44,35 @@ class DocsPage {
    */
   getFieldUsage(fieldType) {
     const usageExamples = {
+      heading: {
+        title: 'Heading Field',
+        description: 'Display-only field that adds a heading and an optional separator line between fields in the editor. It stores no value, so there is nothing to retrieve in your theme.',
+        code: `<?php
+// Register a heading inside a field group's 'fields'
+'section_heading' => [
+  'type'      => 'heading',
+  'label'     => 'Layout Settings',
+  'tag'       => 'h3',  // h2, h3, h4, h5, h6 or p (default: h3)
+  'separator' => '1',   // '1' shows a line below, '0' hides it (default: '0')
+],
+?>`,
+        example: `<?php
+// A heading groups the fields that follow it in the editor
+'fields' => [
+  'layout_heading' => [
+    'type'      => 'heading',
+    'label'     => 'Layout',
+    'separator' => '1',
+  ],
+  'layout_style'   => [
+    'type'    => 'select',
+    'label'   => 'Style',
+    'choices' => ['grid' => 'Grid', 'list' => 'List'],
+  ],
+],
+?>`
+      },
+
       text: {
         title: 'Text Field',
         description: 'Single line text input for short text content like names, titles, or labels.',
@@ -130,21 +159,18 @@ if ($date) {
   // Convert to timestamp
   $timestamp = strtotime($date);
   
-  // Display formatted
-  echo date('F j, Y', $timestamp); // December 25, 2025
-  
-  // Or use WordPress function
-  echo date_i18n(get_option('date_format'), $timestamp);
+  // Display in the site's date format, translated
+  echo esc_html(date_i18n(get_option('date_format'), $timestamp));
 }
 ?>`,
         example: `<time datetime="<?php echo esc_attr($date); ?>">
-  <?php echo date_i18n('F j, Y', strtotime($date)); ?>
+  <?php echo esc_html(date_i18n(get_option('date_format'), strtotime($date))); ?>
 </time>`
       },
 
       toggle: {
         title: 'Toggle Field',
-        description: 'On/Off switch for boolean values. Returns "1" for on, empty string for off.',
+        description: 'On/Off switch. Returns the string "1" for on and "0" for off.',
         code: `<?php
 // Get toggle value
 $toggle = onemeta_get_meta(get_the_ID(), 'field_featured');
@@ -326,7 +352,7 @@ if ($file_id) {
   
   // Display download link
   echo '<a href="' . esc_url($file_url) . '" download>';
-  echo esc_html($file_name) . ' (' . $file_size . ')';
+  echo esc_html($file_name . ' (' . $file_size . ')');
   echo '</a>';
 }
 ?>`,
@@ -421,7 +447,6 @@ if ($team_members && is_array($team_members)) {
       <article class="team-member">
         <?php echo wp_get_attachment_image($member['member_avatar'], 'medium'); ?>
         <h3><?php echo esc_html($member['member_name']); ?></h3>
-        <p><?php echo esc_html($member['role']); ?></p>
         <?php echo wp_kses_post(wpautop($member['member_bio'])); ?>
       </article>
     <?php endforeach; ?>

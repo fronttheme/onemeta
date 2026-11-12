@@ -13,10 +13,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Field types data
 $onemeta_field_types = [
     [
+        'type'        => 'heading',
+        'title'       => __( 'Heading', 'onemeta' ),
+        'description' => __( 'Display only — shows a heading and optional separator, stores no value', 'onemeta' ),
+        'icon'        => 'fa-heading',
+        'badge'       => __( 'Layout', 'onemeta' ),
+        'docs_url'    => '#heading-field'
+    ],
+    [
         'type'        => 'text',
         'title'       => __( 'Text', 'onemeta' ),
         'description' => __( 'Single line text input for short text content', 'onemeta' ),
-        'icon'        => 'fa-heading',
+        'icon'        => 'fa-font',
         'badge'       => __( 'Basic', 'onemeta' ),
         'docs_url'    => '#text-field'
     ],

@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.1] - 2026-13-11
+
+- Fix: Select, Radio and Button Group fields save choices with numeric keys, such as post IDs.
+- Fix: Checkbox fields save only values that exist in the field's choices.
+- Fix: Repeater values without a sub-field config keep decimals and negative numbers.
+- Dev: Build tools updated to Vite 8 and Sass 1.98.
+- Docs: Usage guide for the Heading field; corrected Toggle, Date, File and Repeater examples.
+
 ## [1.0.0] - 2026-03-06
 
 ### Added
@@ -33,3 +41,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ---
 
 [1.0.0]: https://github.com/fronttheme/onemeta/releases/tag/v1.0.0
+[1.0.1]: https://github.com/fronttheme/onemeta/releases/tag/v1.0.1

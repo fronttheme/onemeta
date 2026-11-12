@@ -10,10 +10,10 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
 
-    rollupOptions: {
+    rolldownOptions: {
       input: {
-        admin: path.resolve(__dirname, 'src/js/admin/main.js'),
-        frontend: path.resolve(__dirname, 'src/js/frontend/main.js'),
+        admin: path.resolve(import.meta.dirname, 'src/js/admin/main.js'),
+        frontend: path.resolve(import.meta.dirname, 'src/js/frontend/main.js'),
       },
 
       output: {
@@ -45,9 +45,7 @@ export default defineConfig({
 
   css: {
     preprocessorOptions: {
-      scss: {
-        api: 'modern',
-      }
+      scss: {}
     },
     devSourcemap: true
   },
@@ -62,10 +60,10 @@ export default defineConfig({
   // Resolve aliases
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
-      '@scss': path.resolve(__dirname, 'src/scss'),
-      '@js': path.resolve(__dirname, 'src/js'),
-      '@images': path.resolve(__dirname, 'src/images'),
+      '@': path.resolve(import.meta.dirname, 'src'),
+      '@scss': path.resolve(import.meta.dirname, 'src/scss'),
+      '@js': path.resolve(import.meta.dirname, 'src/js'),
+      '@images': path.resolve(import.meta.dirname, 'src/images'),
     }
   }
 });

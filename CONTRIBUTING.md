@@ -24,7 +24,7 @@ Be respectful and constructive. This is an open-source project maintained in goo
 
 - PHP 8.2+
 - WordPress 6.8+ (local install, e.g. [LocalWP](https://localwp.com/))
-- Node.js 18+
+- Node.js 20.19+
 - npm
 
 ### Setup
@@ -100,7 +100,7 @@ npm run package   # Package for distribution
 
 ### JavaScript
 
-- Vanilla ES Modules only — no jQuery, no additional frameworks
+- Vanilla ES Modules only — no jQuery in OneMeta's own code, no additional frameworks
 - Follow the existing modular architecture in `src/js/`
 - Use `async/await` for asynchronous operations
 - Always handle errors with `try/catch`
